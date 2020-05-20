@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Message-Service" />
+        <module name="Email-Service" />
+        <module name="Search-Service" />
+        <module name="Rental-Service" />
+        <module name="Location-Service" />
+        <module name="Core-API" />
+        <module name="Recension-Service" />
+        <module name="Car-Service" />
+        <module name="Auth-Service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="Consumer-Service" target="1.8" />
+      <module name="Kitchen-Service" target="1.8" />
+      <module name="Order-Service" target="1.8" />
+      <module name="Vehicle-Service" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Auth-Service" options="-parameters" />
+      <module name="Car-Service" options="-parameters" />
+      <module name="Consumer-Service" options="-parameters" />
+      <module name="Email-Service" options="-parameters" />
+      <module name="Kitchen-Service" options="-parameters" />
+      <module name="Location-Service" options="-parameters" />
+      <module name="Message-Service" options="-parameters" />
+      <module name="Order-Service" options="-parameters" />
+      <module name="Recension-Service" options="-parameters" />
+      <module name="Rental-Service" options="-parameters" />
+      <module name="Search-Service" options="-parameters" />
+      <module name="Vehicle-Service" options="-parameters" />
+    </option>
+  </component>
+</project>

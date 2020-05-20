@@ -1,0 +1,332 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="056e0961-6479-4060-87b9-4aebbe550f88" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="CodeInsightWorkspaceSettings">
+    <option name="optimizeImportsOnTheFly" value="true" />
+  </component>
+  <component name="CoverageViewManager">
+    <option name="myElementSize" value="241" />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Interface" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1bOribKOljEsDQ5aMXZRMz7mZZY" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RequestMappingsPanelOrder0" value="0" />
+    <property name="RequestMappingsPanelOrder1" value="1" />
+    <property name="RequestMappingsPanelWidth0" value="75" />
+    <property name="RequestMappingsPanelWidth1" value="75" />
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="jdk.selected.JAVA_MODULE" value="1.8" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/Car-Service/src/main/java/com/programatori/carservice" />
+    <property name="node.js.detected.package.eslint" value="true" />
+    <property name="node.js.detected.package.tslint" value="true" />
+    <property name="node.js.path.for.package.eslint" value="project" />
+    <property name="node.js.path.for.package.tslint" value="project" />
+    <property name="node.js.selected.package.eslint" value="(autodetect)" />
+    <property name="node.js.selected.package.tslint" value="(autodetect)" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="editor.preferences.import" />
+  </component>
+  <component name="ReactorSettings">
+    <option name="notificationShown" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyClassDialog.RECENTS_KEY">
+      <recent name="rs.ac.uns.ftn.kitchenservice.exceptions" />
+    </key>
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/Car-Service/src/main/java/com/programatori/carservice" />
+      <recent name="$PROJECT_DIR$/Car-Service/src/main/resources" />
+      <recent name="$PROJECT_DIR$/Car-Service/src/test" />
+      <recent name="$PROJECT_DIR$/Car-Service" />
+      <recent name="$PROJECT_DIR$/Location-Service/src/main/java/com/programatori/locationservice" />
+    </key>
+  </component>
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="Spring Boot.AuthServiceApplication">
+    <configuration name="AuthServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Auth-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.authservice.AuthServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="CarServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Car-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.carservice.CarServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EmailServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Email-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.emailservice.EmailServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LocationServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Location-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.locationservice.LocationServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="MessageServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Message-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.messageservice.MessageServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecensionServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Recension-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.recensionservice.RecensionServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RentalServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Rental-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.rentalservice.RentalServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SearchServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Search-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.searchservice.SearchServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="VehicleServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="Vehicle-Service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.programatori.vehicleservice.VehicleServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Spring Boot.AuthServiceApplication" />
+      <item itemvalue="Spring Boot.VehicleServiceApplication" />
+      <item itemvalue="Spring Boot.SearchServiceApplication" />
+      <item itemvalue="Spring Boot.RentalServiceApplication" />
+      <item itemvalue="Spring Boot.RecensionServiceApplication" />
+      <item itemvalue="Spring Boot.MessageServiceApplication" />
+      <item itemvalue="Spring Boot.EmailServiceApplication" />
+      <item itemvalue="Spring Boot.LocationServiceApplication" />
+      <item itemvalue="Spring Boot.CarServiceApplication" />
+    </list>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Spring Boot" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Not Started" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="056e0961-6479-4060-87b9-4aebbe550f88" name="Default Changelist" comment="" />
+      <created>1588514108574</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1588514108574</updated>
+      <workItem from="1588514111178" duration="2526000" />
+      <workItem from="1588516684585" duration="871000" />
+      <workItem from="1588543324913" duration="1270000" />
+      <workItem from="1588549870255" duration="116000" />
+      <workItem from="1588550760939" duration="73000" />
+      <workItem from="1588550842485" duration="3632000" />
+      <workItem from="1588693574572" duration="1735000" />
+      <workItem from="1588713355553" duration="13955000" />
+      <workItem from="1588747323176" duration="6492000" />
+      <workItem from="1589909447821" duration="5971000" />
+      <workItem from="1589919066430" duration="9145000" />
+      <workItem from="1589933480289" duration="248000" />
+      <workItem from="1589964307737" duration="9321000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="533" y="95" key="#Message-Service/Dockerfile" timestamp="1589969482600">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="533" y="95" key="#Message-Service/Dockerfile/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589969482600" />
+    <state x="440" y="192" key="#Project_Structure" timestamp="1589932861788">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="440" y="192" key="#Project_Structure/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589932861788" />
+    <state x="555" y="215" width="800" height="684" key="#Scopes" timestamp="1588713450797">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="555" y="215" width="800" height="684" key="#Scopes/0.27.1920.1053@0.27.1920.1053" timestamp="1588713450797" />
+    <state x="418" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1588517299642">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="418" y="211" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1588517299642" />
+    <state x="768" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser" timestamp="1588752001970">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="768" y="272" width="374" height="569" key="#com.intellij.ide.util.MemberChooser/0.27.1920.1053@0.27.1920.1053" timestamp="1588752001970" />
+    <state x="452" y="203" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog" timestamp="1589919763360">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="452" y="203" key="#com.intellij.ide.util.frameworkSupport.AddFrameworkSupportDialog/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589919763360" />
+    <state x="945" y="27" width="965" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog" timestamp="1588722084541">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="945" y="27" width="965" height="1053" key="#com.intellij.refactoring.rename.AutomaticRenamingDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1588722084541" />
+    <state x="606" y="275" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1589931710599">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="606" y="275" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589931710599" />
+    <state x="693" y="303" width="524" height="508" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1588517424490" />
+    <state width="495" height="485" key="DebuggerActiveHint" timestamp="1588749503892">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="495" height="485" key="DebuggerActiveHint/0.27.1920.1053@0.27.1920.1053" timestamp="1588749503892" />
+    <state x="743" y="311" width="442" height="498" key="FileChooserDialogImpl" timestamp="1588728983121">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state x="743" y="311" width="442" height="498" key="FileChooserDialogImpl/0.27.1920.1053@0.27.1920.1053" timestamp="1588728983121" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom" timestamp="1589973405292">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589973405292" />
+    <state width="1638" height="295" key="GridCell.Tab.0.bottom/0.0.1680.1050@0.0.1680.1050" timestamp="1589933369158" />
+    <state width="1878" height="277" key="GridCell.Tab.0.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1588755015398" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center" timestamp="1589973405290">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.center/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589973405290" />
+    <state width="1638" height="295" key="GridCell.Tab.0.center/0.0.1680.1050@0.0.1680.1050" timestamp="1589933369156" />
+    <state width="1878" height="277" key="GridCell.Tab.0.center/0.27.1920.1053@0.27.1920.1053" timestamp="1588755015397" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left" timestamp="1589973405289">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.left/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589973405289" />
+    <state width="1638" height="295" key="GridCell.Tab.0.left/0.0.1680.1050@0.0.1680.1050" timestamp="1589933369155" />
+    <state width="1878" height="277" key="GridCell.Tab.0.left/0.27.1920.1053@0.27.1920.1053" timestamp="1588755015397" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right" timestamp="1589973405291">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state width="1638" height="295" key="GridCell.Tab.0.right/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589973405291" />
+    <state width="1638" height="295" key="GridCell.Tab.0.right/0.0.1680.1050@0.0.1680.1050" timestamp="1589933369157" />
+    <state width="1878" height="277" key="GridCell.Tab.0.right/0.27.1920.1053@0.27.1920.1053" timestamp="1588755015397" />
+    <state width="1878" height="342" key="GridCell.Tab.1.bottom" timestamp="1588750102934">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102934" />
+    <state width="1878" height="342" key="GridCell.Tab.1.center" timestamp="1588750102933">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.center/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102933" />
+    <state width="1878" height="342" key="GridCell.Tab.1.left" timestamp="1588750102933">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.left/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102933" />
+    <state width="1878" height="342" key="GridCell.Tab.1.right" timestamp="1588750102933">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.1.right/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102933" />
+    <state width="1878" height="342" key="GridCell.Tab.2.bottom" timestamp="1588750102934">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.2.bottom/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102934" />
+    <state width="1878" height="342" key="GridCell.Tab.2.center" timestamp="1588750102934">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.2.center/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102934" />
+    <state width="1878" height="342" key="GridCell.Tab.2.left" timestamp="1588750102934">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.2.left/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102934" />
+    <state width="1878" height="342" key="GridCell.Tab.2.right" timestamp="1588750102934">
+      <screen x="0" y="27" width="1920" height="1053" />
+    </state>
+    <state width="1878" height="342" key="GridCell.Tab.2.right/0.27.1920.1053@0.27.1920.1053" timestamp="1588750102934" />
+    <state x="388" y="104" width="1024" height="852" key="SettingsEditor" timestamp="1589972259318">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="388" y="104" key="SettingsEditor/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589972259318" />
+    <state x="443" y="131" width="1024" height="852" key="SettingsEditor/0.27.1920.1053@0.27.1920.1053" timestamp="1588725000814" />
+    <state x="559" y="353" key="com.intellij.ide.util.TipDialog" timestamp="1589964382548">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="559" y="353" key="com.intellij.ide.util.TipDialog/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589964382548" />
+    <state x="639" y="381" key="com.intellij.ide.util.TipDialog/0.27.1920.1053@0.27.1920.1053" timestamp="1588543324933" />
+    <state x="495" y="171" width="689" height="708" key="find.popup" timestamp="1589919795970">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="495" y="171" width="689" height="708" key="find.popup/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589919795970" />
+    <state x="325" y="257" width="1168" height="574" key="new project wizard" timestamp="1589919732725">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="325" y="257" key="new project wizard/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589919732725" />
+    <state x="371" y="285" width="1168" height="574" key="new project wizard/0.27.1920.1053@0.27.1920.1053" timestamp="1588543833969" />
+    <state x="545" y="231" width="670" height="677" key="search.everywhere.popup" timestamp="1589913869048">
+      <screen x="0" y="0" width="1680" height="1050" />
+    </state>
+    <state x="545" y="231" width="670" height="677" key="search.everywhere.popup/-1366.0.1366.1024/0.0.1680.1050@0.0.1680.1050" timestamp="1589913869048" />
+    <state x="623" y="259" width="672" height="678" key="search.everywhere.popup/0.27.1920.1053@0.27.1920.1053" timestamp="1588747957821" />
+  </component>
+  <component name="com.intellij.coverage.CoverageDataManagerImpl">
+    <SUITE FILE_PATH="coverage/AxonSaga$KitchenServiceApplication.ic" NAME="KitchenServiceApplication Coverage Results" MODIFIED="1588748107841" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="idea" COVERAGE_BY_TEST_ENABLED="false" COVERAGE_TRACING_ENABLED="false" />
+  </component>
+</project>
