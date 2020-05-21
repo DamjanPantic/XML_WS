@@ -1,5 +1,7 @@
 # XML_WS
-Microservices architecture project made by programatori
+Microservices architecture project made by programatori.
+
+Postavljen i dokerizovan inicijalni projekat
 
 ### Vazni linkovi
 - Model projekta se nalazi na modeli.pdf - [link to models](https://github.com/DamjanPantic/XML_WS/blob/master/modeli.pdf)
