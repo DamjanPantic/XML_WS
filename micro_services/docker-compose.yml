@@ -108,7 +108,36 @@ services:
     depends_on:
       - eureka-serviceregistry
       - axon-server
-      
+
+  bezbednost_db:
+    image: mariadb:10.2
+    container_name: bezbednost_db
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: bezbednost
+      MYSQL_USER: user
+      MYSQL_PASSWORD: user
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - mysqldata:/var/lib/mysql
+    networks:
+      - bezbednostnet
+
+  security-service:
+    build: ./services/AxonSaga/Security-Service
+    ports:
+      - "8089:8089"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty: true
+    networks:
+      - bezbednostnet
+    depends_on:
+      - bezbednost_db
+      - eureka-serviceregistry
+      - axon-server
+
 
   zuul:
     build: ./Zuul
@@ -129,6 +158,9 @@ services:
       - email-service
       - location-service
 
-  
+volumes:
+  mysqldata:
+networks:
+  bezbednostnet:
 
   

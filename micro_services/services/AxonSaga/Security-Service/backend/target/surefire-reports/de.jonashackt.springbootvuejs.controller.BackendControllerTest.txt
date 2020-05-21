@@ -1,0 +1,24 @@
+-------------------------------------------------------------------------------
+Test set: de.jonashackt.springbootvuejs.controller.BackendControllerTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 5, Skipped: 0, Time elapsed: 7.555 s <<< FAILURE! - in de.jonashackt.springbootvuejs.controller.BackendControllerTest
+secured_api_should_react_with_unauthorized_per_default  Time elapsed: 0.27 s  <<< ERROR!
+java.lang.AbstractMethodError: Receiver class io.restassured.internal.ResponseParserRegistrar does not define or inherit an implementation of the resolved method 'abstract java.lang.Object getProperty(java.lang.String)' of interface groovy.lang.GroovyObject.
+	at de.jonashackt.springbootvuejs.controller.BackendControllerTest.secured_api_should_react_with_unauthorized_per_default(BackendControllerTest.java:90)
+
+saysHello  Time elapsed: 0.004 s  <<< ERROR!
+java.lang.AbstractMethodError: Receiver class io.restassured.internal.ResponseParserRegistrar does not define or inherit an implementation of the resolved method 'abstract java.lang.Object getProperty(java.lang.String)' of interface groovy.lang.GroovyObject.
+	at de.jonashackt.springbootvuejs.controller.BackendControllerTest.saysHello(BackendControllerTest.java:38)
+
+secured_api_should_give_http_200_when_authorized  Time elapsed: 0 s  <<< ERROR!
+java.lang.AbstractMethodError: Receiver class io.restassured.internal.ResponseParserRegistrar does not define or inherit an implementation of the resolved method 'abstract java.lang.Object getProperty(java.lang.String)' of interface groovy.lang.GroovyObject.
+	at de.jonashackt.springbootvuejs.controller.BackendControllerTest.secured_api_should_give_http_200_when_authorized(BackendControllerTest.java:100)
+
+addNewUserAndRetrieveItBack  Time elapsed: 0.001 s  <<< ERROR!
+java.lang.AbstractMethodError: Receiver class io.restassured.internal.ResponseParserRegistrar does not define or inherit an implementation of the resolved method 'abstract java.lang.Object getProperty(java.lang.String)' of interface groovy.lang.GroovyObject.
+	at de.jonashackt.springbootvuejs.controller.BackendControllerTest.addNewUserAndRetrieveItBack(BackendControllerTest.java:51)
+
+user_api_should_give_http_404_not_found_when_user_not_present_in_db  Time elapsed: 0.002 s  <<< ERROR!
+java.lang.AbstractMethodError: Receiver class io.restassured.internal.ResponseParserRegistrar does not define or inherit an implementation of the resolved method 'abstract java.lang.Object getProperty(java.lang.String)' of interface groovy.lang.GroovyObject.
+	at de.jonashackt.springbootvuejs.controller.BackendControllerTest.user_api_should_give_http_404_not_found_when_user_not_present_in_db(BackendControllerTest.java:79)
+
