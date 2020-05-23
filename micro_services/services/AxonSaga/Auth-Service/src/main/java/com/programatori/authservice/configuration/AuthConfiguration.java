@@ -47,7 +47,7 @@ public class AuthConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers("/hello", "/verify")
+                .antMatchers("/hello", "/verify", "/signup")
                 .permitAll()
                 .anyRequest().authenticated();
 
