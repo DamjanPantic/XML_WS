@@ -1,9 +1,11 @@
 package com.programatori.authservice.security;
 
 import com.auth0.jwt.algorithms.Algorithm;
+import com.programatori.authservice.service.UserDetailServiceImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.context.SecurityContextHolder;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -18,9 +20,11 @@ import com.auth0.jwt.JWT;
 
 public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
 
+    private UserDetailServiceImpl userDetailService;
 
-    public JWTAuthorizationFilter(AuthenticationManager authManager)  {
+    public JWTAuthorizationFilter(AuthenticationManager authManager, UserDetailServiceImpl userDetailService)  {
         super(authManager);
+        this.userDetailService = userDetailService;
     }
 
     @Override
@@ -44,13 +48,15 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
         String token = request.getHeader(SecurityConstants.HEADER_STRING);
         if (token != null) {
             // parse the token.
+
             String user = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()))
                     .build()
                     .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                     .getSubject();
 
             if (user != null) {
-                return new UsernamePasswordAuthenticationToken(user, null, new ArrayList<>());
+                UserDetails userDetails = userDetailService.loadUserByUsername(user);
+                return new UsernamePasswordAuthenticationToken(user, null, userDetails.getAuthorities());
             }
             return null;
         }

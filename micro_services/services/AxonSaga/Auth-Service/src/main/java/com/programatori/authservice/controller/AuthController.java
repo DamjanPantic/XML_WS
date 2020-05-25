@@ -7,6 +7,7 @@ import com.programatori.authservice.repository.IUserRepository;
 import com.programatori.authservice.security.SecurityConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -46,10 +47,13 @@ public class AuthController {
         return new ResponseEntity<User>(user, HttpStatus.CREATED);
     }
 
+    @PreAuthorize("hasAuthority('READ_PRIVILEGE')")
     @RequestMapping(value = "/me", method = RequestMethod.GET)
     public User me(HttpServletRequest request){
         String token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
         DecodedJWT jwt = JWT.decode(token);
+        System.out.println(jwt.getSubject());
+
         return applicationUserRepository.findByUsername(jwt.getSubject());
     }
 

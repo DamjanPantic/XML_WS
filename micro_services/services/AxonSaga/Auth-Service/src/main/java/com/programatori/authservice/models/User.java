@@ -11,9 +11,9 @@ import java.io.StringReader;
 import java.util.Collection;
 import java.util.List;
 
-@Entity
 @Getter
 @Setter
+@Entity
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -48,6 +48,20 @@ public class User{
     public String getEmail(){
         return this.email;
     }
+
+    public String getUsername() {
+        return this.username;
+    }
+
+
+    @ManyToMany
+    @JoinTable(
+            name = "users_roles",
+            joinColumns = @JoinColumn(
+                    name = "user_id", referencedColumnName = "id"),
+            inverseJoinColumns = @JoinColumn(
+                    name = "role_id", referencedColumnName = "id"))
+    private Collection<Role> roles;
 
 
 

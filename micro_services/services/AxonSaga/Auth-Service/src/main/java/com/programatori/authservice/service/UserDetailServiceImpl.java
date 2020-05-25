@@ -1,21 +1,39 @@
 package com.programatori.authservice.service;
 
+import com.programatori.authservice.models.Privilege;
+import com.programatori.authservice.models.Role;
 import com.programatori.authservice.repository.IUserRepository;
+import com.programatori.authservice.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
+
+import javax.transaction.Transactional;
+
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+
 import static java.util.Collections.emptyList;
 
 
 @Service
+@Transactional
 public class UserDetailServiceImpl implements UserDetailsService {
 
+    @Autowired
     IUserRepository userRepository;
 
-    public UserDetailServiceImpl(IUserRepository userRepository){
-        this.userRepository = userRepository;
+    @Autowired
+    RoleRepository roleRepository;
+
+    public UserDetailServiceImpl(){
     }
 
 
@@ -25,16 +43,62 @@ public class UserDetailServiceImpl implements UserDetailsService {
         u.setEmail(user.getEmail());
         u.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         u.setUsername(user.getUsername());
+        u.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
+
         return userRepository.save(u);
     }
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
         com.programatori.authservice.models.User applicationUser = userRepository.findByUsername(s);
-        System.out.println(applicationUser);
+
         if (applicationUser == null) {
-            throw new UsernameNotFoundException(s);
+            applicationUser = userRepository.findByEmail(s);
+            if(applicationUser != null){
+                UserDetails details = new org.springframework.security.core.userdetails.User(
+                        applicationUser.getEmail(), applicationUser.getPassword(), true, true, true,
+                        true, getAuthorities(applicationUser.getRoles()));
+                System.out.println(details.getAuthorities());
+                return details;
+            }
+            return new org.springframework.security.core.userdetails.User(
+                    " ", " ", true, true, true, true,
+                    getAuthorities(Arrays.asList(
+                            roleRepository.findByName("ROLE_USER"))));
         }
-        return new User(applicationUser.getUsername(), applicationUser.getPassword(), emptyList());
+
+        UserDetails details = new org.springframework.security.core.userdetails.User(
+                applicationUser.getEmail(), applicationUser.getPassword(), true, true, true,
+                true, getAuthorities(applicationUser.getRoles()));
+        System.out.println(details.getAuthorities());
+        return details;
     }
+
+    private Collection<? extends GrantedAuthority> getAuthorities(
+            Collection<Role> roles) {
+
+        return getGrantedAuthorities(getPrivileges(roles));
+    }
+    private List<String> getPrivileges(Collection<Role> roles) {
+
+        List<String> privileges = new ArrayList<>();
+        List<Privilege> collection = new ArrayList<>();
+        for (Role role : roles) {
+            collection.addAll(role.getPrivileges());
+        }
+        for (Privilege item : collection) {
+            privileges.add(item.getName());
+        }
+        return privileges;
+    }
+
+    private List<GrantedAuthority> getGrantedAuthorities(List<String> privileges) {
+        List<GrantedAuthority> authorities = new ArrayList<>();
+        for (String privilege : privileges) {
+            authorities.add(new SimpleGrantedAuthority(privilege));
+        }
+        return authorities;
+    }
+
+
 }

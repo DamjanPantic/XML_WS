@@ -1,11 +1,14 @@
 package com.programatori.authservice.security;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.programatori.authservice.repository.IUserRepository;
+import com.programatori.authservice.service.UserDetailServiceImpl;
 import org.springframework.security.core.userdetails.User;
 import lombok.SneakyThrows;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 
 import com.auth0.jwt.JWT;
@@ -34,8 +37,12 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     private AuthenticationManager authenticationManager;
 
-    public JWTAuthenticationFilter(AuthenticationManager authenticationManager) {
+
+    private UserDetailServiceImpl userDetailService;
+
+    public JWTAuthenticationFilter(AuthenticationManager authenticationManager, UserDetailServiceImpl userDetailService) {
         this.authenticationManager = authenticationManager;
+        this.userDetailService = userDetailService;
     }
 
 
@@ -48,12 +55,15 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             com.programatori.authservice.models.User creds = new ObjectMapper()
                     .readValue(req.getInputStream(), com.programatori.authservice.models.User.class);
             System.out.println(creds.getUsername()+creds.getPassword());
-            return authenticationManager.authenticate(
+            System.out.println(userDetailService);
+            UserDetails userDetails = userDetailService.loadUserByUsername(creds.getUsername());
+            Authentication authentication =  authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creds.getUsername(),
                             creds.getPassword(),
-                            new ArrayList<>())
+                            (userDetails.getAuthorities()))
             );
+            return authentication;
         } catch (IOException e) {
             throw new RuntimeException(e);
         }

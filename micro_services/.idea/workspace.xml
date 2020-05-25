@@ -2,29 +2,19 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="86b834d9-0d52-44ed-96be-05dd29389dc8" name="Default Changelist" comment="">
-      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/configuration/WebSecurity.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTAuthorizationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTTokenUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/SecurityConstants.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/service/UserDetailServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/components/SetupDataLoader.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/models/Privilege.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/models/Role.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/repository/PrivilegeRepository.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/repository/RoleRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/docker-compose.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/AuthServiceApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/AuthServiceApplication.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/configuration/AuthConfiguration.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/configuration/JwtTokenUtil.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/configuration/WebSecurity.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/configuration/WebSecurity.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/controller/AuthController.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/models/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/models/User.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/repository/IUserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/repository/IUserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/AuthenticationTokenFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTAuthenticationFilter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/service/IUserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/service/IUserDetailService.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/service/UserService.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/resources/bootstrap.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/resources/bootstrap.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/target/backend-0.0.1-SNAPSHOT.jar" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/target/backend-0.0.1-SNAPSHOT.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/target/backend-0.0.1-SNAPSHOT.jar.original" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/target/backend-0.0.1-SNAPSHOT.jar.original" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/target/classes/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Security-Service/backend/target/classes/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/services/AxonSaga/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTAuthenticationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTAuthenticationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTAuthorizationFilter.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/security/JWTAuthorizationFilter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/service/UserDetailServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/services/AxonSaga/Auth-Service/src/main/java/com/programatori/authservice/service/UserDetailServiceImpl.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -63,7 +53,7 @@
       <updated>1588543834206</updated>
       <workItem from="1588543837920" duration="99000" />
       <workItem from="1590063212697" duration="99000" />
-      <workItem from="1590322876703" duration="969000" />
+      <workItem from="1590322876703" duration="1138000" />
     </task>
     <servers />
   </component>
