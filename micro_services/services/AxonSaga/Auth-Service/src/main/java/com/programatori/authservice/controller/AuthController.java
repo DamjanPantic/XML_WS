@@ -1,26 +1,22 @@
 package com.programatori.authservice.controller;
 
-import com.programatori.authservice.configuration.JwtTokenUtil;
+import com.auth0.jwt.JWT;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import com.programatori.authservice.models.User;
-import com.programatori.authservice.service.IUserService;
+import com.programatori.authservice.repository.IUserRepository;
+import com.programatori.authservice.security.SecurityConstants;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
-import org.springframework.security.authentication.AuthenticationManager;
-import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.security.authentication.DisabledException;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
-import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -28,7 +24,13 @@ import java.net.UnknownHostException;
 public class AuthController {
 
     @Autowired
-    IUserService userService;
+    private IUserRepository applicationUserRepository;
+    private BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    public AuthController(){
+        this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
+    }
+
 
     @GetMapping("/hello")
     public ResponseEntity<?> get() throws UnknownHostException {
@@ -36,15 +38,21 @@ public class AuthController {
         return new ResponseEntity<>(String.format("Hello from Auth service with ip address %s!", ip), HttpStatus.OK);
     }
 
-    @RequestMapping(consumes = "application/json",value="/signup",method = RequestMethod.POST)
+    @RequestMapping(consumes = "application/json",value="/sign-up",method = RequestMethod.POST)
     public ResponseEntity<User> signIn(@RequestBody User user){
-        return new ResponseEntity<User>(userService.save(user), HttpStatus.CREATED);
+        String pass = bCryptPasswordEncoder.encode(user.getPassword());
+        user.setPassword(pass);
+        applicationUserRepository.save(user);
+        return new ResponseEntity<User>(user, HttpStatus.CREATED);
+    }
+
+    @RequestMapping(value = "/me", method = RequestMethod.GET)
+    public User me(HttpServletRequest request){
+        String token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
+        DecodedJWT jwt = JWT.decode(token);
+        return applicationUserRepository.findByUsername(jwt.getSubject());
     }
 
 
-    @Autowired
-    private AuthenticationManager authenticationManager;
-    @Autowired
-    private JwtTokenUtil jwtTokenUtil;
 
 }

@@ -19,6 +19,7 @@
         <module>Message-Service</module>
         <module>Email-Service</module>
         <module>Location-Service</module>
+        <module>Security-Service</module>
     </modules>
 
 </project>
