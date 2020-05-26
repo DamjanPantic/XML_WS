@@ -1,166 +1,183 @@
 version: '3'
 services:
 
-  eureka-serviceregistry:
-    build: ./Eureka
-    ports:
-     - "8761:8761"
-    tty: true
-
-  axon-server:
-    image: axoniq/axonserver:4.3.2
-    ports:
-      - 8024:8024
-      - 8124:8124
-
-
-  auth-service:
-    build: ./services/AxonSaga/Auth-Service
-    ports:
-    - "8081:8081"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-      
-  vehicle-service:
-    build: ./services/AxonSaga/Car-Service
-    ports:
-    - "8082:8082"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-      
-  search-service:
-    build: ./services/AxonSaga/Search-Service
-    ports:
-    - "8083:8083"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-      
-  rental-service:
-    build: ./services/AxonSaga/Rental-Service
-    ports:
-    - "8084:8084"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-      
-  recension-service:
-    build: ./services/AxonSaga/Recension-Service
-    ports:
-    - "8085:8085"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-      
-  message-service:
-    build: ./services/AxonSaga/Message-Service
-    ports:
-    - "8086:8086"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-      
-  email-service:
-    build: ./services/AxonSaga/Email-Service
-    ports:
-    - "8087:8087"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      
-
-  location-service:
-    build: ./services/AxonSaga/Location-Service
-    ports:
-    - "8088:8088"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-
-  bezbednost_db:
+#  eureka-serviceregistry:
+#    build: ./Eureka
+#    ports:
+#     - "8761:8761"
+#    tty: true
+#
+#  axon-server:
+#    image: axoniq/axonserver:4.3.2
+#    ports:
+#      - 8024:8024
+#      - 8124:8124
+#
+#
+#  auth-service:
+#    build: ./services/AxonSaga/Auth-Service
+#    ports:
+#    - "8081:8081"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+  users-database:
     image: mariadb:10.2
-    container_name: bezbednost_db
+    container_name: users_db
     ports:
-      - 3306:3306
+      - 3307:3306
     environment:
-      MYSQL_DATABASE: bezbednost
+      MYSQL_DATABASE: users
       MYSQL_USER: user
       MYSQL_PASSWORD: user
       MYSQL_ROOT_PASSWORD: root
     volumes:
-      - mysqldata:/var/lib/mysql
-    networks:
-      - bezbednostnet
-
-  security-service:
-    build: ./services/AxonSaga/Security-Service
-    ports:
-      - "8089:8089"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    networks:
-      - bezbednostnet
-    depends_on:
-      - bezbednost_db
-      - eureka-serviceregistry
-      - axon-server
-
-
-  zuul:
-    build: ./Zuul
-    ports:
-    - "8080:8080"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      - auth-service
-      - vehicle-service
-      - search-service
-      - rental-service
-      - recension-service
-      - message-service
-      - email-service
-      - location-service
-
+      - usersdata:/var/lib/mysql
+#    networks:
+#      - usersnet
+#
+#
+#  vehicle-service:
+#    build: ./services/AxonSaga/Car-Service
+#    ports:
+#    - "8082:8082"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  search-service:
+#    build: ./services/AxonSaga/Search-Service
+#    ports:
+#    - "8083:8083"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  rental-service:
+#    build: ./services/AxonSaga/Rental-Service
+#    ports:
+#    - "8084:8084"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  recension-service:
+#    build: ./services/AxonSaga/Recension-Service
+#    ports:
+#    - "8085:8085"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  message-service:
+#    build: ./services/AxonSaga/Message-Service
+#    ports:
+#    - "8086:8086"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  email-service:
+#    build: ./services/AxonSaga/Email-Service
+#    ports:
+#    - "8087:8087"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  location-service:
+#    build: ./services/AxonSaga/Location-Service
+#    ports:
+#    - "8088:8088"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#  bezbednost_db:
+#    image: mariadb:10.2
+#    container_name: bezbednost_db
+#    ports:
+#      - 3306:3306
+#    environment:
+#      MYSQL_DATABASE: bezbednost
+#      MYSQL_USER: user
+#      MYSQL_PASSWORD: user
+#      MYSQL_ROOT_PASSWORD: root
+#    volumes:
+#      - mysqldata:/var/lib/mysql
+#    networks:
+#      - bezbednostnet
+#
+#  security-service:
+#    build: ./services/AxonSaga/Security-Service
+#    ports:
+#      - "8089:8089"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    networks:
+#      - bezbednostnet
+#    depends_on:
+#      - bezbednost_db
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  zuul:
+#    build: ./Zuul
+#    ports:
+#    - "8080:8080"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#      - auth-service
+#      - vehicle-service
+#      - search-service
+#      - rental-service
+#      - recension-service
+#      - message-service
+#      - email-service
+#      - location-service
+#
 volumes:
-  mysqldata:
-networks:
-  bezbednostnet:
+#  mysqldata:
+  usersdata:
+#networks:
+#  bezbednostnet:
+#  usersnet:
 
   
