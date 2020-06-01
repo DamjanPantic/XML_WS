@@ -58,6 +58,8 @@ public class AuthController {
         return applicationUserRepository.findByUsername(jwt.getSubject());
     }
 
+    
+
 
 
 }
