@@ -1,7 +1,0 @@
--------------------------------------------------------------------------------
-Test set: de.jonashackt.springbootvuejs.repository.UserRepositoryTest
--------------------------------------------------------------------------------
-Tests run: 1, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.022 s <<< FAILURE! - in de.jonashackt.springbootvuejs.repository.UserRepositoryTest
-initializationError  Time elapsed: 0.014 s  <<< ERROR!
-java.lang.Exception: No runnable methods
-

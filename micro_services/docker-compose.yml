@@ -1,39 +1,41 @@
 version: '3'
 services:
 
-#  eureka-serviceregistry:
-#    build: ./Eureka
-#    ports:
-#     - "8761:8761"
-#    tty: true
-#
-#  axon-server:
-#    image: axoniq/axonserver:4.3.2
-#    ports:
-#      - 8024:8024
-#      - 8124:8124
-#
-#
-#  auth-service:
-#    build: ./services/AxonSaga/Auth-Service
-#    ports:
-#    - "8081:8081"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - axon-server
-#
+  eureka-serviceregistry:
+    build: ./Eureka
+    ports:
+     - "8761:8761"
+    tty: true
+
+  axon-server:
+    image: axoniq/axonserver:4.3.2
+    ports:
+      - 8024:8024
+      - 8124:8124
+
+
+  auth-service:
+    build: ./services/AxonSaga/Auth-Service
+    ports:
+    - "8081:8081"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+
   users-database:
     image: mariadb:10.2
-    container_name: users_db
+    container_name: users-database
     ports:
-      - 3307:3306
+      - 3306:3306
     environment:
       MYSQL_DATABASE: users
-      MYSQL_USER: user
-      MYSQL_PASSWORD: user
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - usersdata:/var/lib/mysql
@@ -41,18 +43,18 @@ services:
 #      - usersnet
 #
 #
-#  vehicle-service:
-#    build: ./services/AxonSaga/Car-Service
-#    ports:
-#    - "8082:8082"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - axon-server
-#
-#
+  vehicle-service:
+    build: ./services/AxonSaga/Car-Service
+    ports:
+    - "8082:8082"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - axon-server
+
+
 #  search-service:
 #    build: ./services/AxonSaga/Search-Service
 #    ports:
@@ -154,18 +156,18 @@ services:
 #      - axon-server
 #
 #
-#  zuul:
-#    build: ./Zuul
-#    ports:
-#    - "8080:8080"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - axon-server
-#      - auth-service
-#      - vehicle-service
+  zuul:
+    build: ./Zuul
+    ports:
+    - "8080:8080"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - axon-server
+      - auth-service
+      - vehicle-service
 #      - search-service
 #      - rental-service
 #      - recension-service
