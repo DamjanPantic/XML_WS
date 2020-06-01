@@ -18,6 +18,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.validation.Valid;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 
@@ -40,7 +41,7 @@ public class AuthController {
     }
 
     @RequestMapping(consumes = "application/json",value="/sign-up",method = RequestMethod.POST)
-    public ResponseEntity<User> signIn(@RequestBody User user){
+    public ResponseEntity<User> signIn(@Valid @RequestBody User user){
         String pass = bCryptPasswordEncoder.encode(user.getPassword());
         user.setPassword(pass);
         applicationUserRepository.save(user);

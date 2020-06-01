@@ -4,6 +4,7 @@ import com.programatori.authservice.security.JWTAuthorizationFilter;
 import com.programatori.authservice.security.SecurityConstants;
 import com.programatori.authservice.service.UserDetailServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
@@ -18,6 +19,7 @@ import org.springframework.web.cors.CorsConfiguration;
 import org.springframework.web.cors.CorsConfigurationSource;
 import com.programatori.authservice.security.JWTAuthenticationFilter;
 
+
 @EnableWebSecurity
 public class WebSecurity extends WebSecurityConfigurerAdapter {
 
@@ -25,8 +27,6 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
     @Autowired
     private UserDetailServiceImpl userDetailsService;
     private BCryptPasswordEncoder bCryptPasswordEncoder;
-
-
 
     public WebSecurity(UserDetailServiceImpl userDetailsService, BCryptPasswordEncoder bCryptPasswordEncoder) {
         this.userDetailsService = userDetailsService;
@@ -57,4 +57,14 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
         source.registerCorsConfiguration("/**", new CorsConfiguration().applyPermitDefaultValues());
         return source;
     }
+
+//    @Bean
+//    public FilterRegistrationBean xssPreventFilter() {
+//        FilterRegistrationBean registrationBean = new FilterRegistrationBean();
+//
+//        registrationBean.setFilter(new XSSFilter());
+//        registrationBean.addUrlPatterns("/*");
+//
+//        return registrationBean;
+//    }
 }

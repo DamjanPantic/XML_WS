@@ -11,14 +11,18 @@ import java.io.StringReader;
 import java.util.Collection;
 import java.util.List;
 
+import static javax.persistence.DiscriminatorType.STRING;
+import static javax.persistence.InheritanceType.SINGLE_TABLE;
+
 @Getter
 @Setter
 @Entity
+@Inheritance(strategy=SINGLE_TABLE)
+@DiscriminatorColumn(name="user_type", discriminatorType=STRING)
 public class User{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-
 
     @Column(unique = true,nullable = false)
     private String email;
@@ -31,6 +35,7 @@ public class User{
 
 
     public User(String username, String password, List<Object> emptyList) {
+
     }
 
     public void setUsername(String username){
