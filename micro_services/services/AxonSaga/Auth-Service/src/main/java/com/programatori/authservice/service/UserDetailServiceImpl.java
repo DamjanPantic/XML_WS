@@ -1,5 +1,6 @@
 package com.programatori.authservice.service;
 
+import com.programatori.authservice.models.Individual;
 import com.programatori.authservice.models.Privilege;
 import com.programatori.authservice.models.Role;
 import com.programatori.authservice.repository.IUserRepository;
@@ -7,7 +8,6 @@ import com.programatori.authservice.repository.RoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.*;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
@@ -15,17 +15,12 @@ import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
-
-import static java.util.Collections.emptyList;
+import java.util.*;
 
 
 @Service
 @Transactional
-public class UserDetailServiceImpl implements UserDetailsService {
+public class UserDetailServiceImpl implements UserDetailsService, IUserDetailService{
 
     @Autowired
     IUserRepository userRepository;
@@ -33,7 +28,10 @@ public class UserDetailServiceImpl implements UserDetailsService {
     @Autowired
     RoleRepository roleRepository;
 
+    BCryptPasswordEncoder bCryptPasswordEncoder;
+
     public UserDetailServiceImpl(){
+        this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
     }
 
 
@@ -47,6 +45,7 @@ public class UserDetailServiceImpl implements UserDetailsService {
 
         return userRepository.save(u);
     }
+
 
     @Override
     public UserDetails loadUserByUsername(String s) throws UsernameNotFoundException {
@@ -98,6 +97,37 @@ public class UserDetailServiceImpl implements UserDetailsService {
             authorities.add(new SimpleGrantedAuthority(privilege));
         }
         return authorities;
+    }
+
+    public Boolean deleteById(Long id){
+        com.programatori.authservice.models.User user = userRepository.findById(id).orElse(null);
+        if(user == null){
+            return false;
+        }
+        userRepository.deleteById(id);
+        return true;
+    }
+
+    @Override
+    public Individual saveIndividual(com.programatori.authservice.models.User user) {
+        Individual individual = new Individual();
+        individual.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
+        individual.setUsername(user.getUsername());
+        individual.setEmail(user.getEmail());
+        Role individualRole = roleRepository.findByName("ROLE_PUBLISHER");
+        individual.setRoles(Arrays.asList(individualRole));
+        return null;
+    }
+
+    @Override
+    public com.programatori.authservice.models.User blockUserById(Long id) {
+        com.programatori.authservice.models.User user = userRepository.findById(id).orElse(null);
+        if(user == null){
+            return null;
+        }
+        user.setBlocked(true);
+        userRepository.save(user);
+        return user;
     }
 
 
