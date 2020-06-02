@@ -3,12 +3,7 @@ package com.programatori.authservice.models;
 import lombok.Getter;
 import lombok.Setter;
 
-import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.userdetails.UserDetails;
-
 import javax.persistence.*;
-import java.io.StringReader;
-import java.util.Collection;
 import java.util.List;
 import java.util.Set;
 
@@ -71,7 +66,4 @@ public class User{
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
     private Set<Role> roles;
-
-
-
 }
