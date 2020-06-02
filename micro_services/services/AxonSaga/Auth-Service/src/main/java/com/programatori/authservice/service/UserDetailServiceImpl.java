@@ -147,5 +147,33 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
         return user;
     }
 
+    @Override
+    public com.programatori.authservice.models.User updateRole(String role, Long id) {
+        com.programatori.authservice.models.User user = userRepository.findById(id).orElse(null);
+        switch (role){
+            case "admin":
+                role = "ROLE_ADMIN";
+            break;
+            case "publisher":
+                role = "ROLE_PUBLISHER";
+                break;
+            case "user":
+                role = "ROLE_USER";
+                break;
+
+            default: role = null;
+        }
+
+        if(role == null)
+            return null;
+
+        Role r = roleRepository.findByName(role);
+        user.setRoles(new HashSet<Role>(Arrays.asList(r)));
+        userRepository.save(user);
+
+        return user;
+
+    }
+
 
 }

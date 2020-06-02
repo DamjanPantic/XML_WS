@@ -15,7 +15,9 @@ import java.util.*;
 public class SetupDataLoader implements
         ApplicationListener<ContextRefreshedEvent>{
 
-    boolean alreadySetup = false;
+    //ovo menjas na true kada pokrenes jednom
+    //prvi put na false
+    boolean alreadySetup = true;
 
     @Autowired
     private IUserRepository userRepository;

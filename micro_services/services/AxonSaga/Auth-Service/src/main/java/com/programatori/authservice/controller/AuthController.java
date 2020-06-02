@@ -95,6 +95,14 @@ public class AuthController {
         return new ResponseEntity<User>(user,HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('USER_MANIPULATION_PRIVILEGE')")
+    @RequestMapping(value = "/users/{id}/roles/{role}",method = RequestMethod.PUT)
+    public ResponseEntity<User> changeRole(@PathVariable Long id,@PathVariable String role){
+        User user = userDetailService.updateRole(role,id);
+        return new ResponseEntity<User>(user,HttpStatus.OK);
+    }
+
+
 
 
 
