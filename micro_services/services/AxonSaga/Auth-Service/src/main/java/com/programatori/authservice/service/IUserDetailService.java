@@ -11,4 +11,5 @@ public interface IUserDetailService {
     public Boolean deleteById(Long id);
     public Individual saveIndividual(User user);
     public User blockUserById(Long id);
+    public User findByUsername(String username);
 }

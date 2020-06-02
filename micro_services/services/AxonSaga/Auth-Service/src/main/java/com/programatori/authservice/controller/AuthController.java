@@ -70,7 +70,6 @@ public class AuthController {
         String token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
         DecodedJWT jwt = JWT.decode(token);
         System.out.println(jwt.getSubject());
-
         return applicationUserRepository.findByUsername(jwt.getSubject());
     }
 

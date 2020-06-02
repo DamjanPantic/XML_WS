@@ -130,5 +130,11 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
         return user;
     }
 
+    @Override
+    public com.programatori.authservice.models.User findByUsername(String username) {
+        com.programatori.authservice.models.User user = userRepository.findByUsername(username);
+        return user;
+    }
+
 
 }
