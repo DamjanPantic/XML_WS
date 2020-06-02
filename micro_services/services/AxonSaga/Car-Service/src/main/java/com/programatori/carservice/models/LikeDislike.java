@@ -15,11 +15,14 @@ public class LikeDislike {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true,nullable = false)
-    private Boolean like;
+    @Column(nullable = false)
+    private Boolean liked;
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private User user;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Vehicle vehicle;
 
     public LikeDislike() {
     }

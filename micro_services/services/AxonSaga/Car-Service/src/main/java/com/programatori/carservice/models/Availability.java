@@ -16,14 +16,14 @@ public class Availability {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true,nullable = false)
     private String place;
 
-    @Column(unique = true,nullable = false)
-    private Date from;
+    private Date fromDate;
 
-    @Column(unique = true,nullable = false)
-    private Date to;
+    private Date toDate;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Vehicle vehicle;
 
     public Availability() {
     }

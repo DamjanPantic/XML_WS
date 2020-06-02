@@ -15,11 +15,14 @@ public class LocationEntry {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @Column(unique = true,nullable = false)
+    @Column(nullable = false)
     private Double lat;
 
-    @Column(unique = true,nullable = false)
+    @Column(nullable = false)
     private Double lng;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private Vehicle vehicle;
 
     public LocationEntry() {
     }

@@ -4,6 +4,7 @@ import lombok.Getter;
 import lombok.Setter;
 
 import javax.persistence.*;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -20,6 +21,9 @@ public class FeatureValue {
 
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private FeatureType type;
+
+    @ManyToMany(mappedBy = "features")
+    private Set<Vehicle> vehicles;
 
     public FeatureValue() {
     }
