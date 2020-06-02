@@ -7,10 +7,10 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <module name="backend" />
-        <module name="Message-Service" />
+        <module name="Rental-Service" />
         <module name="Email-Service" />
         <module name="Search-Service" />
-        <module name="Rental-Service" />
+        <module name="Message-Service" />
         <module name="Location-Service" />
         <module name="Core-API" />
         <module name="Recension-Service" />
