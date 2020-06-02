@@ -4,6 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.Set;
 
 @Entity
 public class Role {
@@ -13,7 +14,7 @@ public class Role {
 
     private String name;
     @ManyToMany(mappedBy = "roles")
-    private Collection<User> users;
+    private Set<User> users;
 
     @ManyToMany
     @JoinTable(

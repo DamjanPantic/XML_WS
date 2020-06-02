@@ -22,6 +22,7 @@ import javax.validation.Valid;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.util.Arrays;
+import java.util.HashSet;
 import java.util.Optional;
 
 @RestController
@@ -57,7 +58,7 @@ public class AuthController {
         individual.setEmail(user.getEmail());
         individual.setUsername(user.getUsername());
         Role role = roleRepository.findByName("ROLE_PUBLISHER");
-        individual.setRoles(Arrays.asList(role));
+        individual.setRoles(new HashSet<>(Arrays.asList(role)));
         applicationUserRepository.save(individual);
         return new ResponseEntity<User>(individual, HttpStatus.CREATED);
     }

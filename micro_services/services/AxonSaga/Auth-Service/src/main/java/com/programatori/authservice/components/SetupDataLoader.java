@@ -9,9 +9,7 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 import javax.transaction.Transactional;
-import java.util.Arrays;
-import java.util.Collection;
-import java.util.List;
+import java.util.*;
 
 @Component
 public class SetupDataLoader implements
@@ -66,7 +64,7 @@ public class SetupDataLoader implements
         user.setUsername("Test");
         user.setPassword(passwordEncoder.encode("test"));
         user.setEmail("test@test.com");
-        user.setRoles(Arrays.asList(adminRole));
+        user.setRoles(new HashSet<Role>(Arrays.asList(adminRole)));
         userRepository.save(user);
 
         Role publisherRole = roleRepository.findByName("ROLE_PUBLISHER");
@@ -74,14 +72,14 @@ public class SetupDataLoader implements
         user2.setUsername("Company1");
         user2.setPassword(passwordEncoder.encode("test"));
         user2.setEmail("company@company.com");
-        user2.setRoles(Arrays.asList(publisherRole));
+        user2.setRoles(new HashSet<Role>(Arrays.asList(publisherRole)));
         userRepository.save(user2);
 
         Individual user3 = new Individual();
         user3.setUsername("Individual1");
         user3.setPassword(passwordEncoder.encode("test"));
         user3.setEmail("individual@individual.com");
-        user3.setRoles(Arrays.asList(publisherRole));
+        user3.setRoles(new HashSet<Role>(Arrays.asList(publisherRole)));
         userRepository.save(user3);
 
 

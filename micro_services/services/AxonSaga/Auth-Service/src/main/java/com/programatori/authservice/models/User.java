@@ -10,6 +10,7 @@ import javax.persistence.*;
 import java.io.StringReader;
 import java.util.Collection;
 import java.util.List;
+import java.util.Set;
 
 import static javax.persistence.DiscriminatorType.STRING;
 import static javax.persistence.InheritanceType.SINGLE_TABLE;
@@ -69,7 +70,7 @@ public class User{
                     name = "user_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
                     name = "role_id", referencedColumnName = "id"))
-    private Collection<Role> roles;
+    private Set<Role> roles;
 
 
 

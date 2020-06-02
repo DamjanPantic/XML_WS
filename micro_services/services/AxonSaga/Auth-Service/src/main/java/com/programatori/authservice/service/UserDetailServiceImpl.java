@@ -41,7 +41,7 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
         u.setEmail(user.getEmail());
         u.setPassword(bCryptPasswordEncoder.encode(user.getPassword()));
         u.setUsername(user.getUsername());
-        u.setRoles(Arrays.asList(roleRepository.findByName("ROLE_USER")));
+        u.setRoles(new HashSet<>(Arrays.asList(roleRepository.findByName("ROLE_USER"))));
 
         return userRepository.save(u);
     }
@@ -115,7 +115,7 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
         individual.setUsername(user.getUsername());
         individual.setEmail(user.getEmail());
         Role individualRole = roleRepository.findByName("ROLE_PUBLISHER");
-        individual.setRoles(Arrays.asList(individualRole));
+        individual.setRoles(new HashSet<>(Arrays.asList(individualRole)));
         return null;
     }
 
