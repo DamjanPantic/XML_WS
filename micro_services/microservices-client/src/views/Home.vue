@@ -12,7 +12,7 @@ export default {
   methods:{
     clickas(){
       console.log('asd')
-      axios.get('localhost:8080/vehicle/hello')
+      axios.get('email/hello')
       .then(response => {
         alert(response.data)
       })
