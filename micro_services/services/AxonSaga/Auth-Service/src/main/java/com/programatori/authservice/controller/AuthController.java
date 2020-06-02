@@ -87,6 +87,16 @@ public class AuthController {
         return new ResponseEntity<User>(user,HttpStatus.OK);
     }
 
+    @PreAuthorize("hasAuthority('USER_MANIPULATION_PRIVILEGE')")
+    @RequestMapping(value = "/users/un-block/{id}",method = RequestMethod.PUT)
+    public ResponseEntity<User> unBlock(@PathVariable Long id){
+        User user = userDetailService.unBlockUserById(id);
+        return new ResponseEntity<User>(user,HttpStatus.OK);
+    }
+
+
+
+
 
 
 

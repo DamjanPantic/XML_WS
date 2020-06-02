@@ -17,7 +17,7 @@ import java.util.List;
 public class SetupDataLoader implements
         ApplicationListener<ContextRefreshedEvent>{
 
-    boolean alreadySetup = true;
+    boolean alreadySetup = false;
 
     @Autowired
     private IUserRepository userRepository;

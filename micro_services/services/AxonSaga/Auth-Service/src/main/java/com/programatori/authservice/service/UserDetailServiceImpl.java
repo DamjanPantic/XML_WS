@@ -131,6 +131,17 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
     }
 
     @Override
+    public com.programatori.authservice.models.User unBlockUserById(Long id) {
+        com.programatori.authservice.models.User user = userRepository.findById(id).orElse(null);
+        if(user == null){
+            return null;
+        }
+        user.setBlocked(false);
+        userRepository.save(user);
+        return user;
+    }
+
+    @Override
     public com.programatori.authservice.models.User findByUsername(String username) {
         com.programatori.authservice.models.User user = userRepository.findByUsername(username);
         return user;

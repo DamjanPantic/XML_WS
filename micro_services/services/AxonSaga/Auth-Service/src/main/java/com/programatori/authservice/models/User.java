@@ -30,6 +30,7 @@ public class User{
     @Column(unique = true,nullable = false)
     private String username;
 
+    @Column(columnDefinition = "boolean DEFAULT false")
     private Boolean blocked;
 
     private String password;
