@@ -1,18 +1,22 @@
 <template>
   <div class="home">
-    <img alt="Vue logo" src="../assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <button @click="clickas">asd</button>
   </div>
 </template>
 
 <script>
-// @ is an alias to /src
-import HelloWorld from '@/components/HelloWorld.vue'
+import axios from 'axios';
 
 export default {
   name: 'Home',
-  components: {
-    HelloWorld
+  methods:{
+    clickas(){
+      console.log('asd')
+      axios.get('localhost:8080/vehicle/hello')
+      .then(response => {
+        alert(response.data)
+      })
+    }
   }
 }
 </script>
