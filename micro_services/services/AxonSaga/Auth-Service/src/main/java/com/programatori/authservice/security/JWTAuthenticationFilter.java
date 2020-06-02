@@ -40,6 +40,9 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
     private UserDetailServiceImpl userDetailService;
 
+    @Autowired
+    IUserRepository userRepository;
+
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager, UserDetailServiceImpl userDetailService) {
         this.authenticationManager = authenticationManager;
         this.userDetailService = userDetailService;
@@ -55,8 +58,13 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             com.programatori.authservice.models.User creds = new ObjectMapper()
                     .readValue(req.getInputStream(), com.programatori.authservice.models.User.class);
             System.out.println(creds.getUsername()+creds.getPassword());
-            System.out.println(userDetailService);
+            com.programatori.authservice.models.User user = userDetailService.findByUsername(creds.getUsername());
+            System.out.println(user.getBlocked());
             UserDetails userDetails = userDetailService.loadUserByUsername(creds.getUsername());
+            if(user.getBlocked() != null){
+                if(user.getBlocked() == true)
+                    throw new IOException();
+            }
             Authentication authentication =  authenticationManager.authenticate(
                     new UsernamePasswordAuthenticationToken(
                             creds.getUsername(),

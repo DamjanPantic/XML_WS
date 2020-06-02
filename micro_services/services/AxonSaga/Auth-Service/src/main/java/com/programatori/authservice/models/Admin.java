@@ -8,8 +8,8 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-
 @DiscriminatorValue("admin")
+@Table(name="admin")
 public class Admin extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

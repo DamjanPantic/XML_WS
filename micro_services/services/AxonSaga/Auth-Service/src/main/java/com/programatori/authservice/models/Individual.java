@@ -9,7 +9,7 @@ import javax.persistence.*;
 @Setter
 @Entity
 @DiscriminatorValue("individual")
-public class Individual extends CarOwner {
+public class Individual extends User {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
