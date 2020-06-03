@@ -6,26 +6,30 @@ services:
     ports:
      - "8761:8761"
     tty: true
+    networks:
+      - usersnet
 
   axon-server:
     image: axoniq/axonserver:4.3.2
     ports:
       - 8024:8024
       - 8124:8124
+    networks:
+      - usersnet
 
 
-  auth-service:
-    build: ./services/AxonSaga/Auth-Service
-    ports:
-    - "8081:8081"
-    environment:
-      - REGISTRY_HOST=eureka-serviceregistry
-      - MYSQL_HOST=users-database
-    tty: true
-    depends_on:
-      - eureka-serviceregistry
-      - users-database
-      - axon-server
+  # auth-service:
+  #   build: ./services/AxonSaga/Auth-Service
+  #   ports:
+  #   - "8081:8081"
+  #   environment:
+  #     - REGISTRY_HOST=eureka-serviceregistry
+  #     - MYSQL_HOST=users-database
+  #   tty: true
+  #   depends_on:
+  #     - eureka-serviceregistry
+  #     - users-database
+  #     - axon-server
 
   users-database:
     image: mariadb:10.2
@@ -39,8 +43,8 @@ services:
       MYSQL_ROOT_PASSWORD: root
     volumes:
       - usersdata:/var/lib/mysql
-#    networks:
-#      - usersnet
+    networks:
+      - usersnet
 #
 #
   vehicle-service:
@@ -55,6 +59,8 @@ services:
       - eureka-serviceregistry
       - users-database
       - axon-server
+    networks:
+      - usersnet
 
 
 #  search-service:
@@ -129,6 +135,8 @@ services:
       - eureka-serviceregistry
       - users-database
       - axon-server
+    networks:
+      - usersnet
 #
 #  bezbednost_db:
 #    image: mariadb:10.2
@@ -168,22 +176,24 @@ services:
       - REGISTRY_HOST=eureka-serviceregistry
     tty: true
     depends_on:
-      - eureka-serviceregistry
-      - axon-server
-      - auth-service
-      - vehicle-service
-#      - search-service
-#      - rental-service
-#      - recension-service
-#      - message-service
-#      - email-service
-      - location-service
+       - eureka-serviceregistry
+       - axon-server
+#       - auth-service
+       - vehicle-service
+# #      - search-service
+# #      - rental-service
+# #      - recension-service
+# #      - message-service
+# #      - email-service
+       - location-service
+    networks:
+      - usersnet
 #
 volumes:
 #  mysqldata:
   usersdata:
-#networks:
-#  bezbednostnet:
-#  usersnet:
+networks:
+  # bezbednostnet:
+ usersnet:
 
   
