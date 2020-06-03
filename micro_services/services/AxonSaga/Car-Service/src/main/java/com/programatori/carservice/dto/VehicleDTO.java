@@ -9,6 +9,7 @@ import java.util.Set;
 @Data
 public class VehicleDTO {
 
+    private UserDTO owner;
     private ModelDTO model;
     private Set<FeatureValueDTO> features;
     private Set<PriceDTO> prices;
@@ -23,6 +24,7 @@ public class VehicleDTO {
     private String carToken;
 
     public VehicleDTO(Vehicle vehicle) {
+        this.owner = new UserDTO(vehicle.getOwners());
         this.model = new ModelDTO(vehicle.getModel());
 
         if (vehicle.getFeatures() != null){
