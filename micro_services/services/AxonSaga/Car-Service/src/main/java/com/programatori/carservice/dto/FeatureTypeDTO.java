@@ -8,6 +8,9 @@ public class FeatureTypeDTO {
 
     private String name;
 
+    public FeatureTypeDTO() {
+    }
+
     public FeatureTypeDTO(FeatureType featureType) {
         this.name = featureType.getName();
     }
