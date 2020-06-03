@@ -1,6 +1,10 @@
 package com.programatori.carservice.service.impl;
 
+import com.programatori.carservice.dto.VehicleDTO;
+import com.programatori.carservice.models.Vehicle;
+import com.programatori.carservice.repository.VehicleRepository;
 import com.programatori.carservice.service.CarService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -13,6 +17,8 @@ import java.security.NoSuchAlgorithmException;
 @Transactional
 public class CarServiceImpl implements CarService {
 
+    @Autowired
+    private VehicleRepository vehicleRepository;
 
     @Override
     public String generateToken(Long id) throws NoSuchAlgorithmException {
@@ -26,6 +32,25 @@ public class CarServiceImpl implements CarService {
             hexString.insert(0, '0');
         }
 
-        return hexString.toString();
+        String token = hexString.toString();
+
+        Vehicle vehicle = vehicleRepository.findById(id).orElse(null);
+        if (vehicle == null){
+            return null;
+        }
+
+        vehicle.setCarToken(token);
+        vehicleRepository.save(vehicle);
+
+        return token;
+    }
+
+    @Override
+    public VehicleDTO getVehicleFromToken(String token) {
+        Vehicle vehicle = vehicleRepository.findByCarToken(token);
+        if (vehicle == null){
+            return null;
+        }
+        return new VehicleDTO(vehicle);
     }
 }

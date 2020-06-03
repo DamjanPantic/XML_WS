@@ -1,5 +1,6 @@
 package com.programatori.carservice.controller;
 
+import com.programatori.carservice.dto.VehicleDTO;
 import com.programatori.carservice.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
@@ -25,8 +26,20 @@ public class CarController {
     }
 
     @GetMapping("/token/{id}")
-    public ResponseEntity<?> addTokenToVehicle(@PathVariable Long id) throws NoSuchAlgorithmException {
+    public ResponseEntity<?> getVehiclesToken(@PathVariable Long id) throws NoSuchAlgorithmException {
         String token = carService.generateToken(id);
+        if (token == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         return new ResponseEntity<>(token, HttpStatus.OK);
+    }
+
+    @GetMapping("/token/{token}")
+    public ResponseEntity<?> getTokensVehicle(@PathVariable String token) throws NoSuchAlgorithmException {
+        VehicleDTO vehicle = carService.getVehicleFromToken(token);
+        if (vehicle == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
 }
