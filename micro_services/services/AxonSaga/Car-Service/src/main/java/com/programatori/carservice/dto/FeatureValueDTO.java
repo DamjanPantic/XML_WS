@@ -6,8 +6,11 @@ import lombok.Data;
 @Data
 public class FeatureValueDTO {
 
+    private Long id;
     private String value;
     private FeatureTypeDTO type;
+
+    public FeatureValueDTO(){}
 
     public FeatureValueDTO(FeatureValue featureValue) {
         this.value = featureValue.getValue();

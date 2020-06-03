@@ -1,5 +1,6 @@
 package com.programatori.carservice.models;
 
+import com.programatori.carservice.dto.VehicleDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -17,10 +18,10 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private User owners;
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private User owner;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Model model;
 
     @ManyToMany
@@ -60,4 +61,23 @@ public class Vehicle {
     public Vehicle() {
     }
 
+    @Override
+    public String toString() {
+        return "Vehicle{" +
+                "id=" + id +
+                ", owners=" + owner +
+                ", model=" + model +
+                ", features=" + features +
+                ", prices=" + prices +
+                ", traveledKm=" + traveledKm +
+                ", limitKm='" + limitKm + '\'' +
+                ", kidsSeatsNo=" + kidsSeatsNo +
+                ", cdw=" + cdw +
+                ", likes=" + likes +
+                ", comments=" + comments +
+                ", availabilities=" + availabilities +
+                ", locationEntries=" + locationEntries +
+                ", carToken='" + carToken + '\'' +
+                '}';
+    }
 }

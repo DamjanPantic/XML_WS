@@ -18,3 +18,7 @@ INSERT INTO users.model_car_service (name, manufacturer_id) VALUES
 
 INSERT INTO users.price_type_car_service (name) VALUES
 ("DAY"), ("KILOMETER");
+
+INSERT INTO users.user_car_service (email, username) VALUES
+("mail@mail.com", "mile"),
+("mail1@mail.com", "mile1");

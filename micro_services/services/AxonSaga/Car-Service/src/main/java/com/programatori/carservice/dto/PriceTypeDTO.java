@@ -6,7 +6,10 @@ import lombok.Data;
 @Data
 public class PriceTypeDTO {
 
+    private Long id;
     private String name;
+
+    public PriceTypeDTO(){}
 
     public PriceTypeDTO(PriceType priceType) {
         this.name = priceType.getName();
