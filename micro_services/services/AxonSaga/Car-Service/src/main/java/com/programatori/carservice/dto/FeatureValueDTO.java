@@ -9,6 +9,9 @@ public class FeatureValueDTO {
     private String value;
     private FeatureTypeDTO type;
 
+    public FeatureValueDTO() {
+    }
+
     public FeatureValueDTO(FeatureValue featureValue) {
         this.value = featureValue.getValue();
         this.type = new FeatureTypeDTO(featureValue.getType());
