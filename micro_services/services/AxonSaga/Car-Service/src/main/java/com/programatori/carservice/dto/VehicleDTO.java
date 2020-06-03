@@ -9,6 +9,7 @@ import java.util.Set;
 @Data
 public class VehicleDTO {
 
+    private Long id;
     private UserDTO owner;
     private ModelDTO model;
     private Set<FeatureValueDTO> features;
@@ -26,6 +27,7 @@ public class VehicleDTO {
     public VehicleDTO(Vehicle vehicle) {
         this.owner = new UserDTO(vehicle.getOwners());
         this.model = new ModelDTO(vehicle.getModel());
+        this.id = vehicle.getId();
 
         if (vehicle.getFeatures() != null){
             Set<FeatureValueDTO> featuresDTO = new HashSet<>();

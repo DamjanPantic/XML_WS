@@ -22,9 +22,9 @@ public class LocationController {
         return new ResponseEntity<>(String.format("Hello from Location service with ip address %s!", ip), HttpStatus.OK);
     }
 
-    @RequestMapping(value = "/entries",method = RequestMethod.POST)
-    public ResponseEntity<Boolean> addEntry( @RequestBody LocationEntry locationEntry){
-        Boolean ret = locationEntryService.insertLocationEntry(locationEntry);
+    @RequestMapping(value = "/entries/{token}",method = RequestMethod.POST)
+    public ResponseEntity<Boolean> addEntry( @RequestBody LocationEntry locationEntry, @PathVariable String token){
+        Boolean ret = locationEntryService.insertLocationEntry(locationEntry, token);
         if(ret == true){
             return new ResponseEntity<Boolean>(true, HttpStatus.CREATED);
         }

@@ -18,18 +18,20 @@ services:
       - usersnet
 
 
-  # auth-service:
-  #   build: ./services/AxonSaga/Auth-Service
-  #   ports:
-  #   - "8081:8081"
-  #   environment:
-  #     - REGISTRY_HOST=eureka-serviceregistry
-  #     - MYSQL_HOST=users-database
-  #   tty: true
-  #   depends_on:
-  #     - eureka-serviceregistry
-  #     - users-database
-  #     - axon-server
+  auth-service:
+    build: ./services/AxonSaga/Auth-Service
+    ports:
+    - "8081:8081"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+    networks:
+      - usersnet
 
   users-database:
     image: mariadb:10.2
@@ -178,7 +180,7 @@ services:
     depends_on:
        - eureka-serviceregistry
        - axon-server
-#       - auth-service
+       - auth-service
        - vehicle-service
 # #      - search-service
 # #      - rental-service

@@ -46,11 +46,11 @@ public class CarServiceImpl implements CarService {
     }
 
     @Override
-    public VehicleDTO getVehicleFromToken(String token) {
+    public Long getVehicleFromToken(String token) {
         Vehicle vehicle = vehicleRepository.findByCarToken(token);
         if (vehicle == null){
             return null;
         }
-        return new VehicleDTO(vehicle);
+        return vehicle.getId();
     }
 }
