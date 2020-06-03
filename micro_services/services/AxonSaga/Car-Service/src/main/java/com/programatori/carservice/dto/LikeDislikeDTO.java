@@ -6,8 +6,11 @@ import lombok.Data;
 @Data
 public class LikeDislikeDTO {
 
+    private Long id;
     private Boolean liked;
     private UserDTO user;
+
+    public LikeDislikeDTO(){}
 
     public LikeDislikeDTO(LikeDislike likeDislike) {
         this.liked = likeDislike.getLiked();

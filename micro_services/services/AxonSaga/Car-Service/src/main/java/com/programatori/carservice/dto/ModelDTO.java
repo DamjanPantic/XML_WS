@@ -6,8 +6,11 @@ import lombok.Data;
 @Data
 public class ModelDTO {
 
+    private Long id;
     private String name;
     private ManufacturerDTO manufacturer;
+
+    public ModelDTO(){}
 
     public ModelDTO(Model model) {
         this.name = model.getName();

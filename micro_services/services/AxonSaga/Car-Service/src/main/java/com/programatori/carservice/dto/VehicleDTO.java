@@ -24,8 +24,13 @@ public class VehicleDTO {
     private Set<LocationEntryDTO> locationEntries;
     private String carToken;
 
+    public VehicleDTO(){
+
+    }
+
+
     public VehicleDTO(Vehicle vehicle) {
-        this.owner = new UserDTO(vehicle.getOwners());
+        this.owner = new UserDTO(vehicle.getOwner());
         this.model = new ModelDTO(vehicle.getModel());
         this.id = vehicle.getId();
 
@@ -37,6 +42,7 @@ public class VehicleDTO {
             this.features = featuresDTO;
         }
 
+        this.id=vehicle.getId();
         this.traveledKm = vehicle.getTraveledKm();
         this.limitKm = vehicle.getLimitKm();
         this.kidsSeatsNo = vehicle.getKidsSeatsNo();

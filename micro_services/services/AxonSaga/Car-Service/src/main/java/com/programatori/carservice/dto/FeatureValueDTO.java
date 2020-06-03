@@ -6,11 +6,16 @@ import lombok.Data;
 @Data
 public class FeatureValueDTO {
 
+    private Long id;
     private String value;
     private FeatureTypeDTO type;
 
+<<<<<<< HEAD
     public FeatureValueDTO() {
     }
+=======
+    public FeatureValueDTO(){}
+>>>>>>> car/ads
 
     public FeatureValueDTO(FeatureValue featureValue) {
         this.value = featureValue.getValue();

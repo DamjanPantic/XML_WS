@@ -1,21 +1,28 @@
 package com.programatori.carservice.controller;
 
 import com.programatori.carservice.dto.VehicleDTO;
+import com.programatori.carservice.models.Vehicle;
+import com.programatori.carservice.service.AdService;
 import com.programatori.carservice.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
+import java.util.List;
 
 @RestController
 public class CarController {
 
     @Autowired
-    private CarService carService;
+    CarService carService;
+
+    @Autowired
+    AdService adService;
 
     @GetMapping("/hello")
     public ResponseEntity<?> get() throws UnknownHostException {
@@ -40,4 +47,17 @@ public class CarController {
         }
         return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
+
+    @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getTokensVehicle(@RequestBody VehicleDTO vehicleDTO) throws NoSuchAlgorithmException {
+
+        List<VehicleDTO> vehicleDTOS = adService.newVehicle(vehicleDTO);
+        if (vehicleDTOS == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(vehicleDTOS, HttpStatus.OK);
+
+    }
+
+
 }

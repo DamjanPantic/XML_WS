@@ -6,8 +6,11 @@ import lombok.Data;
 @Data
 public class CommentDTO {
 
+    private Long id;
     private String comment;
     private UserDTO user;
+
+    public CommentDTO(){}
 
     public CommentDTO(Comment comment) {
         this.comment = comment.getComment();
