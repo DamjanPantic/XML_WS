@@ -49,9 +49,11 @@ services:
     - "8082:8082"
     environment:
       - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
     tty: true
     depends_on:
       - eureka-serviceregistry
+      - users-database
       - axon-server
 
 
