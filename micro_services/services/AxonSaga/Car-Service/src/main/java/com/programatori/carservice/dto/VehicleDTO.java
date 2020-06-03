@@ -25,40 +25,50 @@ public class VehicleDTO {
     public VehicleDTO(Vehicle vehicle) {
         this.model = new ModelDTO(vehicle.getModel());
 
-        Set<FeatureValueDTO> featuresDTO = new HashSet<>();
-        for (FeatureValue feature: vehicle.getFeatures()) {
-            featuresDTO.add(new FeatureValueDTO(feature));
+        if (vehicle.getFeatures() != null){
+            Set<FeatureValueDTO> featuresDTO = new HashSet<>();
+            for (FeatureValue feature: vehicle.getFeatures()) {
+                featuresDTO.add(new FeatureValueDTO(feature));
+            }
+            this.features = featuresDTO;
         }
-        this.features = featuresDTO;
 
         this.traveledKm = vehicle.getTraveledKm();
         this.limitKm = vehicle.getLimitKm();
         this.kidsSeatsNo = vehicle.getKidsSeatsNo();
         this.cdw = vehicle.getCdw();
 
-        Set<LikeDislikeDTO> likesDTO = new HashSet<>();
-        for (LikeDislike like: vehicle.getLikes()) {
-            likesDTO.add(new LikeDislikeDTO(like));
+        if (vehicle.getLikes() != null){
+            Set<LikeDislikeDTO> likesDTO = new HashSet<>();
+            for (LikeDislike like: vehicle.getLikes()) {
+                likesDTO.add(new LikeDislikeDTO(like));
+            }
+            this.likes = likesDTO;
         }
-        this.likes = likesDTO;
 
-        Set<CommentDTO> comentsDTO = new HashSet<>();
-        for (Comment comment: vehicle.getComments()) {
-            comentsDTO.add(new CommentDTO(comment));
+        if (vehicle.getComments() != null){
+            Set<CommentDTO> comentsDTO = new HashSet<>();
+            for (Comment comment: vehicle.getComments()) {
+                comentsDTO.add(new CommentDTO(comment));
+            }
+            this.comments = comentsDTO;
         }
-        this.comments = comentsDTO;
 
-        Set<AvailabilityDTO> availabilityDTO = new HashSet<>();
-        for (Availability availability: vehicle.getAvailabilities()) {
-            availabilityDTO.add(new AvailabilityDTO(availability));
+        if (vehicle.getAvailabilities() != null){
+            Set<AvailabilityDTO> availabilityDTO = new HashSet<>();
+            for (Availability availability: vehicle.getAvailabilities()) {
+                availabilityDTO.add(new AvailabilityDTO(availability));
+            }
+            this.availabilities = availabilityDTO;
         }
-        this.availabilities = availabilityDTO;
 
-        Set<LocationEntryDTO> locationEntryDTO = new HashSet<>();
-        for (LocationEntry locationEntry: vehicle.getLocationEntries()) {
-            locationEntryDTO.add(new LocationEntryDTO(locationEntry));
+        if (vehicle.getLocationEntries() != null){
+            Set<LocationEntryDTO> locationEntryDTO = new HashSet<>();
+            for (LocationEntry locationEntry: vehicle.getLocationEntries()) {
+                locationEntryDTO.add(new LocationEntryDTO(locationEntry));
+            }
+            this.locationEntries = locationEntryDTO;
         }
-        this.locationEntries = locationEntryDTO;
 
         this.carToken = vehicle.getCarToken();
 
