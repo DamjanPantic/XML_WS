@@ -2,15 +2,13 @@ package com.programatori.locationservice.models;
 
 import lombok.Getter;
 import lombok.Setter;
-import org.hibernate.annotations.CreationTimestamp;
 
 import javax.persistence.*;
-import java.sql.Timestamp;
-import java.time.LocalDateTime;
 
 @Entity
 @Getter
 @Setter
+@Table(name = "location_location_service")
 public class LocationEntry {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
