@@ -9,12 +9,7 @@ public class FeatureTypeDTO {
     private Long id;
     private String name;
 
-<<<<<<< HEAD
-    public FeatureTypeDTO() {
-    }
-=======
     public FeatureTypeDTO(){}
->>>>>>> car/ads
 
     public FeatureTypeDTO(FeatureType featureType) {
         this.name = featureType.getName();
