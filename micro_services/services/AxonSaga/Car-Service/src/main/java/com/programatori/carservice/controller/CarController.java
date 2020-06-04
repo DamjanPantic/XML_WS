@@ -2,6 +2,7 @@ package com.programatori.carservice.controller;
 
 import com.programatori.carservice.dto.VehicleDTO;
 import com.programatori.carservice.models.Vehicle;
+import com.programatori.carservice.repository.VehicleRepository;
 import com.programatori.carservice.service.AdService;
 import com.programatori.carservice.service.CarService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,9 @@ public class CarController {
 
     @Autowired
     AdService adService;
+
+    @Autowired
+    VehicleRepository vehicleRepository;
 
     @GetMapping("/hello")
     public ResponseEntity<?> get() throws UnknownHostException {
@@ -57,6 +61,12 @@ public class CarController {
         }
         return new ResponseEntity<>(vehicleDTOS, HttpStatus.OK);
 
+    }
+
+    @RequestMapping(value = "/get",method = RequestMethod.GET)
+    public List<Vehicle> getVehicle() throws NoSuchAlgorithmException {
+
+        return vehicleRepository.findAll();
     }
 
 

@@ -1,5 +1,6 @@
 package com.programatori.carservice.models;
 
+import com.fasterxml.jackson.annotation.*;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -23,11 +24,9 @@ public class User {
     @Column(unique = true,nullable = false)
     private String username;
 
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<LikeDislike> likes = new HashSet<LikeDislike>();
-
-    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Comment> comments = new HashSet<Comment>();
+    @JsonIgnore
+    @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Vehicle> vehicles = new HashSet<Vehicle>();
 
     public User() {
     }

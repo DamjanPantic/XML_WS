@@ -1,5 +1,6 @@
 package com.programatori.carservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 import org.hibernate.annotations.OnDelete;
@@ -25,7 +26,8 @@ public class FeatureValue {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private FeatureType type;
 
-    @ManyToMany(mappedBy = "features")
+    @JsonIgnore
+    @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.DETACH,mappedBy = "features")
     private Set<Vehicle> vehicles;
 
     public FeatureValue() {

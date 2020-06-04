@@ -1,6 +1,5 @@
 package com.programatori.carservice.models;
 
-import com.programatori.carservice.dto.VehicleDTO;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -18,13 +17,13 @@ public class Vehicle {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private User owner;
 
-    @OneToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Model model;
 
-    @ManyToMany
+    @ManyToMany(fetch = FetchType.LAZY ,cascade = CascadeType.DETACH)
     @JoinTable(
             name = "vehicle_features_car_service",
             joinColumns = @JoinColumn(
@@ -33,7 +32,7 @@ public class Vehicle {
                     name = "feature_id", referencedColumnName = "id"))
     private Set<FeatureValue> features;
 
-    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Price> prices = new HashSet<Price>();
 
     private Double traveledKm;
@@ -45,16 +44,10 @@ public class Vehicle {
     private Boolean cdw;
 
     @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<LikeDislike> likes = new HashSet<LikeDislike>();
-
-    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Comment> comments = new HashSet<Comment>();
-
-    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Availability> availabilities = new HashSet<Availability>();
 
     @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<LocationEntry> locationEntries = new HashSet<LocationEntry>();
+    private Set<Image> images = new HashSet<Image>();
 
     private String carToken;
 
@@ -65,7 +58,7 @@ public class Vehicle {
     public String toString() {
         return "Vehicle{" +
                 "id=" + id +
-                ", owners=" + owner +
+                ", owner=" + owner +
                 ", model=" + model +
                 ", features=" + features +
                 ", prices=" + prices +
@@ -73,10 +66,8 @@ public class Vehicle {
                 ", limitKm='" + limitKm + '\'' +
                 ", kidsSeatsNo=" + kidsSeatsNo +
                 ", cdw=" + cdw +
-                ", likes=" + likes +
-                ", comments=" + comments +
                 ", availabilities=" + availabilities +
-                ", locationEntries=" + locationEntries +
+                ", images=" + images +
                 ", carToken='" + carToken + '\'' +
                 '}';
     }

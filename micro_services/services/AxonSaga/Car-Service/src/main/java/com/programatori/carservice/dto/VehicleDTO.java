@@ -18,10 +18,8 @@ public class VehicleDTO {
     private String limitKm;
     private Integer kidsSeatsNo;
     private Boolean cdw;
-    private Set<LikeDislikeDTO> likes;
-    private Set<CommentDTO> comments;
     private Set<AvailabilityDTO> availabilities;
-    private Set<LocationEntryDTO> locationEntries;
+    private Set<Image> images;
     private String carToken;
 
     public VehicleDTO(){
@@ -48,22 +46,6 @@ public class VehicleDTO {
         this.kidsSeatsNo = vehicle.getKidsSeatsNo();
         this.cdw = vehicle.getCdw();
 
-        if (vehicle.getLikes() != null){
-            Set<LikeDislikeDTO> likesDTO = new HashSet<>();
-            for (LikeDislike like: vehicle.getLikes()) {
-                likesDTO.add(new LikeDislikeDTO(like));
-            }
-            this.likes = likesDTO;
-        }
-
-        if (vehicle.getComments() != null){
-            Set<CommentDTO> comentsDTO = new HashSet<>();
-            for (Comment comment: vehicle.getComments()) {
-                comentsDTO.add(new CommentDTO(comment));
-            }
-            this.comments = comentsDTO;
-        }
-
         if (vehicle.getAvailabilities() != null){
             Set<AvailabilityDTO> availabilityDTO = new HashSet<>();
             for (Availability availability: vehicle.getAvailabilities()) {
@@ -72,14 +54,7 @@ public class VehicleDTO {
             this.availabilities = availabilityDTO;
         }
 
-        if (vehicle.getLocationEntries() != null){
-            Set<LocationEntryDTO> locationEntryDTO = new HashSet<>();
-            for (LocationEntry locationEntry: vehicle.getLocationEntries()) {
-                locationEntryDTO.add(new LocationEntryDTO(locationEntry));
-            }
-            this.locationEntries = locationEntryDTO;
-        }
-
+        this.images=vehicle.getImages();
         this.carToken = vehicle.getCarToken();
 
     }
