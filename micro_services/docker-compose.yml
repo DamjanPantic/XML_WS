@@ -133,20 +133,22 @@ services:
 #      - axon-server
 #
 #
-#  location-service:
-#    build: ./services/AxonSaga/Location-Service
-#    ports:
-#    - "8088:8088"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#      - MYSQL_HOST=users-database
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - users-database
-#      - axon-server
-#    networks:
-#      - usersnet
+
+  location-service:
+    build: ./services/AxonSaga/Location-Service
+    ports:
+      - "8088:8088"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+    networks:
+      - usersnet
+      
 #
 #  bezbednost_db:
 #    image: mariadb:10.2
@@ -195,7 +197,7 @@ services:
 #      - recension-service
 #      - message-service
 #      - email-service
-#      - location-service
+       - location-service
     networks:
       - usersnet
 #

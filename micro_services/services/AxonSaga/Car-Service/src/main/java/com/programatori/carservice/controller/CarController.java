@@ -14,6 +14,7 @@ import org.springframework.web.bind.annotation.*;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
+import java.text.ParseException;
 import java.util.List;
 
 @RestController
@@ -29,7 +30,10 @@ public class CarController {
     VehicleRepository vehicleRepository;
 
     @GetMapping("/hello")
-    public ResponseEntity<?> get() throws UnknownHostException {
+    public ResponseEntity<?> get() throws UnknownHostException, ParseException {
+//        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("28/02/2020");
+//        date = DateUtils.addDays(date,1);
+//        System.out.println(date);
         String ip = InetAddress.getLocalHost().getHostAddress();
         return new ResponseEntity<>(String.format("Hello from Car service with ip address %s!", ip), HttpStatus.OK);
     }
@@ -44,7 +48,7 @@ public class CarController {
     }
 
     @RequestMapping(value = "/token/{token}",method = RequestMethod.GET)
-    public ResponseEntity<?> getTokensVehicle(@PathVariable String token) throws NoSuchAlgorithmException {
+    public ResponseEntity<?> getTokensVehicle(@PathVariable String token){
         Long vehicle = carService.getVehicleFromToken(token);
         if (vehicle == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
@@ -53,7 +57,7 @@ public class CarController {
     }
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getTokensVehicle(@RequestBody VehicleDTO vehicleDTO) throws NoSuchAlgorithmException {
+    public ResponseEntity<?> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
 
         List<VehicleDTO> vehicleDTOS = adService.newVehicle(vehicleDTO);
         if (vehicleDTOS == null){
