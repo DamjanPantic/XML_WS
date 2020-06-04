@@ -1,4 +1,4 @@
-package com.programatori.carservice.models;
+package com.programatori.searchservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -10,7 +10,7 @@ import java.util.Date;
 @Getter
 @Setter
 @Entity
-@Table(name = "availability_car_service")
+@Table(name = "availability_search_service")
 public class Availability {
 
     @Id

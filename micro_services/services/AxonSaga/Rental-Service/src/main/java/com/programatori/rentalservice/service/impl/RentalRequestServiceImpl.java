@@ -59,8 +59,8 @@ public class RentalRequestServiceImpl implements RentalRequestService {
                     rentalRequest.setCustomerId(requestDTO.getCustomerId());
                     rentalRequest.setStatus(RentalRequestStatus.PENDING);
                     rentalRequest.setOwnerId(requestDTO.getOwnerId());
-                    rentalRequest.setFromDate(new SimpleDateFormat("yyyy-MM-dd").parse(requestDTO.getFromDate()));
-                    rentalRequest.setToDate(new SimpleDateFormat("yyyy-MM-dd").parse(requestDTO.getToDate()));
+                    rentalRequest.setFromDate(new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(requestDTO.getFromDate()));
+                    rentalRequest.setToDate(new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(requestDTO.getToDate()));
                     List<Vehicle> vehicles1 = new ArrayList<>();
                     vehicles1.add(vehicleRepository.findByVehicleId(requestDTO.getVehicleId()));
                     rentalRequest.setVehicleIds(vehicles1);
@@ -72,8 +72,8 @@ public class RentalRequestServiceImpl implements RentalRequestService {
                 rentalRequest.setCustomerId(requests.get(0).getCustomerId());
                 rentalRequest.setStatus(RentalRequestStatus.PENDING);
                 rentalRequest.setOwnerId(requests.get(0).getOwnerId());
-                rentalRequest.setFromDate(new SimpleDateFormat("yyyy-MM-dd").parse(requests.get(0).getFromDate()));
-                rentalRequest.setToDate(new SimpleDateFormat("yyyy-MM-dd").parse(requests.get(0).getToDate()));
+                rentalRequest.setFromDate(new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(requests.get(0).getFromDate()));
+                rentalRequest.setToDate(new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(requests.get(0).getToDate()));
                 rentalRequest.setVehicleIds(vehicles);
                 rentalRequestRepository.save(rentalRequest);
             }
