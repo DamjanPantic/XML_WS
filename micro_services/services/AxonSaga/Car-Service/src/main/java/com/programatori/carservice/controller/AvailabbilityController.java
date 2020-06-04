@@ -28,4 +28,14 @@ public class AvailabbilityController {
         return new ResponseEntity<>(availabilitiesDTO, HttpStatus.OK);
 
     }
+
+    @PutMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> putReservationToVehicle(@PathVariable Long id, @RequestBody AvailabilityDTO availabilityDTO) throws ParseException {
+        Set<AvailabilityDTO> availabilitiesDTO = availabilityService.addReservation(id, availabilityDTO);
+        if (availabilitiesDTO == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        return new ResponseEntity<>(availabilitiesDTO, HttpStatus.OK);
+
+    }
 }
