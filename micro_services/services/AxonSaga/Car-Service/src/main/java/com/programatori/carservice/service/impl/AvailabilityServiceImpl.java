@@ -44,8 +44,8 @@ public class AvailabilityServiceImpl implements AvailabilityService {
         Availability availability = new Availability();
         availability.setPlace(availabilityDTO.getPlace());
 
-        Date formDate = new SimpleDateFormat("yyyy-MM-dd").parse(availabilityDTO.getFromDate());
-        Date toDate = new SimpleDateFormat("yyyy-MM-dd").parse(availabilityDTO.getToDate());
+        Date formDate = new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(availabilityDTO.getFromDate());
+        Date toDate = new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(availabilityDTO.getToDate());
 
         availability.setFromDate(formDate);
         availability.setToDate(toDate);
@@ -68,15 +68,15 @@ public class AvailabilityServiceImpl implements AvailabilityService {
             return null;
         }
 
-        Date fromDate = new SimpleDateFormat("yyyy-MM-dd").parse(availabilityDTO.getFromDate());
-        Date toDate = new SimpleDateFormat("yyyy-MM-dd").parse(availabilityDTO.getToDate());
+        Date fromDate = new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(availabilityDTO.getFromDate());
+        Date toDate = new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(availabilityDTO.getToDate());
 
         for (Availability availability : vehicle.getAvailabilities()) {
             if (fromDate.compareTo(availability.getFromDate()) >= 0
                     && toDate.compareTo(availability.getToDate()) <= 0) {
 
-                fromDate = DateUtils.addDays(fromDate, -1);
-                toDate = DateUtils.addDays(toDate, 1);
+                fromDate = DateUtils.addMinutes(fromDate, -1);
+                toDate = DateUtils.addMinutes(toDate, 1);
 
                 if (fromDate.compareTo(availability.getFromDate()) >= 0){
                     Availability newAvailability = new Availability();

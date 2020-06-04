@@ -52,7 +52,7 @@ public class CarController {
     }
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> addVehicle(@RequestBody VehicleDTO vehicleDTO){
+    public ResponseEntity<?> addVehicle(@RequestBody VehicleDTO vehicleDTO) throws ParseException {
 
         List<VehicleDTO> vehicleDTOS = adService.newVehicle(vehicleDTO);
         if (vehicleDTOS == null){
