@@ -65,28 +65,36 @@ services:
       - usersnet
 
 
-#  search-service:
-#    build: ./services/AxonSaga/Search-Service
-#    ports:
-#    - "8083:8083"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - axon-server
-#
-#
-#  rental-service:
-#    build: ./services/AxonSaga/Rental-Service
-#    ports:
-#    - "8084:8084"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - axon-server
+  search-service:
+    build: ./services/AxonSaga/Search-Service
+    ports:
+    - "8083:8083"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+    networks:
+      - usersnet
+
+
+  rental-service:
+    build: ./services/AxonSaga/Rental-Service
+    ports:
+    - "8084:8084"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+    networks:
+      - usersnet
 #
 #
 #  recension-service:
@@ -125,10 +133,11 @@ services:
 #      - axon-server
 #
 #
+
   location-service:
     build: ./services/AxonSaga/Location-Service
     ports:
-    - "8088:8088"
+      - "8088:8088"
     environment:
       - REGISTRY_HOST=eureka-serviceregistry
       - MYSQL_HOST=users-database
@@ -139,6 +148,7 @@ services:
       - axon-server
     networks:
       - usersnet
+      
 #
 #  bezbednost_db:
 #    image: mariadb:10.2
@@ -182,11 +192,11 @@ services:
        - axon-server
        - auth-service
        - vehicle-service
-# #      - search-service
-# #      - rental-service
-# #      - recension-service
-# #      - message-service
-# #      - email-service
+       - search-service
+       - rental-service
+#      - recension-service
+#      - message-service
+#      - email-service
        - location-service
     networks:
       - usersnet

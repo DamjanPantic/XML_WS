@@ -1,5 +1,6 @@
-package com.programatori.carservice.models;
+package com.programatori.searchservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -8,22 +9,23 @@ import javax.persistence.*;
 @Getter
 @Setter
 @Entity
-@Table(name = "location_car_service")
-public class LocationEntry {
+@Table(name = "price_search_service")
+public class Price {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
     @Column(nullable = false)
-    private Double lat;
+    private String value;
 
-    @Column(nullable = false)
-    private Double lng;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    private PriceType type;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Vehicle vehicle;
 
-    public LocationEntry() {
+    public Price() {
     }
 }

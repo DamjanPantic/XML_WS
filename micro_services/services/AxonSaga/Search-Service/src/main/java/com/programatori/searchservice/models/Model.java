@@ -1,4 +1,4 @@
-package com.programatori.carservice.models;
+package com.programatori.searchservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -11,7 +11,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "model_car_service")
+@Table(name = "model_search_service")
 public class Model {
 
     @Id

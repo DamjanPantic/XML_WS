@@ -1,4 +1,4 @@
-package com.programatori.carservice.models;
+package com.programatori.searchservice.models;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
@@ -11,8 +11,8 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "price_type_car_service")
-public class PriceType {
+@Table(name = "feature_type_search_service")
+public class FeatureType {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -23,8 +23,9 @@ public class PriceType {
 
     @JsonIgnore
     @OneToMany(mappedBy = "type", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
-    private Set<Price> values = new HashSet<Price>();
+    private Set<FeatureValue> values = new HashSet<FeatureValue>();
 
-    public PriceType() {
+
+    public FeatureType() {
     }
 }

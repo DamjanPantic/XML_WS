@@ -1,4 +1,4 @@
-package com.programatori.carservice.models;
+package com.programatori.searchservice.models;
 
 import lombok.Getter;
 import lombok.Setter;
@@ -10,7 +10,7 @@ import java.util.Set;
 @Getter
 @Setter
 @Entity
-@Table(name = "vehicle_car_service")
+@Table(name = "vehicle_search_service")
 public class Vehicle {
 
     @Id

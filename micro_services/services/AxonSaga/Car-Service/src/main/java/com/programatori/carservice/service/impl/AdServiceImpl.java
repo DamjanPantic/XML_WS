@@ -3,6 +3,7 @@ package com.programatori.carservice.service.impl;
 import com.programatori.carservice.dto.AvailabilityDTO;
 import com.programatori.carservice.dto.VehicleDTO;
 import com.programatori.carservice.models.Availability;
+import com.programatori.carservice.models.Image;
 import com.programatori.carservice.models.User;
 import com.programatori.carservice.models.Vehicle;
 import com.programatori.carservice.repository.FeatureValueRepository;
@@ -62,6 +63,11 @@ public class AdServiceImpl implements AdService {
             vehicle.setAvailabilities(availabilities);
         }
 
+        if (vehicle.getImages() != null){
+            for(Image i : vehicle.getImages()){
+                i.setVehicle(vehicle);
+            }
+        }
         vehicleRepository.save(vehicle);
 
         List<VehicleDTO> vehicleDTOS = new ArrayList<>();
