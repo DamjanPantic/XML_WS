@@ -1,8 +1,7 @@
 package com.programatori.carservice.service.impl;
 
-import ch.qos.logback.core.CoreConstants;
 import com.programatori.carservice.dto.VehicleDTO;
-import com.programatori.carservice.models.FeatureValue;
+import com.programatori.carservice.models.Image;
 import com.programatori.carservice.models.User;
 import com.programatori.carservice.models.Vehicle;
 import com.programatori.carservice.repository.FeatureValueRepository;
@@ -40,6 +39,9 @@ public class AdServiceImpl implements AdService {
             return null;
         }
         Vehicle vehicle = mapper.map(vehicleDTO, Vehicle.class);
+        for(Image i : vehicle.getImages()){
+            i.setVehicle(vehicle);
+        }
         vehicleRepository.save(vehicle);
 
         List<VehicleDTO> vehicleDTOS = new ArrayList<>();
