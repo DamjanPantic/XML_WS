@@ -77,16 +77,20 @@ services:
 #      - axon-server
 #
 #
-#  rental-service:
-#    build: ./services/AxonSaga/Rental-Service
-#    ports:
-#    - "8084:8084"
-#    environment:
-#      - REGISTRY_HOST=eureka-serviceregistry
-#    tty: true
-#    depends_on:
-#      - eureka-serviceregistry
-#      - axon-server
+  rental-service:
+    build: ./services/AxonSaga/Rental-Service
+    ports:
+    - "8084:8084"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+    networks:
+      - usersnet
 #
 #
 #  recension-service:
@@ -182,11 +186,11 @@ services:
        - axon-server
        - auth-service
        - vehicle-service
-# #      - search-service
-# #      - rental-service
-# #      - recension-service
-# #      - message-service
-# #      - email-service
+#      - search-service
+       - rental-service
+#      - recension-service
+#      - message-service
+#      - email-service
        - location-service
     networks:
       - usersnet
