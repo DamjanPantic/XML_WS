@@ -25,7 +25,7 @@ public class Vehicle {
 
     @ManyToMany(fetch = FetchType.LAZY ,cascade = CascadeType.DETACH)
     @JoinTable(
-            name = "vehicle_features_car_service",
+            name = "vehicle_features_search_service",
             joinColumns = @JoinColumn(
                     name = "vehicle_id", referencedColumnName = "id"),
             inverseJoinColumns = @JoinColumn(
