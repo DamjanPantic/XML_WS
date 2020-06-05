@@ -1,5 +1,6 @@
 package com.programatori.carservice.service.impl;
 
+import com.programatori.carservice.client.RentalClient;
 import com.programatori.carservice.dto.AvailabilityDTO;
 import com.programatori.carservice.models.Availability;
 import com.programatori.carservice.models.Vehicle;
@@ -27,6 +28,9 @@ public class AvailabilityServiceImpl implements AvailabilityService {
 
     @Autowired
     AvailabilityRepository availabilityRepository;
+
+    @Autowired
+    RentalClient rentalClient;
 
     DozerBeanMapper mapper = new DozerBeanMapper();
 
@@ -100,6 +104,8 @@ public class AvailabilityServiceImpl implements AvailabilityService {
                 vehicleRepository.save(vehicle);
 
                 availabilityRepository.deleteById(availability.getId());
+
+                rentalClient.checkValidationOfRenatalRequests(id, availability);
 
                 return availabilityRepository.findByVehicleId(id);
 

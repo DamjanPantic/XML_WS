@@ -1,5 +1,6 @@
 package com.programatori.rentalservice.service.impl;
 
+import com.programatori.rentalservice.dto.AvailabilityDTO;
 import com.programatori.rentalservice.dto.RentalRequestDTO;
 import com.programatori.rentalservice.models.RentalRequest;
 import com.programatori.rentalservice.models.RentalRequestStatus;
@@ -78,6 +79,21 @@ public class RentalRequestServiceImpl implements RentalRequestService {
                 rentalRequestRepository.save(rentalRequest);
             }
 
+        }
+
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> deleteInvalidRentals(Long vehicleId, AvailabilityDTO availabilityDTO) {
+
+        List<RentalRequest> rentalRequests = rentalRequestRepository.findInvalidRentals(vehicleId,
+                availabilityDTO.getFromDate(), availabilityDTO.getToDate());
+
+        if (rentalRequests != null){
+            for(RentalRequest rentalRequest: rentalRequests){
+                rentalRequestRepository.delete(rentalRequest);
+            }
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
