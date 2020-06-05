@@ -61,5 +61,11 @@ VALUES ('', true, 2, 'NO_LIMIT', 20000.0, 1, 1),
 
 INSERT INTO users.availability_search_service
     (from_date, to_date, place, vehicle_id)
-VALUES ('2020-02-10 07:00:00','2020-02-16 07:00:00','Novi Sad',1),
-       ('2020-02-10 07:00:00','2020-02-16 07:00:00','Beograd',2);
+VALUES ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 1),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 2);
+
+INSERT INTO users.vehicle_features_search_service
+    (vehicle_id, feature_id)
+VALUES (1, 2),
+       (2, 1),
+       (2, 4);

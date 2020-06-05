@@ -13,10 +13,14 @@ public interface SearchRepository extends JpaRepository<Vehicle,Long> {
 
 
     @Query(value = "select v from Vehicle v" +
-            " inner join v.availabilities a where ((a.place) = (:place))" +
-            "and ((:toDate) <=  (a.toDate) and (:fromDate) >=  (a.fromDate))"
-    )
+            " inner join v.availabilities a "+
+            "where ((a.place) = (:place))" +
+            "and ((:toDate) <=  (a.toDate) and (:fromDate) >=  (a.fromDate))" +
+            "and (((:brand) is null ) or ((v.model.manufacturer.name) = (:brand)))" +
+            "and (coalesce(:models, null) is null or (v.model.name) in (:models))")
     List<Vehicle> getBySearchParams(@Param("place") String place,
                                     @Param("fromDate") Date fromDate,
-                                    @Param("toDate") Date toDate);
+                                    @Param("toDate") Date toDate,
+                                    @Param("brand") String brand,
+                                    @Param("models") List<String> models);
 }
