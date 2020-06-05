@@ -8,6 +8,17 @@ services:
     tty: true
     networks:
       - usersnet
+      
+  front:
+   build: ./microservices-client
+   ports:
+   - "8090:8090"
+   environment:
+     - REGISTRY_HOST=eureka-serviceregistry
+   tty: true
+   networks:
+      - usersnet
+
 
   axon-server:
     image: axoniq/axonserver:4.3.2
@@ -190,14 +201,14 @@ services:
     depends_on:
        - eureka-serviceregistry
        - axon-server
-       - auth-service
+#       - auth-service
        - vehicle-service
-       - search-service
-       - rental-service
+#       - search-service
+#       - rental-service
 #      - recension-service
 #      - message-service
 #      - email-service
-       - location-service
+#       - location-service
     networks:
       - usersnet
 #
