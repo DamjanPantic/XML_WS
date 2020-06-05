@@ -1,5 +1,6 @@
 package com.programatori.rentalservice.service;
 
+import com.programatori.rentalservice.dto.AvailabilityDTO;
 import com.programatori.rentalservice.dto.RentalRequestDTO;
 import org.springframework.http.ResponseEntity;
 
@@ -9,4 +10,6 @@ import java.util.List;
 public interface RentalRequestService {
 
     public ResponseEntity<?> addRentalRequest(List<RentalRequestDTO> rentalRequestDTO) throws ParseException;
+
+    ResponseEntity<?> deleteInvalidRentals(Long vehicleId, AvailabilityDTO availabilityDTO);
 }
