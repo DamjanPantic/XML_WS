@@ -17,7 +17,7 @@ public class SetupDataLoader implements
 
     //ovo menjas na true kada pokrenes jednom
     //prvi put na false
-    boolean alreadySetup = true;
+    boolean alreadySetup = false;
 
     @Autowired
     private IUserRepository userRepository;
