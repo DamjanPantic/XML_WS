@@ -1,5 +1,6 @@
 package com.programatori.carservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -22,7 +23,8 @@ public class Availability {
 
     private Date toDate;
 
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Vehicle vehicle;
 
     public Availability() {

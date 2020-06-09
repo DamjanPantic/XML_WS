@@ -1,5 +1,6 @@
 package com.programatori.carservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -21,6 +22,7 @@ public class Price {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private PriceType type;
 
+    @JsonIgnore
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Vehicle vehicle;
 

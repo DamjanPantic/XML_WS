@@ -1,5 +1,6 @@
 package com.programatori.carservice.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -20,6 +21,7 @@ public class PriceType {
     @Column(unique = true,nullable = false)
     private String name;
 
+    @JsonIgnore
     @OneToMany(mappedBy = "type", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     private Set<Price> values = new HashSet<Price>();
 
