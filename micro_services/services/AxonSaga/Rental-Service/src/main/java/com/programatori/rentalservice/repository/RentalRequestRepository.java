@@ -1,6 +1,7 @@
 package com.programatori.rentalservice.repository;
 
 import com.programatori.rentalservice.models.RentalRequest;
+import com.programatori.rentalservice.models.RentalRequestStatus;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
@@ -18,4 +19,8 @@ public interface RentalRequestRepository extends JpaRepository<RentalRequest,Lon
     )
     List<RentalRequest> findInvalidRentals(@Param("vehicleId") Long vehicleId, @Param("fromDate") Date fromDate,
                                            @Param("toDate") Date toDate);
+
+
+    @Query(value = "select * from RentalRequest r where r.ownerId = (:ownerId) and r.status = (:status)", nativeQuery = true)
+    List<RentalRequest> findRentalRequestByOwnerIdAndStatus(@Param("ownerId") Long ownerId, @Param("status") RentalRequestStatus status);
 }

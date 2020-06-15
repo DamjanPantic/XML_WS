@@ -110,7 +110,20 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         if(rentalRequest == null ){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+        if(approveDenyRequestDTO.isApprove()){
+            rentalRequest.setStatus(RentalRequestStatus.APPROVED);
+        }else{
+            rentalRequest.setStatus(RentalRequestStatus.CANCELED);
+        }
+        rentalRequestRepository.save(rentalRequest);
 
-        return null;
+        return new ResponseEntity<RentalRequestServiceImpl>(HttpStatus.OK);
     }
+
+    @Override
+    public ResponseEntity<?> listPendingRequests(Long ownerId) {
+        return new ResponseEntity<List<RentalRequest>>(rentalRequestRepository.findRentalRequestByOwnerIdAndStatus(ownerId, RentalRequestStatus.PENDING), HttpStatus.OK);
+    }
+
+
 }

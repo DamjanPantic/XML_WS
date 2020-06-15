@@ -15,4 +15,6 @@ public interface RentalRequestService {
     ResponseEntity<?> deleteInvalidRentals(Long vehicleId, AvailabilityDTO availabilityDTO);
 
     public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO);
+
+    public ResponseEntity<?> listPendingRequests(Long ownerId);
 }
