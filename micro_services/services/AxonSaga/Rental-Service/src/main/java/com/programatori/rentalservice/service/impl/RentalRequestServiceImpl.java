@@ -1,5 +1,6 @@
 package com.programatori.rentalservice.service.impl;
 
+import com.programatori.rentalservice.dto.ApproveDenyRequestDTO;
 import com.programatori.rentalservice.dto.AvailabilityDTO;
 import com.programatori.rentalservice.dto.RentalRequestDTO;
 import com.programatori.rentalservice.models.RentalRequest;
@@ -97,5 +98,19 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         }
 
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO) {
+        Vehicle vehicle = vehicleRepository.findByVehicleId(approveDenyRequestDTO.getVehicleId());
+        if(vehicle == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        RentalRequest rentalRequest = rentalRequestRepository.getOne(approveDenyRequestDTO.getRequestId());
+        if(rentalRequest == null ){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+
+        return null;
     }
 }

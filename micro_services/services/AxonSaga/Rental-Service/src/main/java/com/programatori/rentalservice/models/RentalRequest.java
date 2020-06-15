@@ -43,4 +43,7 @@ public class RentalRequest {
             inverseJoinColumns = @JoinColumn(
                     name = "vehicle_id", referencedColumnName = "id"))
     private List<Vehicle> vehicleIds;
+
+    @Column(nullable = true)
+    private Boolean approved;
 }
