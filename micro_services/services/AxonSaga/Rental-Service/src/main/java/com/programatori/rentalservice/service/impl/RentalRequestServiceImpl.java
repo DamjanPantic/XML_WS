@@ -111,9 +111,9 @@ public class RentalRequestServiceImpl implements RentalRequestService {
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         if(approveDenyRequestDTO.isApprove()){
-            rentalRequest.setStatus(RentalRequestStatus.APPROVED);
+            rentalRequest.setRequestStatus(RentalRequestStatus.RESERVED);
         }else{
-            rentalRequest.setStatus(RentalRequestStatus.CANCELED);
+            rentalRequest.setRequestStatus(RentalRequestStatus.DENIED);
         }
         rentalRequestRepository.save(rentalRequest);
 

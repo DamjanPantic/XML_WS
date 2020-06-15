@@ -46,4 +46,22 @@ public class RentalRequest {
 
     @Column(nullable = true)
     private Boolean approved;
+
+    private Long creationTime;
+
+    @PrePersist
+    protected void onCreate() {
+        creationTime = System.currentTimeMillis();
+    }
+
+    private Long approvalTime;
+
+    public void setRequestStatus(RentalRequestStatus status){
+        if(status == RentalRequestStatus.RESERVED){
+            approvalTime = System.currentTimeMillis();
+        }
+        this.status = status;
+    }
+
+
 }
