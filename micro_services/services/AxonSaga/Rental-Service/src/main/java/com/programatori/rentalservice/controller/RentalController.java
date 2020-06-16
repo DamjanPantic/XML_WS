@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
@@ -49,5 +50,10 @@ public class RentalController {
     @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveDenyRentalRequest(@RequestBody ApproveDenyRequestDTO approveDenyRequestDTO){
         return rentalRequestService.approveDenyRequest(approveDenyRequestDTO);
+    }
+
+    @Scheduled(fixedRate=10000)
+    public void clearRequests() {
+        rentalRequestService.clearRequests();
     }
 }

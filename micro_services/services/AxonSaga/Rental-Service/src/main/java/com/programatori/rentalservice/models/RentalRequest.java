@@ -44,9 +44,6 @@ public class RentalRequest {
                     name = "vehicle_id", referencedColumnName = "id"))
     private List<Vehicle> vehicleIds;
 
-    @Column(nullable = true)
-    private Boolean approved;
-
     private Long creationTime;
 
     @PrePersist

@@ -1,5 +1,6 @@
 package com.programatori.rentalservice.service.impl;
 
+import com.programatori.rentalservice.configuration.SpringConfig;
 import com.programatori.rentalservice.dto.ApproveDenyRequestDTO;
 import com.programatori.rentalservice.dto.AvailabilityDTO;
 import com.programatori.rentalservice.dto.RentalRequestDTO;
@@ -123,6 +124,30 @@ public class RentalRequestServiceImpl implements RentalRequestService {
     @Override
     public ResponseEntity<?> listPendingRequests(Long ownerId) {
         return new ResponseEntity<List<RentalRequest>>(rentalRequestRepository.findRentalRequestByOwnerIdAndStatus(ownerId, RentalRequestStatus.PENDING), HttpStatus.OK);
+    }
+
+    @Override
+    public void clearRequests() {
+        System.out.println("clearing");
+        List<RentalRequest> requests = rentalRequestRepository.findAll();
+        System.out.println(requests);
+        List<RentalRequest> pendingRequests = rentalRequestRepository.findRentalRequestByStatus(RentalRequestStatus.PENDING);
+        List<RentalRequest> reserved = rentalRequestRepository.findRentalRequestByStatus(RentalRequestStatus.RESERVED);
+        System.out.println(pendingRequests);
+        for (RentalRequest r : pendingRequests) {
+            if (System.currentTimeMillis() - r.getCreationTime() >= SpringConfig.PENDING_REQUEST_CLEARING) {
+                r.setStatus(RentalRequestStatus.CANCELED);
+                rentalRequestRepository.save(r);
+            }
+        }
+
+        for (RentalRequest r : reserved) {
+            if (System.currentTimeMillis() - r.getApprovalTime() >= SpringConfig.RESERVED_REQUEST_CLEARING) {
+                r.setStatus(RentalRequestStatus.CANCELED);
+                rentalRequestRepository.save(r);
+            }
+        }
+
     }
 
 

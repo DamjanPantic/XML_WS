@@ -21,6 +21,11 @@ public interface RentalRequestRepository extends JpaRepository<RentalRequest,Lon
                                            @Param("toDate") Date toDate);
 
 
-    @Query(value = "select * from RentalRequest r where r.ownerId = (:ownerId) and r.status = (:status)", nativeQuery = true)
+    @Query(value = "select r from RentalRequest r where r.ownerId = (:ownerId) and r.status = (:status)")
     List<RentalRequest> findRentalRequestByOwnerIdAndStatus(@Param("ownerId") Long ownerId, @Param("status") RentalRequestStatus status);
+
+    @Query(value = "select r from RentalRequest r where r.status = (:status) ")
+    List<RentalRequest> findRentalRequestByStatus(@Param("status") RentalRequestStatus status);
+
+
 }
