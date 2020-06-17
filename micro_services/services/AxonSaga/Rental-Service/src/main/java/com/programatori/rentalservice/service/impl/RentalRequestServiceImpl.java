@@ -111,6 +111,9 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         if(rentalRequest == null ){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
+        if(rentalRequest.getStatus() == RentalRequestStatus.PAID || rentalRequest.getStatus() == RentalRequestStatus.CANCELED){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
         if(approveDenyRequestDTO.isApprove()){
             rentalRequest.setRequestStatus(RentalRequestStatus.RESERVED);
         }else{
@@ -148,6 +151,17 @@ public class RentalRequestServiceImpl implements RentalRequestService {
             }
         }
 
+    }
+
+    @Override
+    public ResponseEntity<?> pay(Long requestId) {
+        RentalRequest rentalRequest = rentalRequestRepository.getOne(requestId);
+        if(rentalRequest == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        rentalRequest.setStatus(RentalRequestStatus.PAID);
+        rentalRequestRepository.save(rentalRequest);
+        return new ResponseEntity<>(HttpStatus.OK);
     }
 
 

@@ -19,4 +19,6 @@ public interface RentalRequestService {
     public ResponseEntity<?> listPendingRequests(Long ownerId);
 
     public void clearRequests();
+
+    public ResponseEntity<?> pay(Long requestId);
 }
