@@ -1,19 +1,38 @@
-import Vue from 'vue'
-import VueRouter from 'vue-router'
-import Home from '../views/Home.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from '../components/Home';
+import Login from '../components/Login';
+import routes from './router-names'; 
+Vue.use(Router);
 
-Vue.use(VueRouter)
+const router = new Router({
+    mode: 'history',
+    routes: [
+      {
+        path: routes.LOGIN_ROUTE.path,
+        name: routes.LOGIN_ROUTE.name,
+        component: Login,
+        meta: {
+          requiresAuth: false
+        }
+      },
+      {
+        path: routes.HOME_ROUTE.path,
+        name: routes.HOME_ROUTE.name,
+        component: Home,
+        meta: {
+          requiresAuth: false
+        }
+      }
+    ]
+  })
 
-  const routes = [
-  {
-    path: '/',
-    name: 'Home',
-    component: Home
-  },
-]
+  router.beforeEach((to, from, next) => {
+    if(!localStorage.getItem('token') && to.meta.requiresAuth)
+      next('/login');
+    else
+      next();
+    
+  })
 
-const router = new VueRouter({
-  routes
-})
-
-export default router
+  export default router;
