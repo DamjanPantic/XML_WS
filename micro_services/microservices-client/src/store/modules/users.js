@@ -42,12 +42,14 @@ const mutations = {
     loginUser: (state, data) => {
         state.token = data.access_token;        
         state.user = data.user;
-        localStorage.setItem('token',data.Authorization);
+        console.log(data);
+        
+        localStorage.setItem('token',data.authorization);
     },
     registerUser: (state, data) => {
         state.token = data.access_token,
         state.user = data.user,
-        localStorage.setItem('token',data.Authorization);
+        localStorage.setItem('token',data.authorization);
 
     }
 };

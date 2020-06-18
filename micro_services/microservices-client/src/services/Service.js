@@ -17,7 +17,7 @@ class Service {
     
         if (!!token) {
             Object.assign(config.headers, {
-                Authorization: `Bearer ${token}`
+                Authorization: `${token}`
             });
         }
 

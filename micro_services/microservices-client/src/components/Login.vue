@@ -9,11 +9,9 @@
     ></v-text-field>
     <v-text-field
         v-model="password"
-        :rules="[rules.required, rules.min]"
         :type="show1 ? 'text' : 'password'"
         name="input-10-1"
         label="Password"
-        hint="At least 8 characters"
         counter
         @click:append="show1 = !show1"
     ></v-text-field>
