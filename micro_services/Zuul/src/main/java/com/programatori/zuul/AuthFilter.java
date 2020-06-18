@@ -4,9 +4,12 @@ import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import feign.FeignException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 @Component
 public class AuthFilter extends ZuulFilter {
@@ -40,11 +43,26 @@ public class AuthFilter extends ZuulFilter {
 
     @Override
     public Object run() {
-
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
         String token = request.getHeader("Authorization");
-        System.out.println(token);
+
+        String url = request.getRequestURL().toString();
+        System.out.println(url);
+        ResponseEntity<?> responseEntity = null;
+        try {
+            responseEntity = authClient.verify(token);
+            if(responseEntity.getBody().equals(true)){
+                HttpHeaders httpHeaders = responseEntity.getHeaders();
+                List<String> roles = httpHeaders.get("roles");
+                String role = roles.get(0);
+                System.out.println(role);
+                ctx.addZuulRequestHeader("roles", role);
+            }
+        }catch (Exception e){
+
+        }
+
 
         return null;
     }

@@ -111,10 +111,11 @@ public class AuthController {
     @RequestMapping(value = "/verify",method = RequestMethod.POST)
     public ResponseEntity<?> verifyToken(HttpServletRequest request){
         String token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
-        DecodedJWT jwt = JWT.decode(token);
+
         String user;
         HttpHeaders responseHeaders = null;
         try {
+            DecodedJWT jwt = JWT.decode(token);
             user = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()))
                     .build()
                     .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
@@ -128,6 +129,7 @@ public class AuthController {
             String authorityClaims = claims.get("roles").asString();
             responseHeaders = new HttpHeaders();
             responseHeaders.set("roles",authorityClaims);
+
 
         }catch (Exception e){
             user = null;
