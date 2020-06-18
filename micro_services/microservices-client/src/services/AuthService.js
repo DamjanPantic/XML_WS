@@ -1,6 +1,6 @@
 import Service from './Service';
 
-const resource = '/auth';
+const resource = '';
 
 class AuthService extends Service{
     login(user) {

@@ -175,5 +175,11 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
 
     }
 
+    @Override
+    public com.programatori.authservice.models.User findByEmail(String email) {
+        com.programatori.authservice.models.User user = userRepository.findByEmail(email);
+        return user;
+    }
+
 
 }

@@ -1,7 +1,7 @@
 import axios from 'axios';
 
 const baseDomain = process.env.VUE_APP_ENV === 'DEV' ? process.env.VUE_APP_BACKEND_URL_DEV : process.env.VUE_APP_BACKEND_URL_PROD;
-const baseURL = `${baseDomain}`;
+const baseURL = `${baseDomain}/api`;
 
 class Service {
     constructor(){

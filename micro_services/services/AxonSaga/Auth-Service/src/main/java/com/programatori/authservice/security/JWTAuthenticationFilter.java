@@ -49,7 +49,11 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                     .readValue(req.getInputStream(), com.programatori.authservice.models.User.class);
             System.out.println(creds.getUsername()+creds.getPassword());
             com.programatori.authservice.models.User user = userDetailService.findByUsername(creds.getUsername());
-            System.out.println(user.getBlocked());
+            if(user == null){
+                user = userDetailService.findByEmail(creds.getEmail());
+            }
+            //System.out.println(user.getBlocked());
+            System.out.println(creds.getEmail());
             UserDetails userDetails = userDetailService.loadUserByUsername(creds.getUsername());
             if(user.getBlocked() != null){
                 if(user.getBlocked() == true)
@@ -80,7 +84,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                 .sign(HMAC512(SecurityConstants.SECRET.getBytes()));
         System.out.println(token);
         res.addHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
-        res.addHeader("moj heder","123");
         res.setHeader(SecurityConstants.HEADER_STRING, SecurityConstants.TOKEN_PREFIX + token);
         System.out.println(res);
     }

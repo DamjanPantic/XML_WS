@@ -14,4 +14,5 @@ public interface IUserDetailService {
     public User unBlockUserById(Long id);
     public User findByUsername(String username);
     public User updateRole(String role, Long id);
+    public User findByEmail(String email);
 }

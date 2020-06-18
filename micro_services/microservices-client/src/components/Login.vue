@@ -1,9 +1,8 @@
 <template>
   <form class="login-form">
     <v-text-field
-        v-model="email"
-        :error-messages="emailErrors"
-        label="E-mail"
+        v-model="username"
+        label="Username"
         required
         @input="$v.email.$touch()"
         @blur="$v.email.$touch()"
@@ -39,7 +38,7 @@
         },
     },
     data: () => ({
-        email: '',
+        username: '',
         password: '',
         show1: false,
         checkbox: false,
@@ -81,7 +80,7 @@
       ...mapActions(['loginUser']),
       async onLoginFormSubmit() {            
         const userObj = {
-          email: this.email,
+          username: this.username,
           password: this.password
         }
           await this.loginUser(userObj);                        
