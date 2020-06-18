@@ -1,27 +1,31 @@
-INSERT INTO users.feature_type_search_service (name)
-VALUES ("FUEL"),
-       ("TRANSMISSION"),
-       ("CLASS");
-
-INSERT INTO users.feature_value_search_service (value, type_id)
-VALUES ("DISEL", 1),
-       ("PETROL", 1),
-       ("LPG", 1),
-       ("AUTOMATIC", 2),
-       ("MANUAL", 2),
-       ("SEMI-AUTOMATIC", 2),
-       ("COUPE", 3),
-       ("SUV", 3),
-       ("SALOON", 3),
-       ("CABBRIOLET", 3),
-       ("ESTATE", 3);
-
 INSERT INTO users.manufacturer_search_service (name)
 VALUES ("Porshe"),
        ("Mercedes-Benz"),
        ("Audi"),
        ("BMW"),
        ("VW");
+
+INSERT INTO users.transmission_search_service (name)
+VALUES ("Manual gearbox"),
+       ("Semi-automatic"),
+       ("Automatic transmission");
+
+INSERT INTO users.vehicle_type_search_service (type)
+VALUES ("Cabriolet"),
+       ("Estate car"),
+       ("Saloon"),
+       ("Small car"),
+       ("Sports car"),
+       ("SUV");
+
+INSERT INTO users.fuel_type_search_service (type)
+VALUES ("Petrol"),
+       ("Diesel"),
+       ("Electric"),
+       ("Hybrid (petrol/electric)"),
+       ("Hybrid (diesel / electric)"),
+       ("LPG");
+
 
 INSERT INTO users.model_search_service (name, manufacturer_id)
 VALUES ("911", 1),
@@ -55,17 +59,33 @@ INSERT INTO users.vehicle_search_service
  limit_km,
  traveled_km,
  model_id,
- owner_id)
-VALUES ('', true, 2, 'NO_LIMIT', 20000.0, 1, 1),
-       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2);
+ owner_id, fuel_type_id, transmission_id, vehicle_type_id)
+VALUES ('', true, 2, 'NO_LIMIT', 20000.0, 1, 1,1,2,3),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2);
 
 INSERT INTO users.availability_search_service
     (from_date, to_date, place, vehicle_id)
 VALUES ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 1),
-       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 2);
-
-INSERT INTO users.vehicle_features_search_service
-    (vehicle_id, feature_id)
-VALUES (1, 2),
-       (2, 1),
-       (2, 4);
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 2),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 3),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 4),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 5),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 6),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 7),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 8),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 9),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 10),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 11),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 12),
+       ('2020-02-10 07:00:00', '2020-02-16 07:00:00', 'Novi Sad', 13);
