@@ -4,7 +4,7 @@ const usersService = ServiceFactory.get('users');
 
 const state = {
     user: {},
-    token: null
+    token: "null"
 };
 
 const getters = {
@@ -47,11 +47,16 @@ const mutations = {
         localStorage.setItem('token',data.authorization);
     },
     registerUser: (state, data) => {
-        state.token = data.access_token,
-        state.user = data.user,
+        state.token = data.access_token;
+        state.user = data.user;
         localStorage.setItem('token',data.authorization);
 
-    }
+    },
+    logoutUser: (state) => {
+        state.token = null;
+        state.user = {};
+        localStorage.removeItem('token');
+    },
 };
 
 export default{
