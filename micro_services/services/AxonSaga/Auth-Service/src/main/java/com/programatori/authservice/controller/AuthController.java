@@ -1,6 +1,7 @@
 package com.programatori.authservice.controller;
 
 import com.auth0.jwt.JWT;
+import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
 import com.programatori.authservice.models.Individual;
 import com.programatori.authservice.models.Role;
@@ -12,6 +13,8 @@ import com.programatori.authservice.service.IUserDetailService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
+import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
@@ -101,6 +104,26 @@ public class AuthController {
         User user = userDetailService.updateRole(role,id);
         return new ResponseEntity<User>(user,HttpStatus.OK);
     }
+
+    @RequestMapping(value = "/verify",method = RequestMethod.POST)
+    public ResponseEntity<?> verifyToken(HttpServletRequest request){
+        String token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
+        DecodedJWT jwt = JWT.decode(token);
+        String user;
+        try {
+            user = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()))
+                    .build()
+                    .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
+                    .getSubject();
+        }catch (Exception e){
+            user = null;
+        }
+        if (user != null) {
+            return new ResponseEntity<Boolean>(true, HttpStatus.OK);
+        }
+        return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+    }
+
 
 
 

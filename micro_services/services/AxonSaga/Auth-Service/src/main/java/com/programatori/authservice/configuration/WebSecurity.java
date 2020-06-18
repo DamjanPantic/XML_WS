@@ -46,6 +46,7 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .csrf().disable().authorizeRequests()
                 .antMatchers(HttpMethod.POST, "/api/sign-up").permitAll()
                 .antMatchers(HttpMethod.POST, "/api/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/verify").permitAll()
                 .antMatchers( "/api/hello").hasAuthority("USER_MANIPULATION_PRIVILEGE")
                 .antMatchers("/api/users/**").hasAuthority("USER_MANIPULATION_PRIVILEGE")
                 .anyRequest().authenticated()
