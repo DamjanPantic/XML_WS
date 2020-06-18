@@ -3,6 +3,7 @@ import App from './App.vue'
 import router from './router/index';
 import store from './store';
 import vuetify from '@/plugins/vuetify' // path to vuetify export
+import '@mdi/font/css/materialdesignicons.css'
 
 
 Vue.config.productionTip = false
