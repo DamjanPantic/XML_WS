@@ -11,6 +11,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
@@ -30,13 +31,17 @@ public class CarController {
     VehicleRepository vehicleRepository;
 
     @GetMapping("/hello")
-    public ResponseEntity<?> get() throws UnknownHostException, ParseException {
+    public ResponseEntity<?> get(HttpServletRequest request) throws UnknownHostException, ParseException {
+        System.out.println(request.getHeader("roles"));
+
 //        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("28/02/2020");
 //        date = DateUtils.addDays(date,1);
 //        System.out.println(date);
         String ip = InetAddress.getLocalHost().getHostAddress();
         return new ResponseEntity<>(String.format("Hello from Car service with ip address %s!", ip), HttpStatus.OK);
     }
+
+
 
     @RequestMapping(value = "/token/{id}",method = RequestMethod.POST)
     public ResponseEntity<?> getVehiclesToken(@PathVariable Long id) throws NoSuchAlgorithmException {
