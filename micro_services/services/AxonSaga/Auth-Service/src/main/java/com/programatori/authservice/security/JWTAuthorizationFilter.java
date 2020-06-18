@@ -1,9 +1,12 @@
 package com.programatori.authservice.security;
 
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.Claim;
 import com.programatori.authservice.service.UserDetailServiceImpl;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
@@ -14,6 +17,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+import java.util.Map;
 
 import com.auth0.jwt.JWT;
 
@@ -53,10 +59,22 @@ public class JWTAuthorizationFilter extends BasicAuthenticationFilter {
                         .build()
                         .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                         .getSubject();
+                
+                Map<String, Claim> claims = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()))
+                        .build()
+                        .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
+                        .getClaims();
+
+                String authorityClaims = claims.get("roles").asString();
+                List<String> rolles = Arrays.asList(authorityClaims.split("/"));
+                List<GrantedAuthority> authorities = new ArrayList<>();
+                for (String role : rolles) {
+                    authorities.add(new SimpleGrantedAuthority(role));
+                }
 
                 if (user != null) {
                     UserDetails userDetails = userDetailService.loadUserByUsername(user);
-                    return new UsernamePasswordAuthenticationToken(user, null, userDetails.getAuthorities());
+                    return new UsernamePasswordAuthenticationToken(user, null, authorities);
                 }
                 return null;
             }catch (Exception e){

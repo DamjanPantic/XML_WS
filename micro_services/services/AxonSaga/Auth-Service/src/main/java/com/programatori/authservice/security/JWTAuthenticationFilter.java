@@ -10,6 +10,7 @@ import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
 import org.springframework.security.core.AuthenticationException;
+import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
@@ -19,7 +20,9 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.Collection;
 import java.util.Date;
+import java.util.Iterator;
 
 import static com.auth0.jwt.algorithms.Algorithm.HMAC512;
 
@@ -78,8 +81,19 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
                                             Authentication auth) throws IOException, ServletException {
 
         System.out.println("generisanje tokena");
+        UserDetails userDetails = userDetailService.loadUserByUsername(((User) auth.getPrincipal()).getUsername());
+        Collection<GrantedAuthority> authorities = (Collection<GrantedAuthority>) userDetails.getAuthorities();
+        String authorityClaims = "";
+        Iterator<GrantedAuthority> authorityIterator = authorities.iterator();
+        while(authorityIterator.hasNext()){
+            authorityClaims+=authorityIterator.next().getAuthority();
+            if(authorityIterator.hasNext())
+                authorityClaims+="/";
+        }
+        System.out.println(authorityClaims);
         String token = JWT.create()
                 .withSubject(((User) auth.getPrincipal()).getUsername())
+                .withClaim("roles",authorityClaims)
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(HMAC512(SecurityConstants.SECRET.getBytes()));
         System.out.println(token);
