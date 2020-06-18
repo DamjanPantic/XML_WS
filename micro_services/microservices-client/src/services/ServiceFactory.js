@@ -1,6 +1,5 @@
 import AuthService from './AuthService';
 
-
 const usersService = new AuthService();
 
 const services = {

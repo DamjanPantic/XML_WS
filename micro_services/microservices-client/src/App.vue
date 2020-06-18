@@ -1,19 +1,21 @@
 <template>
   <v-app>
-    <Header/>
-    <router-view/>
+    <app-bar />
+    <router-view></router-view>
   </v-app>
 </template>
 
 <script>
-import Header from './components/Header';
-
+import AppBar from "./components/AppBar.vue";
 export default {
-  name: 'App',
+  name: "App",
   components: {
-    Header
-  },
-  data: () => ({
-  }),
+    AppBar
+  }
 };
 </script>
+<style>
+html {
+  overflow: hidden !important;
+}
+</style>
