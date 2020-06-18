@@ -43,6 +43,8 @@ public class AuthFilter extends ZuulFilter {
 
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
+        String token = request.getHeader("Authorization");
+        System.out.println(token);
 
         return null;
     }

@@ -1,15 +1,16 @@
 import Vue from 'vue'
 import App from './App.vue'
-import router from './router'
-import store from './store'
-import axios from 'axios'
+import router from './router/index';
+import store from './store';
+import vuetify from '@/plugins/vuetify' // path to vuetify export
+import '@mdi/font/css/materialdesignicons.css'
 
-axios.defaults.baseURL = "http://localhost:8080/"
 
 Vue.config.productionTip = false
 
 new Vue({
-  router,
   store,
+  router,
+  vuetify,
   render: h => h(App)
 }).$mount('#app')

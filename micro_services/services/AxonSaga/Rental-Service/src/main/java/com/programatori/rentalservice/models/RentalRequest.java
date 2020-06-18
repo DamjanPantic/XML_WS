@@ -43,4 +43,22 @@ public class RentalRequest {
             inverseJoinColumns = @JoinColumn(
                     name = "vehicle_id", referencedColumnName = "id"))
     private List<Vehicle> vehicleIds;
+
+    private Long creationTime;
+
+    @PrePersist
+    protected void onCreate() {
+        creationTime = System.currentTimeMillis();
+    }
+
+    private Long approvalTime;
+
+    public void setRequestStatus(RentalRequestStatus status){
+        if(status == RentalRequestStatus.RESERVED){
+            approvalTime = System.currentTimeMillis();
+        }
+        this.status = status;
+    }
+
+
 }

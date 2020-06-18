@@ -47,7 +47,7 @@ public class FeatureController {
         return new ResponseEntity<>(featureService.getAllFeatureTypes(), HttpStatus.OK);
     }
 
-    @GetMapping(path = "/type", produces = MediaType.APPLICATION_JSON_VALUE)
+    @GetMapping(path = "/", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getAllFeatureType() {
 
         return new ResponseEntity<>(featureService.getAllFeatureTypes(), HttpStatus.OK);

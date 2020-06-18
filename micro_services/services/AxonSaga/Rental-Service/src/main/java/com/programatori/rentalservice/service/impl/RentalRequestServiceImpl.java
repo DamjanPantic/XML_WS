@@ -1,5 +1,7 @@
 package com.programatori.rentalservice.service.impl;
 
+import com.programatori.rentalservice.configuration.SpringConfig;
+import com.programatori.rentalservice.dto.ApproveDenyRequestDTO;
 import com.programatori.rentalservice.dto.AvailabilityDTO;
 import com.programatori.rentalservice.dto.RentalRequestDTO;
 import com.programatori.rentalservice.models.RentalRequest;
@@ -98,4 +100,69 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
         return new ResponseEntity<>(HttpStatus.OK);
     }
+
+    @Override
+    public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO) {
+        Vehicle vehicle = vehicleRepository.findByVehicleId(approveDenyRequestDTO.getVehicleId());
+        if(vehicle == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        RentalRequest rentalRequest = rentalRequestRepository.getOne(approveDenyRequestDTO.getRequestId());
+        if(rentalRequest == null ){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        if(rentalRequest.getStatus() == RentalRequestStatus.PAID || rentalRequest.getStatus() == RentalRequestStatus.CANCELED){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        if(approveDenyRequestDTO.isApprove()){
+            rentalRequest.setRequestStatus(RentalRequestStatus.RESERVED);
+        }else{
+            rentalRequest.setRequestStatus(RentalRequestStatus.DENIED);
+        }
+        rentalRequestRepository.save(rentalRequest);
+
+        return new ResponseEntity<RentalRequestServiceImpl>(HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> listPendingRequests(Long ownerId) {
+        return new ResponseEntity<List<RentalRequest>>(rentalRequestRepository.findRentalRequestByOwnerIdAndStatus(ownerId, RentalRequestStatus.PENDING), HttpStatus.OK);
+    }
+
+    @Override
+    public void clearRequests() {
+        System.out.println("clearing");
+        List<RentalRequest> requests = rentalRequestRepository.findAll();
+        System.out.println(requests);
+        List<RentalRequest> pendingRequests = rentalRequestRepository.findRentalRequestByStatus(RentalRequestStatus.PENDING);
+        List<RentalRequest> reserved = rentalRequestRepository.findRentalRequestByStatus(RentalRequestStatus.RESERVED);
+        System.out.println(pendingRequests);
+        for (RentalRequest r : pendingRequests) {
+            if (System.currentTimeMillis() - r.getCreationTime() >= SpringConfig.PENDING_REQUEST_CLEARING) {
+                r.setStatus(RentalRequestStatus.CANCELED);
+                rentalRequestRepository.save(r);
+            }
+        }
+
+        for (RentalRequest r : reserved) {
+            if (System.currentTimeMillis() - r.getApprovalTime() >= SpringConfig.RESERVED_REQUEST_CLEARING) {
+                r.setStatus(RentalRequestStatus.CANCELED);
+                rentalRequestRepository.save(r);
+            }
+        }
+
+    }
+
+    @Override
+    public ResponseEntity<?> pay(Long requestId) {
+        RentalRequest rentalRequest = rentalRequestRepository.getOne(requestId);
+        if(rentalRequest == null){
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
+        }
+        rentalRequest.setStatus(RentalRequestStatus.PAID);
+        rentalRequestRepository.save(rentalRequest);
+        return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+
 }
