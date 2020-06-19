@@ -3,6 +3,7 @@ import Router from 'vue-router';
 import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
+import PendingRequests from '../components/rental/PendingRequests';
 import routes from './router-names'; 
 Vue.use(Router);
 
@@ -29,6 +30,14 @@ const router = new Router({
         path: routes.REGISTER_ROUTE.path,
         name: routes.REGISTER_ROUTE.name,
         component: Register,
+        meta: {
+          requiresAuth: false
+        }
+      },
+      {
+        path: routes.PENDING_REQUESTS_ROUTE.path,
+        name: routes.PENDING_REQUESTS_ROUTE.name,
+        component: PendingRequests,
         meta: {
           requiresAuth: false
         }

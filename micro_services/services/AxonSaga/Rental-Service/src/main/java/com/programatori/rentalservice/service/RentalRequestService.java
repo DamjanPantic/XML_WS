@@ -16,7 +16,7 @@ public interface RentalRequestService {
 
     public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO);
 
-    public ResponseEntity<?> listPendingRequests(Long ownerId);
+    public List<?> listPendingRequests(Long ownerId);
 
     public void clearRequests();
 

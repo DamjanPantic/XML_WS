@@ -39,6 +39,7 @@
 
 <script>
 import axios from "axios";
+import { mapGetters, mapActions } from 'vuex'
 export default {
   name: "Login",
   data() {
@@ -48,10 +49,17 @@ export default {
     };
   },
   methods: {
+          ...mapActions(['loginUser']),
+
     toRegister() {
       this.$router.push("/register");
     },
-    login() {
+    async login() {
+      const userObj = {
+          username: this.username,
+          password: this.password
+        }
+      await this.loginUser(userObj);
       this.$router.push("/home");
     }
   }

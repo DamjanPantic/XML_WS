@@ -23,6 +23,8 @@ const actions = {
         }catch(e){
             
         }
+        console.log("hederi" + response.headers);
+        
         commit('loginUser', response.headers);
     },
     async registerUser({ commit }, user){        
@@ -42,11 +44,14 @@ const mutations = {
     loginUser: (state, data) => {
         state.token = data.access_token;        
         state.user = data.user;
+        console.log(data.authorization);
         console.log(data);
         
         localStorage.setItem('token',data.authorization);
     },
     registerUser: (state, data) => {
+        console.log(data.access_token);
+        
         state.token = data.access_token,
         state.user = data.user,
         localStorage.setItem('token',data.authorization);

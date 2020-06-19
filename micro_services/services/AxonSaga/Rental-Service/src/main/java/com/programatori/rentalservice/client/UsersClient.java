@@ -1,20 +1,18 @@
-package com.programatori.carservice.client;
+package com.programatori.rentalservice.client;
 
-import com.programatori.carservice.models.Availability;
+import com.programatori.rentalservice.dto.UserDTO;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestBody;
+
+import java.util.List;
 
 @FeignClient(name = "auth")
-public interface AuthClient {
+public interface UsersClient {
     @GetMapping(path = "/users/{email}")
     public ResponseEntity<?> getUserByEmail(@PathVariable String email);
 
     @GetMapping(path = "/users")
-    public ResponseEntity<?> getUsers(@PathVariable String email);
-
-
+    public List<UserDTO> getUsers();
 }
