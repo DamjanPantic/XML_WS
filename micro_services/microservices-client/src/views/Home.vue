@@ -1,8 +1,8 @@
 <template>
   <div>
     <div id="home">
-      <navigation v-if="token != null" />
-      <v-container id="container" :class="{loggedUser: token != null}">
+      <navigation v-if="token" />
+      <v-container id="container" :class="{loggedUser: token}">
         <router-view></router-view>
       </v-container>
     </div>
@@ -12,6 +12,7 @@
 <script>
 import AppBar from "../components/AppBar.vue";
 import Navigation from "../components/Navigation.vue";
+import { mapGetters } from "vuex";
 
 export default {
   name: "Home",
@@ -19,11 +20,7 @@ export default {
     AppBar,
     Navigation
   },
-  data() {
-    return {
-      token: this.$store.getters.token
-    };
-  }
+  computed: mapGetters(['token'])
 };
 </script>
 

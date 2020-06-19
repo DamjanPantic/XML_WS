@@ -2,10 +2,8 @@ package com.programatori.authservice.security;
 
 import com.auth0.jwt.JWT;
 import com.fasterxml.jackson.databind.ObjectMapper;
-import com.programatori.authservice.repository.IUserRepository;
 import com.programatori.authservice.service.UserDetailServiceImpl;
 import lombok.SneakyThrows;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.Authentication;
@@ -32,9 +30,6 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
 
 
     private UserDetailServiceImpl userDetailService;
-
-    @Autowired
-    IUserRepository userRepository;
 
     public JWTAuthenticationFilter(AuthenticationManager authenticationManager, UserDetailServiceImpl userDetailService) {
         this.authenticationManager = authenticationManager;
@@ -90,10 +85,15 @@ public class JWTAuthenticationFilter extends UsernamePasswordAuthenticationFilte
             if(authorityIterator.hasNext())
                 authorityClaims+="/";
         }
+
+        com.programatori.authservice.models.User user =
+                userDetailService.findByEmail(((User) auth.getPrincipal()).getUsername());
         System.out.println(authorityClaims);
         String token = JWT.create()
                 .withSubject(((User) auth.getPrincipal()).getUsername())
                 .withClaim("roles",authorityClaims)
+                .withClaim("id", user.getId())
+                .withClaim("username", user.getUsername())
                 .withExpiresAt(new Date(System.currentTimeMillis() + SecurityConstants.EXPIRATION_TIME))
                 .sign(HMAC512(SecurityConstants.SECRET.getBytes()));
         System.out.println(token);

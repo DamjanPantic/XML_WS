@@ -1,4 +1,5 @@
 import router from '../../router'
+import VueJwtDecode from "vue-jwt-decode";
 import { ServiceFactory } from '../../services/ServiceFactory';
 const usersService = ServiceFactory.get('users');
 
@@ -20,32 +21,34 @@ const actions = {
         let response;
         try {
             response = await usersService.login(user);
-        } catch (e) {
-
-        }
-        await commit('loginUser', response);
-        router.push("/");
+            await commit('loginUser', response.headers);
+            router.push("/");
+        } catch (e) { }
     },
     async registerUser({ commit }, user) {
 
         let response;
         try {
             response = await usersService.register(user);
-
+            router.push("/login");
         } catch (e) {
 
         }
-        commit('registerUser', response.headers);
+        // commit('registerUser', response.headers);
+    },
+    logoutUser({ commit }){
+        commit('logoutUser');
+    },
+    refreshUser({ commit }, jwt){
+        commit('refreshUser', jwt);
     }
 };
 
 const mutations = {
     loginUser: (state, data) => {
-        console.log("***************");
-
-        state.token = data.access_token;
-        state.user = data.user;
-        console.log(data);
+        state.token = data.authorization;
+        let decodedJWT = VueJwtDecode.decode(data.authorization.split(" ")[1]);
+        state.user = { "id": decodedJWT.id, "username": decodedJWT.username };
 
         localStorage.setItem('token', data.authorization);
     },
@@ -54,6 +57,16 @@ const mutations = {
             state.user = data.user,
             localStorage.setItem('token', data.authorization);
 
+    },
+    logoutUser: () => {
+        state.token = null;
+        state.user = {};
+        localStorage.removeItem('token');
+    },
+    refreshUser: (state, jwt) => {
+        state.token = jwt;
+        let decodedJWT = VueJwtDecode.decode(jwt.split(" ")[1]);
+        state.user = { "id": decodedJWT.id, "username": decodedJWT.username };
     }
 };
 
