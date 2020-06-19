@@ -13,7 +13,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
-import javax.websocket.server.PathParam;
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.ParseException;
@@ -48,6 +47,12 @@ public class RentalController {
     @GetMapping("/pending/{owner}")
     public ResponseEntity<?> getPendingRequestsByOwner(@PathVariable Long owner){
         return rentalRequestService.listPendingRequests(owner);
+    }
+
+    @GetMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
+            MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getRentalRequestById(@PathVariable Long id){
+        return rentalRequestService.getById(id);
     }
 
     @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)

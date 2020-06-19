@@ -20,7 +20,7 @@ public class AvailabbilityController {
 
     @PostMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addAvailabilityToVehicle(@PathVariable Long id, @RequestBody AvailabilityDTO availabilityDTO) throws ParseException {
-
+        System.out.println("\\sdas");
         Set<AvailabilityDTO> availabilitiesDTO = availabilityService.addAvailability(id, availabilityDTO);
         if (availabilitiesDTO == null){
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
