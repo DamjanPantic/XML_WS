@@ -23,14 +23,14 @@ public class Vehicle {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Model model;
 
-    @ManyToMany(fetch = FetchType.LAZY ,cascade = CascadeType.DETACH)
-    @JoinTable(
-            name = "vehicle_features_search_service",
-            joinColumns = @JoinColumn(
-                    name = "vehicle_id", referencedColumnName = "id"),
-            inverseJoinColumns = @JoinColumn(
-                    name = "feature_id", referencedColumnName = "id"))
-    private Set<FeatureValue> features;
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Transmission transmission;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private FuelType fuelType;
+
+    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private VehicleType vehicleType;
 
     @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Price> prices = new HashSet<Price>();
@@ -60,7 +60,6 @@ public class Vehicle {
                 "id=" + id +
                 ", owner=" + owner +
                 ", model=" + model +
-                ", features=" + features +
                 ", prices=" + prices +
                 ", traveledKm=" + traveledKm +
                 ", limitKm='" + limitKm + '\'' +
