@@ -62,8 +62,6 @@ public class AuthFilter extends ZuulFilter {
         }catch (Exception e){
 
         }
-
-
         return null;
     }
 
