@@ -5,13 +5,11 @@ import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.Claim;
 import com.programatori.carservice.client.AuthClient;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 import javax.servlet.FilterChain;
@@ -60,10 +58,11 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                         .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                         .getClaims();
 
-                ResponseEntity<?> responseEntity = authClient.getUserByEmail(user);
-                System.out.println("resp " +responseEntity.getBody());
+                System.out.println(user.toString());
+
 
                 String authorityClaims = claims.get("roles").asString();
+                System.out.println(authorityClaims);
                 List<String> rolles;
                 List<GrantedAuthority> authorities = null;
                 if(authorityClaims != null) {
@@ -77,6 +76,8 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                 return new UsernamePasswordAuthenticationToken(user, null, authorities);
 
             }catch (Exception e){
+                System.out.println("nema tokena");
+                System.out.println(e);
                 return null;
             }
         }

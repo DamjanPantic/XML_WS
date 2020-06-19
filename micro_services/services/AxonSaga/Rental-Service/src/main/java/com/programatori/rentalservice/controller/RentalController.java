@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.InetAddress;
@@ -53,6 +52,12 @@ public class RentalController {
             MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getRentalRequestById(@PathVariable Long id){
         return rentalRequestService.getById(id);
+    }
+
+    @GetMapping(path = "/{customerId}/{vehicleId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Boolean getRentalRequestByParams(@PathVariable Long customerId,@PathVariable Long vehicleId) throws ParseException {
+
+        return rentalRequestService.getRentalRequestByParams(customerId,vehicleId);
     }
 
     @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
