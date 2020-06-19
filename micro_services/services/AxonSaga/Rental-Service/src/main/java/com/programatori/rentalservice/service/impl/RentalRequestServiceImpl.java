@@ -10,6 +10,7 @@ import com.programatori.rentalservice.models.Vehicle;
 import com.programatori.rentalservice.repository.RentalRequestRepository;
 import com.programatori.rentalservice.repository.VehicleRepository;
 import com.programatori.rentalservice.service.RentalRequestService;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -30,6 +31,8 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Autowired
     VehicleRepository vehicleRepository;
+
+    DozerBeanMapper mapper = new DozerBeanMapper();
 
 
     @Override
@@ -162,6 +165,17 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         rentalRequest.setStatus(RentalRequestStatus.PAID);
         rentalRequestRepository.save(rentalRequest);
         return new ResponseEntity<>(HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> getById(Long rentalId) {
+        RentalRequest rentalRequest = rentalRequestRepository.findOneById(rentalId);
+        if(rentalRequest == null){
+            return new ResponseEntity<>("Rental request with that ID dont exist",HttpStatus.BAD_REQUEST);
+        }
+        RentalRequestDTO rentalRequestDTO = mapper.map(rentalRequest, RentalRequestDTO.class);
+
+        return new ResponseEntity<>(rentalRequestDTO,HttpStatus.OK);
     }
 
 

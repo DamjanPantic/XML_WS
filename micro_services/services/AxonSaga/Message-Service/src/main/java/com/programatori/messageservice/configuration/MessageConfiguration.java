@@ -47,7 +47,7 @@ public class MessageConfiguration extends WebSecurityConfigurerAdapter {
                 .and()
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
-                .antMatchers("/hello")
+                .antMatchers("/**")
                 .permitAll()
                 .anyRequest().authenticated();
 
