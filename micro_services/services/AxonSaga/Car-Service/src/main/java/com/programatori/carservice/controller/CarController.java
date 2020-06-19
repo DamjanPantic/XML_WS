@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -33,7 +34,8 @@ public class CarController {
     @GetMapping("/hello")
     public ResponseEntity<?> get(HttpServletRequest request) throws UnknownHostException, ParseException {
         System.out.println(request.getHeader("roles"));
-
+        Object pricnicpal  = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println((String) pricnicpal);
 //        Date date = new SimpleDateFormat("dd/MM/yyyy").parse("28/02/2020");
 //        date = DateUtils.addDays(date,1);
 //        System.out.println(date);

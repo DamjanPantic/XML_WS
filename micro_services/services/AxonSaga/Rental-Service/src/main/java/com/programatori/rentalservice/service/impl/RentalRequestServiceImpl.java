@@ -103,15 +103,20 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     @Override
     public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO) {
+        System.out.println(approveDenyRequestDTO.getVehicleId());
         Vehicle vehicle = vehicleRepository.findByVehicleId(approveDenyRequestDTO.getVehicleId());
         if(vehicle == null){
+            System.out.println("vehicle null");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         RentalRequest rentalRequest = rentalRequestRepository.getOne(approveDenyRequestDTO.getRequestId());
         if(rentalRequest == null ){
+            System.out.println("request null");
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         if(rentalRequest.getStatus() == RentalRequestStatus.PAID || rentalRequest.getStatus() == RentalRequestStatus.CANCELED){
+            System.out.println("cancelled");
+
             return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
         if(approveDenyRequestDTO.isApprove()){

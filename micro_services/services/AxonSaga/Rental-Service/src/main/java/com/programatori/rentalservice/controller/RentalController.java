@@ -9,6 +9,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
@@ -32,7 +33,8 @@ public class RentalController {
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addRenatalRequests(@RequestBody List<RentalRequestDTO> rentalRequestDTOS) throws  ParseException {
-
+        Object pricnicpal  = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
+        System.out.println((String) pricnicpal);
         return rentalRequestService.addRentalRequest(rentalRequestDTOS);
     }
 
@@ -44,8 +46,8 @@ public class RentalController {
     }
 
     @GetMapping("/pending/{owner}")
-    public ResponseEntity<?> getPendingRequestsByOwner(@PathVariable Long ownerId){
-        return rentalRequestService.listPendingRequests(ownerId);
+    public ResponseEntity<?> getPendingRequestsByOwner(@PathVariable Long owner){
+        return rentalRequestService.listPendingRequests(owner);
     }
 
     @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)

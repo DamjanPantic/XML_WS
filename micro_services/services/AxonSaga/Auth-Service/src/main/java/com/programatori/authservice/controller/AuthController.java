@@ -16,6 +16,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
@@ -140,6 +141,13 @@ public class AuthController {
                     .body(true);
         }
         return new ResponseEntity<Boolean>(false, HttpStatus.OK);
+    }
+
+    @PreAuthorize("hasAuthority('USER_MANIPULATION_PRIVILEGE')")
+    @RequestMapping(value = "/users/{email}",method = RequestMethod.PUT)
+    public ResponseEntity<User> getUserByEmail(@PathVariable String email){
+        User user = userDetailService.findByEmail(email);
+        return new ResponseEntity<User>(user,HttpStatus.OK);
     }
 
 
