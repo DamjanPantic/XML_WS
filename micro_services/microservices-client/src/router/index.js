@@ -4,6 +4,7 @@ import Home from '../views/Home.vue';
 import Login from '../views/Login.vue';
 import Register from '../views/Register.vue';
 import Vehicles from '../views/Vehicles.vue';
+import UsersRequests from '../views/UsersRequests.vue';
 import routes from './router-names';
 Vue.use(Router);
 
@@ -30,8 +31,15 @@ const router = new Router({
           meta: {
             requiresAuth: false
           }
-        }
-
+        },
+        {
+          path: routes.USERS_REQUESTS_ROUTE.path,
+          name: routes.USERS_REQUESTS_ROUTE.name,
+          component: UsersRequests,
+          meta: {
+            requiresAuth: true
+          }
+        },
       ],
       meta: {
         requiresAuth: false

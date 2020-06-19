@@ -21,7 +21,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
@@ -44,7 +43,7 @@ public class AuthController {
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
     }
 
-    @RequestMapping(consumes = "application/json",value="/sign-up",method = RequestMethod.POST)
+    @RequestMapping(consumes = "application/json",value="/register",method = RequestMethod.POST)
     public ResponseEntity<User> signUp(@Valid @RequestBody User user){
         String pass = bCryptPasswordEncoder.encode(user.getPassword());
         Individual individual = new Individual();

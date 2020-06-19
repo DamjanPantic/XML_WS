@@ -10,7 +10,6 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.scheduling.annotation.Scheduled;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
 
 import java.net.InetAddress;
@@ -44,12 +43,17 @@ public class RentalController {
         return rentalRequestService.deleteInvalidRentals(vehicleId, availabilityDTO);
     }
 
+    @GetMapping(path = "/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getCustomersRenatalRequests(@PathVariable Long customerId){
+        return null;
+    }
+
     @GetMapping("/pending/{owner}")
     public ResponseEntity<?> getPendingRequestsByOwner(@PathVariable Long owner){
         return rentalRequestService.listPendingRequests(owner);
     }
 
-    @GetMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
+    @GetMapping(path = "/{id}", produces =
             MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getRentalRequestById(@PathVariable Long id){
         return rentalRequestService.getById(id);
