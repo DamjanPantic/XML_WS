@@ -18,10 +18,7 @@ import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @Service
 public class RentalRequestServiceImpl implements RentalRequestService {
@@ -182,6 +179,15 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
         return new ResponseEntity<>(rentalRequestDTO,HttpStatus.OK);
     }
+
+    @Override
+    public Boolean getRentalRequestByParams(Long customerId, Long vehicleId) {
+
+        return rentalRequestRepository.findRentalRequestByStatusAndDate(new Date(),customerId,vehicleId);
+
+    }
+
+
 
 
 }
