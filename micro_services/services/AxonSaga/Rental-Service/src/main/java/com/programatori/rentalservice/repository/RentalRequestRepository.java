@@ -27,5 +27,6 @@ public interface RentalRequestRepository extends JpaRepository<RentalRequest,Lon
     @Query(value = "select r from RentalRequest r where r.status = (:status) ")
     List<RentalRequest> findRentalRequestByStatus(@Param("status") RentalRequestStatus status);
 
+    RentalRequest findOneById(Long id);
 
 }
