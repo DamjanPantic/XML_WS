@@ -11,16 +11,13 @@ import com.programatori.authservice.repository.IUserRepository;
 import com.programatori.authservice.repository.RoleRepository;
 import com.programatori.authservice.security.SecurityConstants;
 import com.programatori.authservice.service.IUserDetailService;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
-
-import org.springframework.beans.factory.annotation.Autowired;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
@@ -29,7 +26,6 @@ import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
-import java.util.Optional;
 
 @RestController
 public class AuthController {
@@ -110,7 +106,11 @@ public class AuthController {
 
     @RequestMapping(value = "/verify",method = RequestMethod.POST)
     public ResponseEntity<?> verifyToken(HttpServletRequest request){
-        String token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
+
+        String token = null;
+        try {
+            token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
+        }catch (Exception e){}
 
         String user;
         HttpHeaders responseHeaders = null;
