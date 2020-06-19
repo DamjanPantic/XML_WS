@@ -1,9 +1,12 @@
 import AuthService from './AuthService';
+import RentalService from './RentalService';
 
 const usersService = new AuthService();
+const rentalService = new RentalService();
 
 const services = {
-    users: usersService
+    users: usersService,
+    rental: rentalService
 };
 
 export const ServiceFactory = {
