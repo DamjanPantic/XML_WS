@@ -1,10 +1,12 @@
 package com.programatori.authservice.service;
 
+import com.programatori.authservice.dto.UserDTO;
 import com.programatori.authservice.models.Individual;
 import com.programatori.authservice.models.Privilege;
 import com.programatori.authservice.models.Role;
 import com.programatori.authservice.repository.IUserRepository;
 import com.programatori.authservice.repository.RoleRepository;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,6 +31,9 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
     RoleRepository roleRepository;
 
     BCryptPasswordEncoder bCryptPasswordEncoder;
+
+    DozerBeanMapper mapper = new DozerBeanMapper();
+
 
     public UserDetailServiceImpl(){
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
@@ -172,13 +177,30 @@ public class UserDetailServiceImpl implements UserDetailsService, IUserDetailSer
         userRepository.save(user);
 
         return user;
-
     }
 
     @Override
     public com.programatori.authservice.models.User findByEmail(String email) {
         com.programatori.authservice.models.User user = userRepository.findByEmail(email);
         return user;
+    }
+
+    @Override
+    public UserDTO findById(Long id) {
+        com.programatori.authservice.models.User user = userRepository.findById(id).orElse(null);
+        if(user == null)
+            return null;
+        return mapper.map(user,UserDTO.class);
+    }
+
+    @Override
+    public List<UserDTO> findAll() {
+        List<com.programatori.authservice.models.User> users = userRepository.findAll();
+        List<UserDTO> userDTOS = new ArrayList<>();
+        for (com.programatori.authservice.models.User u : users) {
+            userDTOS.add(mapper.map(u,UserDTO.class));
+        }
+        return userDTOS;
     }
 
 

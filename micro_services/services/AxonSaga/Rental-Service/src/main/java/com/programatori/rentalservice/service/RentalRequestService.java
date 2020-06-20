@@ -16,11 +16,14 @@ public interface RentalRequestService {
 
     public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO);
 
-    public ResponseEntity<?> listPendingRequests(Long ownerId);
+    public List<?> listPendingRequests(Long ownerId);
 
     public void clearRequests();
 
     public ResponseEntity<?> pay(Long requestId);
 
     public ResponseEntity<?> getById(Long rentalId);
+
+    public Boolean getRentalRequestByParams(Long customerId, Long vehicleId);
+
 }

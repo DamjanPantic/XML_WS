@@ -97,7 +97,6 @@ public class AuthController {
 
     @RequestMapping(value = "/verify",method = RequestMethod.POST)
     public ResponseEntity<?> verifyToken(HttpServletRequest request){
-
         String token = null;
         try {
             token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
@@ -106,6 +105,7 @@ public class AuthController {
         String user;
         HttpHeaders responseHeaders = null;
         try {
+            token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");
             DecodedJWT jwt = JWT.decode(token);
             user = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()))
                     .build()
@@ -140,6 +140,15 @@ public class AuthController {
         return new ResponseEntity<User>(user,HttpStatus.OK);
     }
 
+    @RequestMapping(value = "/users",method = RequestMethod.GET)
+    public ResponseEntity<?> getUsers(){
+        return new ResponseEntity<>(userDetailService.findAll(),HttpStatus.OK);
+    }
+
+    @RequestMapping(value = "/users/{id}",method = RequestMethod.GET)
+    public ResponseEntity<?> getUserById(@PathVariable Long id){
+        return new ResponseEntity<>(userDetailService.findById(id),HttpStatus.OK);
+    }
 
 
 
