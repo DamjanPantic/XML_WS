@@ -12,7 +12,9 @@ class RentalService extends Service{
         return this.getApiClient().post(`${resource}/approval`, approbalObj);
     }
 
-
+    getUserRentalRequest(id){
+        return this.getApiClient().get(`${resource}/customer/${id}`);
+    }
 }
 
 

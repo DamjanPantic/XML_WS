@@ -187,7 +187,11 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     }
 
+    @Override
+    public List<RentalRequest> getCustomersRentalRequests(Long customerId) {
 
+        return  rentalRequestRepository.findByCustomerId(customerId);
+    }
 
 
 }
