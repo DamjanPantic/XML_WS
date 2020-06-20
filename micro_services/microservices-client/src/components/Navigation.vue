@@ -35,6 +35,16 @@
           <v-list-item-title>Rental requests</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
+
+      <v-list-item link :to="'/cart'">
+        <v-list-item-icon>
+          <v-icon>mdi-cart</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title v-if="getCartItemsNumber !== 0">{{getCartItemsNumber}} </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
     </v-list>
     <template v-slot:append>
       <div class="pa-2">
@@ -49,7 +59,7 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   name: "Navigation",
-  computed: mapGetters(["user"]),
+  computed: mapGetters(["user", "getCartItemsNumber"]),
   methods: {
     ...mapActions(["logoutUser"]),
     logout() {

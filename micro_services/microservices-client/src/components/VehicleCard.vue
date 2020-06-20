@@ -118,12 +118,28 @@ export default {
     },
     remove(){
       this.addedToCart = null;
+    },
+    check(){
+      let ind = -1;
+      this.allCartItems.forEach((element,index) => {
+        if(element.id === this.vehicle.id){
+          ind = index;
+        }
+      });
+      if(ind !== -1){          
+          this.addedToCart = true;
+      }else{
+          
+      }
     }
   },
   data: () => ({
     addedToCart: null
   }),
   computed: mapGetters(["allCartItems"]),
+  created() {
+    this.check();
+  }
 
 };
 </script>

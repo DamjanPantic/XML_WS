@@ -7,6 +7,7 @@ import PendingRequests from '../components/rental/PendingRequests';
 import routes from './router-names'; 
 import Vehicles from '../views/Vehicles.vue';
 import UsersRequests from '../views/UsersRequests.vue';
+import Cart from '../components/cart/Cart';
 
 Vue.use(Router);
 
@@ -40,6 +41,14 @@ const router = new Router({
           component: UsersRequests,
           meta: {
             requiresAuth: true
+          }
+        },
+        {
+          path: routes.CART_ROUTE.path,
+          name: routes.CART_ROUTE.name,
+          component: Cart,
+          meta: {
+            requiresAuth: false
           }
         },
       ],
