@@ -1,5 +1,6 @@
 package com.programatori.carrental.models;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -7,6 +8,7 @@ import lombok.Setter;
 import javax.persistence.*;
 import java.util.Date;
 import java.util.List;
+import java.util.Set;
 
 @Getter
 @Setter
@@ -45,6 +47,10 @@ public class RentalRequest {
     private List<Vehicle> vehicles;
 
     private Long creationTime;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "rentalRequest", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Message> messages;
 
     @PrePersist
     protected void onCreate() {
