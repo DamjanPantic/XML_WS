@@ -1,0 +1,239 @@
+version: '3'
+services:
+
+  eureka-serviceregistry:
+    build: ./micro_services/Eureka
+    ports:
+     - "8761:8761"
+    tty: true
+    networks:
+      - usersnet
+      
+  microservices-front:
+   build: ./micro_services/microservices-client
+   ports:
+   - "8090:8090"
+   environment:
+     - REGISTRY_HOST=eureka-serviceregistry
+   tty: true
+   networks:
+      - usersnet
+
+
+  axon-server:
+    image: axoniq/axonserver:4.3.2
+    ports:
+      - 8024:8024
+      - 8124:8124
+    networks:
+      - usersnet
+
+
+#  auth-service:
+#    build: ./services/AxonSaga/Auth-Service
+#    ports:
+#    - "8081:8081"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#      - MYSQL_HOST=users-database
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - users-database
+#      - axon-server
+#    networks:
+#      - usersnet
+
+  users-database:
+    image: mariadb:10.2
+    container_name: users-database
+    ports:
+      - 3306:3306
+    environment:
+      MYSQL_DATABASE: users
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - usersdata:/var/lib/mysql
+    networks:
+      - usersnet
+
+  agent-database:
+    image: mariadb:10.2
+    container_name: agent-database
+    ports:
+      - 3307:3306
+    environment:
+      MYSQL_DATABASE: agentdb
+      MYSQL_USER: root
+      MYSQL_PASSWORD: root
+      MYSQL_ROOT_PASSWORD: root
+    volumes:
+      - agentdata:/var/lib/mysql
+    networks:
+      - usersnet
+
+
+#  vehicle-service:
+#    build: ./micro_services/services/AxonSaga/Car-Service
+#    ports:
+#    - "8082:8082"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#      - MYSQL_HOST=users-database
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - users-database
+#      - axon-server
+#    networks:
+#      - usersnet
+
+
+  search-service:
+    build: ./micro_services/services/AxonSaga/Search-Service
+    ports:
+    - "8083:8083"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+      - MYSQL_HOST=users-database
+    tty: true
+    depends_on:
+      - eureka-serviceregistry
+      - users-database
+      - axon-server
+    networks:
+      - usersnet
+
+
+#  rental-service:
+#    build: ./micro_services/services/AxonSaga/Rental-Service
+#    ports:
+#    - "8084:8084"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#      - MYSQL_HOST=users-database
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - users-database
+#      - axon-server
+#    networks:
+#      - usersnet
+#
+#
+#  recension-service:
+#    build: ./micro_services/services/AxonSaga/Recension-Service
+#    ports:
+#    - "8085:8085"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  message-service:
+#    build: ./micro_services/services/AxonSaga/Message-Service
+#    ports:
+#    - "8086:8086"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+#  email-service:
+#    build: ./micro_services/services/AxonSaga/Email-Service
+#    ports:
+#    - "8087:8087"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+
+#  location-service:
+#    build: ./micro_services/services/AxonSaga/Location-Service
+#    ports:
+#      - "8088:8088"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#      - MYSQL_HOST=users-database
+#    tty: true
+#    depends_on:
+#      - eureka-serviceregistry
+#      - users-database
+#      - axon-server
+#    networks:
+#      - usersnet
+      
+#
+#  bezbednost_db:
+#    image: mariadb:10.2
+#    container_name: bezbednost_db
+#    ports:
+#      - 3306:3306
+#    environment:
+#      MYSQL_DATABASE: bezbednost
+#      MYSQL_USER: user
+#      MYSQL_PASSWORD: user
+#      MYSQL_ROOT_PASSWORD: root
+#    volumes:
+#      - mysqldata:/var/lib/mysql
+#    networks:
+#      - bezbednostnet
+#
+#  security-service:
+#    build: ./services/AxonSaga/Security-Service
+#    ports:
+#      - "8089:8089"
+#    environment:
+#      - REGISTRY_HOST=eureka-serviceregistry
+#    tty: true
+#    networks:
+#      - bezbednostnet
+#    depends_on:
+#      - bezbednost_db
+#      - eureka-serviceregistry
+#      - axon-server
+#
+#
+  zuul:
+    build: ./micro_services/Zuul
+    ports:
+    - "8080:8080"
+    environment:
+      - REGISTRY_HOST=eureka-serviceregistry
+    tty: true
+    depends_on:
+#       - eureka-serviceregistry
+#       - axon-server
+#       - auth-service
+#       - vehicle-service
+       - search-service
+#       - rental-service
+#       - recension-service
+#       - message-service
+#       - email-service
+#       - location-service
+       - microservices-front
+    networks:
+      - usersnet
+#
+volumes:
+#  mysqldata:
+  usersdata:
+  agentdata:
+networks:
+  # bezbednostnet:
+ usersnet:
+
+  
