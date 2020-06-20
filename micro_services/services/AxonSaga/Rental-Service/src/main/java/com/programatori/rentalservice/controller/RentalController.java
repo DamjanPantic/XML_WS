@@ -42,6 +42,10 @@ public class RentalController {
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addRenatalRequests(@RequestBody List<RentalRequestDTO> rentalRequestDTOS) throws  ParseException {
+        System.out.println(rentalRequestDTOS);
+        for (RentalRequestDTO dto: rentalRequestDTOS) {
+            System.out.println(dto.getVehicleId() + " "+ dto.getFromDate()+ " "+ dto.getToDate());
+        }
         Object pricnicpal  = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println((String) pricnicpal);
         return rentalRequestService.addRentalRequest(rentalRequestDTOS);

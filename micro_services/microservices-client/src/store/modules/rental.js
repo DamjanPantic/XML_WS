@@ -2,11 +2,13 @@ import { ServiceFactory } from '../../services/ServiceFactory';
 const rentalService = ServiceFactory.get('rental');
 
 const state = {
-    requests: []
+    requests: [],
+    sentRequest: null
 };
 
 const getters = {
     allRequests: state => state.requests,
+    getSentRequest: state => state.sendRequest
 };
 
 const actions = {
@@ -28,6 +30,15 @@ const actions = {
         }catch(e){
 
         }
+    },
+    async sendRequest({commit}, rentalRequestObj) {
+        let response;
+        try{
+            response = await rentalService.sendRequest(rentalRequestObj);
+            commit('rentalRequestSent')
+        }catch(e){
+
+        }
     }
 };
 
@@ -43,6 +54,9 @@ const mutations = {
         }else{
             state.requests = state.requests.filter(request => request.id != data.requestId)
         }
+    },
+    rentalRequestSent: (state, data) => {
+        state.sentRequest = true;
     }
 };
 

@@ -39,6 +39,8 @@
         >
           Confirm
         </v-btn>
+        <p>{{getSentRequest}}</p>
+        <p v-if="getSentRequest === true">Request sent!</p>
   </div>
 </template>
 
@@ -52,7 +54,7 @@ export default {
     datetime
   },
   methods: {
-    ...mapActions(["addToCart"]),
+    ...mapActions(["addToCart", "sendRequest"]),
     remove(car){
     },
     change(item){        
@@ -73,10 +75,34 @@ export default {
             }
         });        
     },
-    confirm(){
+    async confirm(){
+        var requestArray = [];
         console.log("confitm", this.getRequestsByOwner);
         console.log(this.fromDate, this.toDate);
         
+        this.getOwners.forEach(ownerId => {
+            console.log(ownerId);
+            console.log(this.getRequestsByOwner);
+            console.log("owner",this.getRequestsByOwner.get(ownerId));
+            var arr = this.getRequestsByOwner.get(ownerId);
+            let from = this.fromDate.split(' ')[1]+" "+this.fromDate.split(' ')[0]
+            let to = this.toDate.split(' ')[1]+" "+this.toDate.split(' ')[0]
+
+            arr.forEach(car => {
+                const req = {
+                    ownerId,
+                    customerId: this.user.id,
+                    fromDate: from,
+                    toDate: to,
+                    bundle: this.requestsByOwner.get(ownerId),
+                    vehicleId: car.id
+
+                }
+                requestArray.push(req);
+            });
+        });
+        await this.sendRequest(requestArray);
+        console.log("request", JSON.stringify(requestArray));
         
     }
   },
@@ -86,7 +112,7 @@ export default {
     fromDate: null,
     toDate: null
   }),
-  computed: mapGetters(["allCartItems", "getOwners", 'getRequestsByOwner']),
+  computed: mapGetters(["allCartItems", "getOwners", 'getRequestsByOwner', 'user', "getSentRequest"]),
   created() {
     this.insertRequests();
   }
