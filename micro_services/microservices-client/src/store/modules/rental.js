@@ -1,7 +1,6 @@
 import { ServiceFactory } from '../../services/ServiceFactory';
 const rentalService = ServiceFactory.get('rental');
 
-
 const state = {
     requests: []
 };
@@ -19,14 +18,13 @@ const actions = {
         }catch(e){
             
         }        
-        console.log(response.data);
         commit('requestsFetched', response.data);
     },
     async acceptDeclineRequest({commit}, approveObj) {
         let response;
         try{
             response = await rentalService.acceptDeclineRequest(approveObj);
-            commit('requestApprovedDenied', approveObj.requestId)
+            commit('requestApprovedDenied', approveObj)
         }catch(e){
 
         }
@@ -38,7 +36,13 @@ const mutations = {
         state.requests = data;
     },
     requestApprovedDenied: (state,data) => {
-        state.requests = state.requests.filter(request => request.id != data)
+        console.log(data);
+        
+        if(data.approve === true){
+            state.requests = state.requests.filter(request => request.vehicleBasicDTO.id != data.vehicleId)
+        }else{
+            state.requests = state.requests.filter(request => request.id != data.requestId)
+        }
     }
 };
 

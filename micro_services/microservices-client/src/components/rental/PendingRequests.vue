@@ -51,8 +51,6 @@ export default {
   },
   computed: mapGetters(["allRequests"]),
   created() {
-    console.log("created");
-
     this.getRequests();
   }
 };
