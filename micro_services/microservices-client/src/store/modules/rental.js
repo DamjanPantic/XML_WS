@@ -22,11 +22,23 @@ const actions = {
         console.log(response.data);
         commit('requestsFetched', response.data);
     },
+    async acceptDeclineRequest({commit}, approveObj) {
+        let response;
+        try{
+            response = await rentalService.acceptDeclineRequest(approveObj);
+            commit('requestApprovedDenied', approveObj.requestId)
+        }catch(e){
+
+        }
+    }
 };
 
 const mutations = {
     requestsFetched: (state, data) => {
         state.requests = data;
+    },
+    requestApprovedDenied: (state,data) => {
+        state.requests = state.requests.filter(request => request.id != data)
     }
 };
 

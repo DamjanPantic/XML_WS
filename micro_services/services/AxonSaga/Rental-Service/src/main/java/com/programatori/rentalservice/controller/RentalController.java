@@ -58,7 +58,7 @@ public class RentalController {
         return new ResponseEntity<>(rentalRequestService.listPendingRequests(owner),HttpStatus.OK);
     }
 
-    @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveDenyRentalRequest(@RequestBody ApproveDenyRequestDTO approveDenyRequestDTO){
         return rentalRequestService.approveDenyRequest(approveDenyRequestDTO);
     }

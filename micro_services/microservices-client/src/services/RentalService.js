@@ -8,6 +8,10 @@ class RentalService extends Service{
         return this.getApiClient().get(`${resource}/pending-requests/${owner}`);
     }
 
+    acceptDeclineRequest(approbalObj){
+        return this.getApiClient().post(`${resource}/approval`, approbalObj);
+    }
+
 
 }
 
