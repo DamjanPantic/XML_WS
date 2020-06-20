@@ -54,13 +54,17 @@ public class RentalController {
         return rentalRequestService.deleteInvalidRentals(vehicleId, availabilityDTO);
     }
 
+    @GetMapping(path = "/{customerId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getCustomersRenatalRequests(@PathVariable Long customerId){
+        return null;
+    }
+
     @GetMapping("/pending/{owner}")
     public ResponseEntity<?> getPendingRequestsByOwner(@PathVariable Long owner){
         return new ResponseEntity<>(rentalRequestService.listPendingRequests(owner),HttpStatus.OK);
     }
 
-
-    @GetMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
+    @GetMapping(path = "/{id}", produces =
             MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> getRentalRequestById(@PathVariable Long id){
         return rentalRequestService.getById(id);

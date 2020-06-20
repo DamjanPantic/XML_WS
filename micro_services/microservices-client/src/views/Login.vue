@@ -29,7 +29,7 @@
               prepend-icon="mdi-lock"
               type="password"
             ></v-text-field>
-            <v-btn rounded class="sing-in-btn" @click="toLogin">Sign in</v-btn>
+            <v-btn rounded class="sing-in-btn" @click="login">Sign in</v-btn>
           </v-form>
         </div>
       </v-col>
@@ -38,7 +38,6 @@
 </template>
 
 <script>
-import axios from "axios";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
@@ -54,20 +53,9 @@ export default {
     toRegister() {
       this.$router.push("/register");
     },
-    toLogin() {
+    login() {
       let user = { username: this.username, password: this.password };
-      const options = {
-        headers: {
-          "Access-Control-Allow-Origin": "*"
-        }
-      };
-      axios
-        .post("http://localhost:8080/api/auth/login", user, options)
-        .then(response => {
-          console.log(response);
-        })
-        .catch();
-      this.$router.push("/");
+      this.loginUser(user);
     }
   }
 };

@@ -2,14 +2,16 @@
   <v-app-bar class="appBar" color="blue darken-2 white--text">
     <router-link to="/" class="homeBtn" tag="v-toolbar-title">Car rental</router-link>
     <v-spacer/>
-    <router-link class="signInBtn" to="/login" tag="v-toolbar-title">Sign in</router-link>
+    <router-link class="signInBtn" to="/login" tag="v-toolbar-title" v-if="!token">Sign in</router-link>
   </v-app-bar>
 </template>
 
 <script>
+import { mapGetters } from "vuex";
+
 export default {
   name: "AppBar",
-  methods: {}
+  computed: mapGetters(['token']),
 };
 </script>
 

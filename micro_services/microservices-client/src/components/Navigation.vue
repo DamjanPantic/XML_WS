@@ -7,7 +7,7 @@
         </v-list-item-avatar>
 
         <v-list-item-content>
-          <v-list-item-title>dsadas</v-list-item-title>
+          <v-list-item-title>{{user.username}}</v-list-item-title>
           <v-list-item-subtitle>Logged In</v-list-item-subtitle>
         </v-list-item-content>
       </v-list-item>
@@ -16,22 +16,23 @@
     <v-divider></v-divider>
 
     <v-list>
-      <v-list-item link to="/home">
+      <v-list-item link to="/">
         <v-list-item-icon>
-          <v-icon>home</v-icon>
+          <v-icon>mdi-home</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
           <v-list-item-title>Home</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
-      <v-list-item link to="/reservations">
+
+      <v-list-item link :to="'/requests/'+user.id">
         <v-list-item-icon>
-          <v-icon>list</v-icon>
+          <v-icon>mdi-view-list</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>Reservations</v-list-item-title>
+          <v-list-item-title>Rental requests</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
     </v-list>
@@ -44,12 +45,18 @@
 </template>
 
 <script>
-import axios from "axios";
+import { mapGetters, mapActions } from "vuex";
+
 export default {
   name: "Navigation",
+  computed: mapGetters(["user"]),
   methods: {
+    ...mapActions(["logoutUser"]),
     logout() {
-      this.$router.push("/");
+      this.logoutUser();
+      if (this.$router.currentRoute.path !== "/") {
+        this.$router.push("/");
+      }
     }
   }
 };

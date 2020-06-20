@@ -14,13 +14,12 @@ const getters = {
 const actions = {
     async getAllVehiclesByPage({ commit }, pageNo) {
         console.log('Getting Vehicles...');
-        
-        let response;
-        try{
-            response = await searchService.getVehiclesByPage(pageNo);
 
-        }catch(e){
-            
+        let response;
+        try {
+            response = await searchService.getVehiclesByPage(pageNo);
+        } catch (e) {
+
         }
         commit('setTotalPages', response.data.totalPages);
         commit('setVehicles', response.data.content);
@@ -29,8 +28,8 @@ const actions = {
 
 const mutations = {
     setVehicles: (state, data) => {
-        console.log(data);
-        
+        // console.log(data);
+
         state.vehicles = data;
     },
     setTotalPages: (state, data) => {
@@ -38,7 +37,7 @@ const mutations = {
     }
 };
 
-export default{
+export default {
     state,
     getters,
     actions,

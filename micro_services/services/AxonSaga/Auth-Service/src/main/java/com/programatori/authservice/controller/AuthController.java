@@ -16,16 +16,11 @@ import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.access.prepost.PreAuthorize;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
-import java.net.InetAddress;
-import java.net.UnknownHostException;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.util.Map;
@@ -48,14 +43,7 @@ public class AuthController {
         this.bCryptPasswordEncoder = new BCryptPasswordEncoder();
     }
 
-
-    @GetMapping("/hello")
-    public ResponseEntity<?> get() throws UnknownHostException {
-        String ip = InetAddress.getLocalHost().getHostAddress();
-        return new ResponseEntity<>(String.format("Hello from Auth service with ip address %s!", ip), HttpStatus.OK);
-    }
-
-    @RequestMapping(consumes = "application/json",value="/sign-up",method = RequestMethod.POST)
+    @RequestMapping(consumes = "application/json",value="/register",method = RequestMethod.POST)
     public ResponseEntity<User> signUp(@Valid @RequestBody User user){
         String pass = bCryptPasswordEncoder.encode(user.getPassword());
         Individual individual = new Individual();
