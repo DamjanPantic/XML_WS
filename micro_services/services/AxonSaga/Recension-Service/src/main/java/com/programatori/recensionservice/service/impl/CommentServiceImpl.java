@@ -10,6 +10,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -30,6 +32,39 @@ public class CommentServiceImpl implements CommentService {
         commentRepository.save(comment);
         return new ResponseEntity<>(comment,HttpStatus.OK);
 
+    }
+
+    @Override
+    public ResponseEntity<?> getCommentsByStatus(CommentStatus status) {
+        List<Comment> comments = commentRepository.findAllByCommentStatus(status);
+        if(comments == null)
+            return new ResponseEntity<>("Comments doesn't exist",HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(comments,HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> approveComment(Long id) {
+        Comment comment = commentRepository.findById(id).orElse(null);
+        if(comment == null)
+            return new ResponseEntity<>("Comment doesn't exist",HttpStatus.BAD_REQUEST);
+
+        comment.setCommentStatus(CommentStatus.APPROVED);
+        commentRepository.save(comment);
+        return new ResponseEntity<>(comment,HttpStatus.OK);
+
+
+    }
+
+    @Override
+    public ResponseEntity<?> declineComment(Long id) {
+        Comment comment = commentRepository.findById(id).orElse(null);
+        if(comment == null)
+            return new ResponseEntity<>("Comment doesn't exist",HttpStatus.BAD_REQUEST);
+
+        comment.setCommentStatus(CommentStatus.DENIED);
+        commentRepository.save(comment);
+        return new ResponseEntity<>(comment,HttpStatus.OK);
     }
 
 }
