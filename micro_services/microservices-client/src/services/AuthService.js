@@ -7,7 +7,7 @@ class AuthService extends Service{
         return this.getApiClient().post(`${resource}/login`, user);
     }
     register(user) {
-        return this.getApiClient().post(`${resource}/sign-up`, user);
+        return this.getApiClient().post(`${resource}/register`, user);
     }
 
 }
