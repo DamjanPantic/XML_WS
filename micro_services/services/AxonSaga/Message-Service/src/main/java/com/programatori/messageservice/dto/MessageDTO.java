@@ -23,4 +23,8 @@ public class MessageDTO {
     private Long requestId;
 
     private MessageStatus status;
+
+    private Long senderId;
+
+    private Long receiverId;
 }

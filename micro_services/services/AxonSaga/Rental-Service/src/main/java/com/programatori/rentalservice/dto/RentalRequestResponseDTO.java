@@ -18,4 +18,5 @@ public class RentalRequestResponseDTO {
     private VehicleBasicDTO vehicleBasicDTO;
     private Date fromDate;
     private Date toDate;
+    private String status;
 }
