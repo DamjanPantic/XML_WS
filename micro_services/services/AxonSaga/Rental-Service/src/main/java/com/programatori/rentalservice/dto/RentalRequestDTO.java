@@ -1,12 +1,11 @@
 package com.programatori.rentalservice.dto;
 
+import com.programatori.rentalservice.models.RentalRequestStatus;
 import lombok.Getter;
-import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@NoArgsConstructor
 public class RentalRequestDTO {
     private Long id;
     private Long ownerId;
@@ -15,5 +14,8 @@ public class RentalRequestDTO {
     private String toDate;
     private Boolean bundle;
     private Long vehicleId;
+    private RentalRequestStatus status;
+
+    public  RentalRequestDTO(){}
 
 }

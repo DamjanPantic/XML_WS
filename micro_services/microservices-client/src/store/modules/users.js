@@ -1,3 +1,4 @@
+import router from '../../router'
 import { ServiceFactory } from '../../services/ServiceFactory';
 const usersService = ServiceFactory.get('users');
 
@@ -15,26 +16,24 @@ const getters = {
 const actions = {
     async loginUser({ commit }, user) {
         console.log('logovajne ');
-        
-        let response;
-        try{
-            response = await usersService.login(user);
 
-        }catch(e){
-            
-        }
-        console.log("hederi" + response.headers);
-        
-        commit('loginUser', response.headers);
-    },
-    async registerUser({ commit }, user){        
-        
         let response;
-        try{
+        try {
+            response = await usersService.login(user);
+        } catch (e) {
+
+        }
+        await commit('loginUser', response);
+        router.push("/");
+    },
+    async registerUser({ commit }, user) {
+
+        let response;
+        try {
             response = await usersService.register(user);
 
-        }catch(e){
-            
+        } catch (e) {
+
         }
         commit('registerUser', response.headers);
     }
@@ -42,24 +41,26 @@ const actions = {
 
 const mutations = {
     loginUser: (state, data) => {
-        state.token = data.access_token;        
+        console.log("***************");
+
+        state.token = data.access_token;
         state.user = data.user;
         console.log(data.authorization);
         console.log(data);
-        
-        localStorage.setItem('token',data.authorization);
+
+        localStorage.setItem('token', data.authorization);
     },
     registerUser: (state, data) => {
         console.log(data.access_token);
         
         state.token = data.access_token,
-        state.user = data.user,
-        localStorage.setItem('token',data.authorization);
+            state.user = data.user,
+            localStorage.setItem('token', data.authorization);
 
     }
 };
 
-export default{
+export default {
     state,
     getters,
     actions,

@@ -12,7 +12,7 @@ public interface RentalRequestService {
 
     public ResponseEntity<?> addRentalRequest(List<RentalRequestDTO> rentalRequestDTO) throws ParseException;
 
-    ResponseEntity<?> deleteInvalidRentals(Long vehicleId, AvailabilityDTO availabilityDTO);
+    public ResponseEntity<?> deleteInvalidRentals(Long vehicleId, AvailabilityDTO availabilityDTO);
 
     public ResponseEntity<?> approveDenyRequest(ApproveDenyRequestDTO approveDenyRequestDTO);
 
@@ -21,4 +21,9 @@ public interface RentalRequestService {
     public void clearRequests();
 
     public ResponseEntity<?> pay(Long requestId);
+
+    public ResponseEntity<?> getById(Long rentalId);
+
+    public Boolean getRentalRequestByParams(Long customerId, Long vehicleId);
+
 }

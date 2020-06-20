@@ -15,6 +15,7 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.ParseException;
@@ -58,7 +59,20 @@ public class RentalController {
         return new ResponseEntity<>(rentalRequestService.listPendingRequests(owner),HttpStatus.OK);
     }
 
-    @PostMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
+
+    @GetMapping(path = "/{id}", consumes = MediaType.APPLICATION_JSON_VALUE, produces =
+            MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getRentalRequestById(@PathVariable Long id){
+        return rentalRequestService.getById(id);
+    }
+
+    @GetMapping(path = "/{customerId}/{vehicleId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public Boolean getRentalRequestByParams(@PathVariable Long customerId,@PathVariable Long vehicleId) throws ParseException {
+
+        return rentalRequestService.getRentalRequestByParams(customerId,vehicleId);
+    }
+
+    @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveDenyRentalRequest(@RequestBody ApproveDenyRequestDTO approveDenyRequestDTO){
         return rentalRequestService.approveDenyRequest(approveDenyRequestDTO);
     }

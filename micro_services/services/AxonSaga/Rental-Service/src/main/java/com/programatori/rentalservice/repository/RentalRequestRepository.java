@@ -27,5 +27,13 @@ public interface RentalRequestRepository extends JpaRepository<RentalRequest,Lon
     @Query(value = "select r from RentalRequest r where r.status = (:status) ")
     List<RentalRequest> findRentalRequestByStatus(@Param("status") RentalRequestStatus status);
 
+    RentalRequest findOneById(Long id);
+
+    @Query(value = "select count(r) > 0 from RentalRequest r inner join r.vehicleIds v where ((v.vehicleId) = " +
+            "(:vehicleId))" +
+            "and r.status = 'PAID' and r.toDate < (:toDate) and r.customerId = (:customerId)")
+    Boolean findRentalRequestByStatusAndDate(@Param("toDate") Date toDate,
+                                                         @Param("customerId") Long customerId,
+                                                         @Param("vehicleId") Long vehicleId);
 
 }

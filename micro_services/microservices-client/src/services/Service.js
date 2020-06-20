@@ -6,9 +6,13 @@ const baseURL = `${baseDomain}/api`;
 class Service {
     constructor(){
         this.client = axios.create({
-            
+            headers: {
+                common: {
+                    "Access-Control-Allow-Origin": "*",
+                },
+            },
             baseURL
-        })
+        });
         this.setInterceptor();
     }
     setInterceptor = () => {

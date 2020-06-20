@@ -1,11 +1,12 @@
 package com.programatori.carservice.service.impl;
 
-import com.programatori.carservice.dto.VehicleDTO;
 import com.programatori.carservice.models.Vehicle;
 import com.programatori.carservice.repository.VehicleRepository;
 import com.programatori.carservice.service.CarService;
 import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import javax.transaction.Transactional;
@@ -53,5 +54,14 @@ public class CarServiceImpl implements CarService {
             return null;
         }
         return vehicle.getId();
+    }
+
+    @Override
+    public ResponseEntity<?> getVehicleById(Long id) {
+        Vehicle vehicle = vehicleRepository.findOneById(id);
+        if(vehicle == null)
+            return new ResponseEntity<>("Vehicle with that ID dont exist", HttpStatus.BAD_REQUEST);
+
+        return new ResponseEntity<>(vehicle, HttpStatus.OK);
     }
 }
