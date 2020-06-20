@@ -3,6 +3,7 @@ package com.programatori.carservice.service.impl;
 import com.programatori.carservice.models.Vehicle;
 import com.programatori.carservice.repository.VehicleRepository;
 import com.programatori.carservice.service.CarService;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;

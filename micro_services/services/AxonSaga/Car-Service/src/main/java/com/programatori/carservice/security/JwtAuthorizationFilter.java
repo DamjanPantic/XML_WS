@@ -53,13 +53,12 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                         .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                         .getSubject();
 
+                System.out.println(user);
+
                 Map<String, Claim> claims = JWT.require(Algorithm.HMAC512(SecurityConstants.SECRET.getBytes()))
                         .build()
                         .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                         .getClaims();
-
-                System.out.println(user.toString());
-
 
                 String authorityClaims = claims.get("roles").asString();
                 System.out.println(authorityClaims);
@@ -76,6 +75,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                 return new UsernamePasswordAuthenticationToken(user, null, authorities);
 
             }catch (Exception e){
+
                 System.out.println("nema tokena");
                 System.out.println(e);
                 return null;

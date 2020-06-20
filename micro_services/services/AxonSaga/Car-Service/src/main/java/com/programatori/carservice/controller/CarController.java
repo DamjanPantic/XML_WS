@@ -1,10 +1,12 @@
 package com.programatori.carservice.controller;
 
+import com.programatori.carservice.dto.VehicleBasicDTO;
 import com.programatori.carservice.dto.VehicleDTO;
 import com.programatori.carservice.models.Vehicle;
 import com.programatori.carservice.repository.VehicleRepository;
 import com.programatori.carservice.service.AdService;
 import com.programatori.carservice.service.CarService;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,6 +19,7 @@ import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.security.NoSuchAlgorithmException;
 import java.text.ParseException;
+import java.util.ArrayList;
 import java.util.List;
 
 @RestController
@@ -30,6 +33,8 @@ public class CarController {
 
     @Autowired
     VehicleRepository vehicleRepository;
+
+    DozerBeanMapper mapper = new DozerBeanMapper();
 
     @GetMapping("/hello")
     public ResponseEntity<?> get(HttpServletRequest request) throws UnknownHostException, ParseException {
@@ -84,6 +89,18 @@ public class CarController {
 
         return vehicleRepository.findAll();
     }
+
+    @RequestMapping(value = "/basic-info", method = RequestMethod.GET)
+    public ResponseEntity<List<VehicleBasicDTO>> getBasicVehiclesInformation(){
+        List<Vehicle> vehicles = vehicleRepository.findAll();
+        List<VehicleBasicDTO> vehicleBasicDTOS = new ArrayList<>();
+        for (Vehicle v : vehicles) {
+
+            vehicleBasicDTOS.add(mapper.map(v,VehicleBasicDTO.class));
+        }
+        return new ResponseEntity<>(vehicleBasicDTOS,HttpStatus.OK);
+    }
+
 
 
 }

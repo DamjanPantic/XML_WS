@@ -130,8 +130,8 @@ public class RentalRequestServiceImpl implements RentalRequestService {
     }
 
     @Override
-    public ResponseEntity<?> listPendingRequests(Long ownerId) {
-        return new ResponseEntity<List<RentalRequest>>(rentalRequestRepository.findRentalRequestByOwnerIdAndStatus(ownerId, RentalRequestStatus.PENDING), HttpStatus.OK);
+    public List<?> listPendingRequests(Long ownerId) {
+        return rentalRequestRepository.findRentalRequestByOwnerIdAndStatus(ownerId, RentalRequestStatus.PENDING);
     }
 
     @Override
