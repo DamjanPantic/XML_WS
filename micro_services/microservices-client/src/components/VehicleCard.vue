@@ -90,15 +90,41 @@
           <v-btn icon color="red" right>
             <v-icon>mdi-heart-outline</v-icon>
           </v-btn>
+          <v-btn icon color="red" right>
+            <v-icon @click="addItemToCart">mdi-cart</v-icon>
+          </v-btn>
         </v-card-actions>
+        <p v-if="this.addedToCart" color = "red">Added to cart!</p>
       </v-card>
     </v-row>
   </v-col>
 </template>
 
 <script>
+import { mapGetters, mapActions } from "vuex";
+
+
 export default {
-  props: ["vehicle"]
+  props: ["vehicle"],
+   methods: {
+    ...mapActions(["addToCart"]),
+    addItemToCart() {
+      this.addToCart(this.vehicle);
+      if(this.addedToCart === true){
+        this.addedToCart = false;
+      }else{
+        this.addedToCart = true;
+      }
+    },
+    remove(){
+      this.addedToCart = null;
+    }
+  },
+  data: () => ({
+    addedToCart: null
+  }),
+  computed: mapGetters(["allCartItems"]),
+
 };
 </script>
 
