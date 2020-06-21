@@ -8,6 +8,8 @@ import routes from './router-names';
 import Vehicles from '../views/Vehicles.vue';
 import UsersRequests from '../views/UsersRequests.vue';
 import Messages from '../views/Messages.vue';
+import PendingCommentsList from '../views/PendingCommentsList.vue'
+
 
 Vue.use(Router);
 
@@ -47,6 +49,14 @@ const router = new Router({
           path: routes.MESSAGES_ROUTE.path,
           name: routes.MESSAGES_ROUTE.name,
           component: Messages,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: routes.PENDING_COMMENTS.path,
+          name: routes.PENDING_COMMENTS.name,
+          component: PendingCommentsList,
           meta: {
             requiresAuth: true
           }

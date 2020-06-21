@@ -37,7 +37,7 @@
       </v-list-item>
 
       
-      <v-list-item v-if="user.username == 'Test'" link to="'/recension">
+      <v-list-item v-if="user.username == 'Test'" link to="/comments">
         <v-list-item-icon>
           <v-icon>mdi-comment-text-outline</v-icon>
         </v-list-item-icon>

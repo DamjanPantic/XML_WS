@@ -3,15 +3,14 @@
     <template >
       <thead>
         <tr>
-          <th class="text-left">Name</th>
-          <th class="text-left">Calories</th>
+          <th class="text-left">Sender</th>
+          <th class="text-left">Vehicle</th>
+          <th class="text-left">Content</th>
+
         </tr>
       </thead>
       <tbody>
-        <tr v-for="item in desserts" :key="item.name">
-          <td>{{ item.name }}</td>
-          <td>{{ item.calories }}</td>
-        </tr>
+   
       </tbody>
     </template>
   </v-simple-table>
