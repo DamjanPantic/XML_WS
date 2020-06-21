@@ -32,4 +32,7 @@ public interface RentalRequestService {
     List<RentalRequest> getCustomersRentalRequests(Long customerId);
 
     List<RentalRequest> getOwnersRentalRequests(Long ownerId);
+
+    public List<?> listReservedRequests(Long customerId);
+
 }

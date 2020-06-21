@@ -17,7 +17,7 @@
             <v-list-item-title
               v-html="'To: '+  item.toDate.split('T')[0] +' '+ item.toDate.split('T')[1].split('.')[0] "
             ></v-list-item-title>
-            <v-list-item-title
+            <v-list-item-title v-if="item.vehicleBasicDTO !== null"
               v-html="'Car: '+ item.vehicleBasicDTO.model.manufacturer.name+' '+item.vehicleBasicDTO.model.name "
             ></v-list-item-title>
             <button @click="handleClick(true,item)">accept</button>

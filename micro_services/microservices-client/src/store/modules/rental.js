@@ -3,12 +3,16 @@ const rentalService = ServiceFactory.get('rental');
 
 const state = {
     requests: [],
-    sentRequest: null
+    sentRequest: null,
+    reservedRequests: [],
+    payment: null
 };
 
 const getters = {
     allRequests: state => state.requests,
-    getSentRequest: state => state.sendRequest
+    getSentRequest: state => state.sendRequest,
+    getReservedRequests: state => state.reservedRequests,
+    getRequest: state => state.payment
 };
 
 const actions = {
@@ -48,6 +52,30 @@ const actions = {
         }catch(e){
 
         }
+    },
+    async fetchReservedRequests({ commit }, customer) {
+        let response;
+        try {
+            response = await rentalService.fetchReservedRequests(customer);
+
+        } catch (e) {
+
+        }
+        commit('reservedRequestsFetched', response.data);
+    },
+
+    proceedPayment({ commit }, request) {
+        commit('procced', request);
+    },
+
+    async pay({commit}, requestId){
+        let response;
+        try {
+            response = await rentalService.payRequest(requestId);
+
+        } catch (e) {
+
+        }
     }
 };
 
@@ -70,6 +98,12 @@ const mutations = {
     setRequests: (state, data) => {
         state.requests = data;
         console.log(data);
+    },
+    reservedRequestsFetched: (state, data) => {
+        state.reservedRequests = data;
+    },
+    procced: (state, data) => {
+        state.payment = data;
     }
 };
 

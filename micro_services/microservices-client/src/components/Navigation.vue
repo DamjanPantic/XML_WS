@@ -26,13 +26,23 @@
         </v-list-item-content>
       </v-list-item>
 
-      <v-list-item link :to="'/requests/'+user.id">
+      <v-list-item link :to="'/user-requests/'+user.id">
+        <v-list-item-icon>
+          <v-icon>mdi-message</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>Requests messagener</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item link :to="'/requests'" v-if="user!== null">
         <v-list-item-icon>
           <v-icon>mdi-view-list</v-icon>
         </v-list-item-icon>
 
         <v-list-item-content>
-          <v-list-item-title>Rental requests</v-list-item-title>
+          <v-list-item-title>Pending requests</v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -42,6 +52,15 @@
         </v-list-item-icon>
         <v-list-item-content>
           <v-list-item-title v-if="getCartItemsNumber !== 0">{{getCartItemsNumber}} </v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
+      <v-list-item link :to="'/reserved'">
+        <v-list-item-icon>
+          <v-icon>mdi-cart</v-icon>
+        </v-list-item-icon>
+        <v-list-item-content>
+          <v-list-item-title >Reserved  </v-list-item-title>
         </v-list-item-content>
       </v-list-item>
 
@@ -55,7 +74,7 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters, mapActions, user } from "vuex";
 
 export default {
   name: "Navigation",

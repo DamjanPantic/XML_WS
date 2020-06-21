@@ -23,6 +23,14 @@ class RentalService extends Service{
             return this.getApiClient().get(`${resource}/customer/${user.id}`);
         }
     }
+
+    fetchReservedRequests(customer) {
+        return this.getApiClient().get(`${resource}/reserved-requests/${customer}`);
+    }
+
+    payRequest(requestId) {
+        return this.getApiClient().post(`${resource}/${requestId}/pay`);
+    }
 }
 
 
