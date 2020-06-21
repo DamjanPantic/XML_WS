@@ -50,6 +50,7 @@ public class CarConfiguration extends WebSecurityConfigurerAdapter {
                 .addFilter(new JwtAuthorizationFilter(authenticationManager()))
                 .authorizeRequests()
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
+                .antMatchers(HttpMethod.GET, "/**").permitAll()
                 .antMatchers( "/**").hasAuthority("READ_PRIVILEGE")
                 .anyRequest().authenticated();
 
