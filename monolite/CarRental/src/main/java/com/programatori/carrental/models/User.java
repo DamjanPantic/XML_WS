@@ -36,6 +36,14 @@ public class User {
     @OneToMany(mappedBy = "customer", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<RentalRequest> rentalRequestsCustomers = new HashSet<RentalRequest>();
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "sender", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Message> messagesSender;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Message> messagesReceiver;
+
     public User() {
     }
 }

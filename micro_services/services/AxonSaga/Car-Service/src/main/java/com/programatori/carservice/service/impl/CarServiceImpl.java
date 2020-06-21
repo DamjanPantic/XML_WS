@@ -1,5 +1,6 @@
 package com.programatori.carservice.service.impl;
 
+import com.programatori.carservice.dto.VehicleModelDTO;
 import com.programatori.carservice.models.Vehicle;
 import com.programatori.carservice.repository.VehicleRepository;
 import com.programatori.carservice.service.CarService;
@@ -21,6 +22,8 @@ public class CarServiceImpl implements CarService {
 
     @Autowired
     private VehicleRepository vehicleRepository;
+
+    DozerBeanMapper dozerBeanMapper = new DozerBeanMapper();
 
     @Override
     public String generateToken(Long id) throws NoSuchAlgorithmException {
@@ -63,5 +66,15 @@ public class CarServiceImpl implements CarService {
             return new ResponseEntity<>("Vehicle with that ID dont exist", HttpStatus.BAD_REQUEST);
 
         return new ResponseEntity<>(vehicle, HttpStatus.OK);
+    }
+
+    @Override
+    public ResponseEntity<?> getVehicleModelDTOById(Long id) {
+        Vehicle vehicle = vehicleRepository.findOneById(id);
+        if(vehicle == null)
+            return new ResponseEntity<>("Vehicle with that ID dont exist", HttpStatus.BAD_REQUEST);
+
+        VehicleModelDTO vehicleModelDTO = dozerBeanMapper.map(vehicle,VehicleModelDTO.class);
+        return new ResponseEntity<>(vehicleModelDTO, HttpStatus.OK);
     }
 }

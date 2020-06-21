@@ -84,6 +84,13 @@ public class CarController {
         return carService.getVehicleById(id);
     }
 
+    @GetMapping(value = "/model/{id}",produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getVehicleModelById(@PathVariable Long id){
+        return carService.getVehicleModelDTOById(id);
+    }
+
+
+
     @RequestMapping(value = "/get",method = RequestMethod.GET)
     public List<Vehicle> getVehicle() throws NoSuchAlgorithmException {
 

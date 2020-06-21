@@ -5,6 +5,7 @@ import rental from './modules/rental';
 import vehicles from './modules/vehicles';
 import cart from './modules/cart';
 import message from './modules/message'; 
+import recension from './modules/recension'; 
 
 Vue.use(Vuex)
 
@@ -15,5 +16,6 @@ export default new Vuex.Store({
       vehicles,
       cart,
       message,
+      recension
   }
 })

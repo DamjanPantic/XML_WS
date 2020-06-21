@@ -10,6 +10,8 @@ import UsersRequests from '../views/UsersRequests.vue';
 import Cart from '../components/cart/Cart';
 import Payment from '../components/cart/Payment';
 import Messages from '../views/Messages.vue';
+import PendingCommentsList from '../views/PendingCommentsList.vue'
+
 import ReservedRequests from '../components/rental/ReserverdRequests';
 
 Vue.use(Router);
@@ -71,6 +73,15 @@ const router = new Router({
           }
         },
         {
+          path: routes.PENDING_COMMENTS.path,
+          name: routes.PENDING_COMMENTS.name,
+          component: PendingCommentsList,
+          meta: {
+            requiresAuth: true
+          }
+        },
+      
+      {
           path: routes.PENDING_REQUESTS_ROUTE.path,
           name: routes.PENDING_REQUESTS_ROUTE.name,
           component: PendingRequests,

@@ -38,12 +38,12 @@ public class RecensionController {
         return commentService.getCommentsByStatus(status);
     }
 
-    @PutMapping(path = "/comment/approve/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/comment/approve/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveComment(@PathVariable Long id){
         return commentService.approveComment(id);
     }
 
-    @PutMapping(path = "/comment/decline/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/comment/decline/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> declineComment(@PathVariable Long id){
         return commentService.declineComment(id);
     }

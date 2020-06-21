@@ -64,6 +64,16 @@
         </v-list-item-content>
       </v-list-item>
 
+      
+      <v-list-item v-if="user.username == 'Test'" link to="/comments">
+        <v-list-item-icon>
+          <v-icon>mdi-comment-text-outline</v-icon>
+        </v-list-item-icon>
+
+        <v-list-item-content>
+          <v-list-item-title>Comments</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
     </v-list>
     <template v-slot:append>
       <div class="pa-2">

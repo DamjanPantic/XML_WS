@@ -1,6 +1,13 @@
 package com.programatori.recensionservice.service.impl;
 
+import com.fasterxml.jackson.core.type.TypeReference;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.programatori.recensionservice.client.RentalClient;
+import com.programatori.recensionservice.client.UsersClient;
+import com.programatori.recensionservice.client.VehicleClient;
+import com.programatori.recensionservice.dto.CommentDTO;
+import com.programatori.recensionservice.dto.UserDTO;
+import com.programatori.recensionservice.dto.VehicleBasicDTO;
 import com.programatori.recensionservice.models.Comment;
 import com.programatori.recensionservice.models.CommentStatus;
 import com.programatori.recensionservice.repository.CommentRepository;
@@ -10,6 +17,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -20,6 +28,14 @@ public class CommentServiceImpl implements CommentService {
 
     @Autowired
     CommentRepository commentRepository;
+
+    @Autowired
+    UsersClient usersClient;
+
+    @Autowired
+    VehicleClient vehicleClient;
+
+    ObjectMapper mapper = new ObjectMapper();
 
     @Override
     public ResponseEntity<?> addComment(Comment comment) {
@@ -39,8 +55,25 @@ public class CommentServiceImpl implements CommentService {
         List<Comment> comments = commentRepository.findAllByCommentStatus(status);
         if(comments == null)
             return new ResponseEntity<>("Comments doesn't exist",HttpStatus.BAD_REQUEST);
+        List<CommentDTO> commentDTOS = new ArrayList<>();
+        for (Comment comment : comments){
+            ResponseEntity<?> responseEntity = usersClient.getUserById(comment.getUserId());
+            UserDTO userDTO = mapper.convertValue(responseEntity.getBody(), new TypeReference<UserDTO>() {});
+            ResponseEntity<?> responseEntity1 = vehicleClient.getVehicleModelById(comment.getVehicleId());
+            VehicleBasicDTO vehicleBasicDTO = mapper.convertValue(responseEntity1.getBody(),
+                    new TypeReference<VehicleBasicDTO>() {});
+            CommentDTO commentDTO = new CommentDTO();
+            commentDTO.setId(comment.getId());
+            commentDTO.setUserId(userDTO);
+            commentDTO.setVehicleId(vehicleBasicDTO);
+            commentDTO.setContent(comment.getContent());
+            commentDTO.setCommentStatus(comment.getCommentStatus());
+            commentDTOS.add(commentDTO);
 
-        return new ResponseEntity<>(comments,HttpStatus.OK);
+
+        }
+
+        return new ResponseEntity<>(commentDTOS,HttpStatus.OK);
     }
 
     @Override
