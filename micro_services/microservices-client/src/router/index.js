@@ -7,6 +7,8 @@ import PendingRequests from '../components/rental/PendingRequests';
 import routes from './router-names'; 
 import Vehicles from '../views/Vehicles.vue';
 import UsersRequests from '../views/UsersRequests.vue';
+import Cart from '../components/cart/Cart';
+import Payment from '../components/cart/Payment';
 import Messages from '../views/Messages.vue';
 
 Vue.use(Router);
@@ -44,6 +46,21 @@ const router = new Router({
           }
         },
         {
+          path: routes.CART_ROUTE.path,
+          name: routes.CART_ROUTE.name,
+          component: Cart,
+          meta: {
+            requiresAuth: false
+          }
+        },
+        {
+          path: routes.PAYMENT_CHECKOUT.path,
+          name: routes.PAYMENT_CHECKOUT.name,
+          component: Payment,
+          meta: {
+            requiresAuth: false
+          }
+      },
           path: routes.MESSAGES_ROUTE.path,
           name: routes.MESSAGES_ROUTE.name,
           component: Messages,

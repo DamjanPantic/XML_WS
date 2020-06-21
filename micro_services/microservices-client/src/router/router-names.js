@@ -5,6 +5,8 @@ export default {
     VEHICLES_ROUTE: { path: '/', name: 'vehicles-route' },
     LOGIN_ROUTE: { path: '/login', name: 'login_route' },
     REGISTER_ROUTE: { path: '/register', name: 'register_route' },
-    USERS_REQUESTS_ROUTE: { path: '/requests/:id', name: 'users_requests_route'},
+    USERS_REQUESTS_ROUTE: { path: '/requests/:id', name: 'users_requests-route'},
+    CART_ROUTE: {path: '/cart', name: 'cart_route'},
+    PAYMENT_CHECKOUT: {path: '/payment', name: 'payment_route'},
     MESSAGES_ROUTE: {path: '/messages/:owner/:ownerId/:manufacturer/:model/:requestId', name: 'messages_route'}  
 }
