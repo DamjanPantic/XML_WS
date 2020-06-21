@@ -9,7 +9,7 @@
           <v-row style="height: unset !important;">
             <v-col cols="12" v-for="message in messages" :key="message.id">
               <v-card
-                class="tooltip"
+                class="tooltip rounded-card"
                 :class="[{myMessage: message.senderId === user.id}, {recievedMessage: message.senderId !== user.id}, {tooltipMy: message.senderId === user.id}, {tooltipHis: message.senderId !== user.id}]"
                 max-width="45%"
               >
@@ -165,5 +165,9 @@ export default {
 
 .tooltip:hover .tooltiptext {
   visibility: visible;
+}
+
+.rounded-card{
+    border-radius:3em !important;
 }
 </style>

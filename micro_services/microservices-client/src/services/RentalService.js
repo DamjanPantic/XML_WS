@@ -12,8 +12,12 @@ class RentalService extends Service{
         return this.getApiClient().post(`${resource}/approval`, approbalObj);
     }
 
-    getUserRentalRequest(id){
-        return this.getApiClient().get(`${resource}/customer/${id}`);
+    getUserRentalRequest(user){
+        if (user.username === "Test") {
+            return this.getApiClient().get(`${resource}/owner/${user.id}`);
+        }else{
+            return this.getApiClient().get(`${resource}/customer/${user.id}`);
+        }
     }
 }
 
