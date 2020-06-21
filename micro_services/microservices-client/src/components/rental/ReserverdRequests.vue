@@ -1,7 +1,7 @@
 <template>
-  <div id="asd">
+  <div id="reservedReq">
     <v-list>
-      <template v-for="(item) in allRequests">
+      <template v-for="(item) in getReservedRequests">
         <v-divider  v-bind:key="item.id+100"></v-divider>
         <v-list-item :key="item.id">
           <v-list-item-avatar>
@@ -20,8 +20,7 @@
             <v-list-item-title v-if="item.vehicleBasicDTO !== null"
               v-html="'Car: '+ item.vehicleBasicDTO.model.manufacturer.name+' '+item.vehicleBasicDTO.model.name "
             ></v-list-item-title>
-            <button @click="handleClick(true,item)">accept</button>
-            <button @click="handleClick(false,item)">decline</button>
+            <button @click="handleClick(true,item)">pay</button>
           </v-list-item-content>
         </v-list-item>
       </template>
@@ -33,23 +32,21 @@
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  name: "PendingRequests",
+  name: "ReservedRequests",
   methods: {
-    ...mapActions(["fetchRequests", 'acceptDeclineRequest']),
-     async handleClick(accept, item){       
-      const approvalObj = {
-        approve: accept,
-        vehicleId: item.vehicleBasicDTO.id,
-        requestId: item.id
-      }
-      await this.acceptDeclineRequest(approvalObj);
+    ...mapActions(["fetchReservedRequests", 'proceedPayment']),
+        async handleClick(accept, item){       
+      
+        console.log("pay", item.id);
+        this.proceedPayment(item);
+        this.$router.push(`/payment/${item.id}`);
       
     },
     async getRequests() {
-      await this.fetchRequests(this.user.id);
+      await this.fetchReservedRequests(this.user.id);
     },
   },
-  computed: mapGetters(["allRequests", "user"]),
+  computed: mapGetters(["getReservedRequests", "user"]),
   created() {
     this.getRequests();
   }
@@ -57,7 +54,7 @@ export default {
 </script>
 
 <style scoped>
-#asd {
+#reservedReq {
   position: fixed;
   height: calc(100vh - 64px) !important;
   width: 100%;

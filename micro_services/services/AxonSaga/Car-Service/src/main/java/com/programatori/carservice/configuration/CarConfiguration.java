@@ -52,6 +52,7 @@ public class CarConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.OPTIONS).permitAll()
                 .antMatchers(HttpMethod.GET, "/**").permitAll()
                 .antMatchers( "/**").hasAuthority("READ_PRIVILEGE")
+                .antMatchers( "/**").hasAuthority("USER_MANIPULATION_PRIVILEGE")
                 .anyRequest().authenticated();
 
         http.addFilterAfter(authenticationTokenFilterBean(), UsernamePasswordAuthenticationFilter.class);

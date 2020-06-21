@@ -15,7 +15,6 @@ import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
-
 import java.net.InetAddress;
 import java.net.UnknownHostException;
 import java.text.ParseException;
@@ -42,6 +41,10 @@ public class RentalController {
 
     @PostMapping(path = "", consumes = MediaType.APPLICATION_JSON_VALUE, produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> addRenatalRequests(@RequestBody List<RentalRequestDTO> rentalRequestDTOS) throws  ParseException {
+        System.out.println(rentalRequestDTOS);
+        for (RentalRequestDTO dto: rentalRequestDTOS) {
+            System.out.println(dto.getVehicleId() + " "+ dto.getFromDate()+ " "+ dto.getToDate());
+        }
         Object pricnicpal  = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         System.out.println((String) pricnicpal);
         return rentalRequestService.addRentalRequest(rentalRequestDTOS);
@@ -147,7 +150,7 @@ public class RentalController {
         return rentalRequestService.getRentalRequestByParams(customerId,vehicleId);
     }
 
-    @PutMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
+    @PostMapping(path = "/approval", consumes = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveDenyRentalRequest(@RequestBody ApproveDenyRequestDTO approveDenyRequestDTO){
         return rentalRequestService.approveDenyRequest(approveDenyRequestDTO);
     }
@@ -168,6 +171,47 @@ public class RentalController {
         List<UserDTO> users = usersClient.getUsers();
         List<VehicleBasicDTO> vehicleBasicDTOS = vehicleClient.getVehicles(token);
         List<RentalRequest> rentalRequests = (List<RentalRequest>) rentalRequestService.listPendingRequests(owner);
+        List<RentalRequestResponseDTO> rentalRequestResponseDTOS = new ArrayList<>();
+        for (RentalRequest r : rentalRequests) {
+            System.out.println(r.getCreationTime());
+            RentalRequestResponseDTO rentalRequestResponseDTO = new RentalRequestResponseDTO();
+            UserDTO userDTO = null;
+            for (UserDTO u: users) {
+                System.out.println(u.getId());
+                if(u.getId() == r.getCustomerId())
+                    userDTO = u;
+            }
+            rentalRequestResponseDTO.setIssuer(userDTO);
+            for (UserDTO u: users) {
+                System.out.println(u.getId());
+
+                if(u.getId() == r.getOwnerId())
+                    userDTO = u;
+            }
+            VehicleBasicDTO vehicleBasicDTO = null;
+            for (VehicleBasicDTO v: vehicleBasicDTOS) {
+                System.out.println(v.getId());
+                for (Vehicle vehicle :r.getVehicleIds()) {
+                    if(vehicle.getId() == v.getId())
+                        vehicleBasicDTO = v;
+                }
+            }
+            rentalRequestResponseDTO.setId(r.getId());
+            rentalRequestResponseDTO.setOwner(userDTO);
+            rentalRequestResponseDTO.setFromDate(r.getFromDate());
+            rentalRequestResponseDTO.setToDate(r.getToDate());
+            rentalRequestResponseDTO.setVehicleBasicDTO(vehicleBasicDTO);
+            rentalRequestResponseDTOS.add(rentalRequestResponseDTO);
+        }
+        return new ResponseEntity<>(rentalRequestResponseDTOS,HttpStatus.OK);
+    }
+
+    @GetMapping(path= "/reserved-requests/{customer}")
+    public ResponseEntity<?> reservedRequests(HttpServletRequest request, @PathVariable Long customer){
+        String token = request.getHeader("Authorization");
+        List<UserDTO> users = usersClient.getUsers();
+        List<VehicleBasicDTO> vehicleBasicDTOS = vehicleClient.getVehicles(token);
+        List<RentalRequest> rentalRequests = (List<RentalRequest>) rentalRequestService.listReservedRequests(customer);
         List<RentalRequestResponseDTO> rentalRequestResponseDTOS = new ArrayList<>();
         for (RentalRequest r : rentalRequests) {
             System.out.println(r.getCreationTime());

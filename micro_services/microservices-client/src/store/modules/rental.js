@@ -2,11 +2,17 @@ import { ServiceFactory } from '../../services/ServiceFactory';
 const rentalService = ServiceFactory.get('rental');
 
 const state = {
-    requests: []
+    requests: [],
+    sentRequest: null,
+    reservedRequests: [],
+    payment: null
 };
 
 const getters = {
     allRequests: state => state.requests,
+    getSentRequest: state => state.sendRequest,
+    getReservedRequests: state => state.reservedRequests,
+    getRequest: state => state.payment
 };
 
 const actions = {
@@ -37,6 +43,39 @@ const actions = {
         } catch (e) {
 
         }
+    },
+    async sendRequest({commit}, rentalRequestObj) {
+        let response;
+        try{
+            response = await rentalService.sendRequest(rentalRequestObj);
+            commit('rentalRequestSent')
+        }catch(e){
+
+        }
+    },
+    async fetchReservedRequests({ commit }, customer) {
+        let response;
+        try {
+            response = await rentalService.fetchReservedRequests(customer);
+
+        } catch (e) {
+
+        }
+        commit('reservedRequestsFetched', response.data);
+    },
+
+    proceedPayment({ commit }, request) {
+        commit('procced', request);
+    },
+
+    async pay({commit}, requestId){
+        let response;
+        try {
+            response = await rentalService.payRequest(requestId);
+
+        } catch (e) {
+
+        }
     }
 };
 
@@ -53,9 +92,18 @@ const mutations = {
             state.requests = state.requests.filter(request => request.id != data.requestId)
         }
     },
+    rentalRequestSent: (state, data) => {
+        state.sentRequest = true;
+    },
     setRequests: (state, data) => {
         state.requests = data;
         console.log(data);
+    },
+    reservedRequestsFetched: (state, data) => {
+        state.reservedRequests = data;
+    },
+    procced: (state, data) => {
+        state.payment = data;
     }
 };
 

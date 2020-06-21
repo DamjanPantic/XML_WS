@@ -25,7 +25,7 @@ public class MessageController {
     }
 
     @GetMapping(path = "/{requestId}", produces = MediaType.APPLICATION_JSON_VALUE)
-    public ResponseEntity<?> getConversation(@PathVariable Long requestId){
+    public ResponseEntity<?> getConversation(@PathVariable Long requestId) {
         List<MessageDTO> messages = messageService.getRequestConversation(requestId);
         return new ResponseEntity<>(messages, HttpStatus.OK);
     }

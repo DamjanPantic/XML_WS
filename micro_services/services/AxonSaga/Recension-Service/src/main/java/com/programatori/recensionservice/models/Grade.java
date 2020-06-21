@@ -19,7 +19,7 @@ public class Grade {
     private Long vehicleId;
 
     @Column(nullable = false)
-    private Integer gradeValue;
+    private Double gradeValue;
 
     @Column(nullable = false)
     private Long userId;
