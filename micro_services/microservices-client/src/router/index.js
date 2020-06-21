@@ -12,7 +12,6 @@ import Payment from '../components/cart/Payment';
 import Messages from '../views/Messages.vue';
 import ReservedRequests from '../components/rental/ReserverdRequests';
 
-
 Vue.use(Router);
 
 const router = new Router({
@@ -62,7 +61,8 @@ const router = new Router({
           meta: {
             requiresAuth: false
           }
-        }, {
+        },
+        {
           path: routes.MESSAGES_ROUTE.path,
           name: routes.MESSAGES_ROUTE.name,
           component: Messages,
@@ -85,13 +85,9 @@ const router = new Router({
           meta: {
             requiresAuth: false
           }
-        },
-      ],
-      meta: {
-        requiresAuth: false
-      }
+        }
+      ]
     },
-
     {
       path: routes.REGISTER_ROUTE.path,
       name: routes.REGISTER_ROUTE.name,
@@ -99,7 +95,7 @@ const router = new Router({
       meta: {
         requiresAuth: false
       }
-    },
+    }
   ]
 })
 

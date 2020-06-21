@@ -45,6 +45,9 @@ public class WebSecurity extends WebSecurityConfigurerAdapter {
                 .antMatchers(HttpMethod.POST, "/sign-up").permitAll()
                 .antMatchers(HttpMethod.POST, "/register").permitAll()
                 .antMatchers(HttpMethod.POST, "/login").permitAll()
+                .antMatchers(HttpMethod.POST, "/sign-up").permitAll()
+                .antMatchers(HttpMethod.POST, "/login").permitAll()
+
                 .antMatchers(HttpMethod.POST, "/verify").permitAll()
                 .antMatchers( "/api/hello").hasAuthority("USER_MANIPULATION_PRIVILEGE")
                 .antMatchers("/api/users/**").hasAuthority("USER_MANIPULATION_PRIVILEGE")

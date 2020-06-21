@@ -10,8 +10,11 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
+<<<<<<< Updated upstream
 import java.util.List;
 
+=======
+>>>>>>> Stashed changes
 @Service
 public class CommentServiceImpl implements CommentService {
 
@@ -34,6 +37,7 @@ public class CommentServiceImpl implements CommentService {
 
     }
 
+<<<<<<< Updated upstream
     @Override
     public ResponseEntity<?> getCommentsByStatus(CommentStatus status) {
         List<Comment> comments = commentRepository.findAllByCommentStatus(status);
@@ -67,4 +71,6 @@ public class CommentServiceImpl implements CommentService {
         return new ResponseEntity<>(comment,HttpStatus.OK);
     }
 
+=======
+>>>>>>> Stashed changes
 }

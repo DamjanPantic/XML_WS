@@ -19,7 +19,11 @@ public class Grade {
     private Long vehicleId;
 
     @Column(nullable = false)
+<<<<<<< Updated upstream
     private Double gradeValue;
+=======
+    private Integer gradeValue;
+>>>>>>> Stashed changes
 
     @Column(nullable = false)
     private Long userId;

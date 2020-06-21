@@ -97,6 +97,7 @@ public class AuthController {
 
     @RequestMapping(value = "/verify",method = RequestMethod.POST)
     public ResponseEntity<?> verifyToken(HttpServletRequest request){
+
         String token = null;
         try {
             token = request.getHeader(SecurityConstants.HEADER_STRING).replace(SecurityConstants.TOKEN_PREFIX,"");

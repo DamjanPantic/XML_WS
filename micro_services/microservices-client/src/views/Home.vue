@@ -13,7 +13,6 @@
 import AppBar from "../components/AppBar.vue";
 import Navigation from "../components/Navigation.vue";
 import { mapGetters } from "vuex";
-
 export default {
   name: "Home",
   components: {
@@ -33,7 +32,6 @@ export default {
   position: fixed;
   overflow: auto;
 }
-
 .loggedUser {
   width: calc(100% - 256px) !important;
   left: 256px;

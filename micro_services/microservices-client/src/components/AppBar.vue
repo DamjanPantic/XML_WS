@@ -8,7 +8,6 @@
 
 <script>
 import { mapGetters } from "vuex";
-
 export default {
   name: "AppBar",
   computed: mapGetters(['token']),

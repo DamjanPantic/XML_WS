@@ -23,8 +23,11 @@ public class MessageDTO {
     private Long requestId;
 
     private MessageStatus status;
+<<<<<<< Updated upstream
 
     private Long senderId;
 
     private Long receiverId;
+=======
+>>>>>>> Stashed changes
 }

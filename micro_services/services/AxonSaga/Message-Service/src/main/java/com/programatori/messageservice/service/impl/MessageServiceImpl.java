@@ -6,7 +6,10 @@ import com.programatori.messageservice.client.RentalClient;
 import com.programatori.messageservice.dto.MessageDTO;
 import com.programatori.messageservice.dto.RentalRequestDTO;
 import com.programatori.messageservice.models.Message;
+<<<<<<< Updated upstream
 import com.programatori.messageservice.models.MessageStatus;
+=======
+>>>>>>> Stashed changes
 import com.programatori.messageservice.repository.MessageRepository;
 import com.programatori.messageservice.service.MessageService;
 import org.dozer.DozerBeanMapper;
@@ -16,9 +19,13 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
+<<<<<<< Updated upstream
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+=======
+import java.text.SimpleDateFormat;
+>>>>>>> Stashed changes
 
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -39,6 +46,7 @@ public class MessageServiceImpl implements MessageService {
         RentalRequestDTO rentalRequestDTO = mapper.convertValue(responseEntity.getBody(),new TypeReference<RentalRequestDTO>() {});
         System.out.println(rentalRequestDTO.getStatus());
         if( rentalRequestDTO.getStatus().equals("RESERVED")){
+<<<<<<< Updated upstream
             messageDTO.setSendDate(null);
             Message message = dozerMapper.map(messageDTO,Message.class);
             message.setSendDate(new Date());
@@ -52,6 +60,16 @@ public class MessageServiceImpl implements MessageService {
             }
 
             return new ResponseEntity<>(messages, HttpStatus.OK);
+=======
+            System.out.println("USAO U IF");
+            String sentDateString = messageDTO.getSendDate();
+            messageDTO.setSendDate(null);
+            Message message = dozerMapper.map(messageDTO,Message.class);
+            message.setSendDate(new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(sentDateString));
+            messageRepository.save(message);
+            System.out.println("ZAVRSIO IF");
+            return new ResponseEntity<>(message, HttpStatus.OK);
+>>>>>>> Stashed changes
         }
 
         return new ResponseEntity<>("Rental request has to be RESERVED", HttpStatus.BAD_REQUEST);
@@ -59,6 +77,7 @@ public class MessageServiceImpl implements MessageService {
 
 
     }
+<<<<<<< Updated upstream
 
     @Override
     public List<MessageDTO> getRequestConversation(Long requestId) {
@@ -70,4 +89,6 @@ public class MessageServiceImpl implements MessageService {
 
         return messages;
     }
+=======
+>>>>>>> Stashed changes
 }
