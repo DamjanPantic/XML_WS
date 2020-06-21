@@ -24,6 +24,9 @@ public class User {
     @Column(unique = true,nullable = false)
     private String username;
 
+    @Column(nullable = false)
+    private String password;
+
     @JsonIgnore
     @OneToMany(mappedBy = "owner", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Vehicle> vehicles = new HashSet<Vehicle>();
