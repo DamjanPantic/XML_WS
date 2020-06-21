@@ -189,7 +189,10 @@ public class RentalRequestServiceImpl implements RentalRequestService {
 
     }
 
-
+    @Override
+    public List<?> listConfirmedRequests(Long ownerId) {
+        return null;
+    }
 
 
 }

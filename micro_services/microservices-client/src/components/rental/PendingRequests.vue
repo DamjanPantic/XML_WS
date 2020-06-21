@@ -46,10 +46,10 @@ export default {
       
     },
     async getRequests() {
-      await this.fetchRequests(5);
+      await this.fetchRequests(this.user.id);
     },
   },
-  computed: mapGetters(["allRequests"]),
+  computed: mapGetters(["allRequests", "user"]),
   created() {
     this.getRequests();
   }

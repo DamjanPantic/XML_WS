@@ -8,6 +8,7 @@ import routes from './router-names';
 import Vehicles from '../views/Vehicles.vue';
 import UsersRequests from '../views/UsersRequests.vue';
 import Cart from '../components/cart/Cart';
+import Payment from '../components/cart/Payment';
 
 Vue.use(Router);
 
@@ -51,6 +52,14 @@ const router = new Router({
             requiresAuth: false
           }
         },
+        {
+          path: routes.PAYMENT_CHECKOUT.path,
+          name: routes.PAYMENT_CHECKOUT.name,
+          component: Payment,
+          meta: {
+            requiresAuth: false
+          }
+      },
       ],
       meta: {
         requiresAuth: false

@@ -6,5 +6,6 @@ export default {
     LOGIN_ROUTE: { path: '/login', name: 'login_route' },
     REGISTER_ROUTE: { path: '/register', name: 'register_route' },
     USERS_REQUESTS_ROUTE: { path: '/requests/:id', name: 'users_requests-route'},
-    CART_ROUTE: {path: '/cart', name: 'cart_route'}
+    CART_ROUTE: {path: '/cart', name: 'cart_route'},
+    PAYMENT_CHECKOUT: {path: '/payment', name: 'payment_route'}
 }
