@@ -38,6 +38,16 @@ public class RecensionController {
         return commentService.getCommentsByStatus(status);
     }
 
+    @GetMapping(path = "/rating/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getRating(@PathVariable Long id){
+        return gradeService.getVehicleRating(id);
+    }
+
+    @GetMapping(path = "/grade/{vehicleId}/{userId}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getGradeByUser(@PathVariable Long vehicleId,@PathVariable Long userId){
+        return gradeService.getVehicleGradeByUser(vehicleId,userId);
+    }
+
     @PostMapping(path = "/comment/approve/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
     public ResponseEntity<?> approveComment(@PathVariable Long id){
         return commentService.approveComment(id);
