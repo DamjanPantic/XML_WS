@@ -64,9 +64,7 @@ export default {
         else{
             this.requestsByOwner[item] = true;
             this.requestsByOwner.set(item, true)
-        }        
-        console.log(this.requestsByOwner);
-        
+        }                
     },
     insertRequests(){        
         this.getOwners.forEach(element => {            
@@ -77,16 +75,11 @@ export default {
     },
     async confirm(){
         var requestArray = [];
-        console.log("confitm", this.getRequestsByOwner);
-        console.log(this.fromDate, this.toDate);
-        
         this.getOwners.forEach(ownerId => {
-            console.log(ownerId);
-            console.log(this.getRequestsByOwner);
-            console.log("owner",this.getRequestsByOwner.get(ownerId));
             var arr = this.getRequestsByOwner.get(ownerId);
             let from = this.fromDate.split(' ')[1]+" "+this.fromDate.split(' ')[0]
             let to = this.toDate.split(' ')[1]+" "+this.toDate.split(' ')[0]
+
 
             arr.forEach(car => {
                 const req = {
@@ -101,9 +94,10 @@ export default {
                 requestArray.push(req);
             });
         });
-        await this.sendRequest(requestArray);
-        console.log("request", JSON.stringify(requestArray));
-        
+
+        await this.sendRequest(requestArray); 
+        alert("Request sent!");
+        this.$router.push("/");  
     }
   },
   data: () => ({
