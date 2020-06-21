@@ -6,4 +6,7 @@ import org.springframework.http.ResponseEntity;
 public interface GradeService {
 
     public ResponseEntity<?> addGrade(Grade grade);
+    public ResponseEntity<?> getVehicleRating(Long id);
+    public ResponseEntity<?> getVehicleGradeByUser(Long vehicleId,Long userId);
+
 }

@@ -34,54 +34,40 @@
               </v-tooltip>
             </v-col>
           </v-row>
-          <!-- <v-row>
-            <v-col cols="6">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }" class="justify-center">
-                  <span v-bind="attrs" v-on="on">
-                    <v-icon color="gray">mdi-cash-multiple</v-icon>
-                    <span class="ml-1">20$</span>
-                  </span>
-                </template>
-                <span>Price of additional kilometer</span>
-              </v-tooltip>
-            </v-col>
-            <v-col cols="6">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }" class="justify-center">
-                  <span v-bind="attrs" v-on="on">
-                    <v-icon color="gray">mdi-map-marker-distance</v-icon>
-                    <span class="ml-1">{{vehicle.limitKm}}</span>
-                  </span>
-                </template>
-                <span>Distance limit</span>
-              </v-tooltip>
-            </v-col>
-          </v-row>
-          <v-row>
-            <v-col cols="6">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }" class="justify-center">
-                  <span v-bind="attrs" v-on="on">
-                    <v-icon color="gray">mdi-car-shift-pattern</v-icon>
-                    <span class="ml-1">{{vehicle.transmission.name}}</span>
-                  </span>
-                </template>
-                <span>Transmission type</span>
-              </v-tooltip>
-            </v-col>
-            <v-col cols="6">
-              <v-tooltip bottom>
-                <template v-slot:activator="{ on, attrs }" class="justify-center">
-                  <span v-bind="attrs" v-on="on">
-                    <v-icon color="gray">mdi-gas-station-outline</v-icon>
-                    <span class="ml-1">{{vehicle.fuelType.type}}</span>
-                  </span>
-                </template>
-                <span>Fuel type</span>
-              </v-tooltip>
-            </v-col>
-          </v-row>-->
+          <div class="rating">
+            <div v-if="token" style="display:flex; align-items:center;">
+              <span
+                v-if="ratingValue !== 'NaN'"
+                class="grey--text text--darken-2"
+              >({{ Math.round(ratingValue * 100) / 100 }})</span>
+              <span v-else class="grey--text text--darken-2">(0)</span>
+              <v-rating
+                v-model="asd"
+                color="blue darken-1"
+                background-color="blue darken-4"
+                half-increments
+                @input="rating"
+                :readonly="asd !== 0"
+                hover
+                dense
+              ></v-rating>
+            </div>
+            <div v-else style="display:flex; align-items:center;">
+              <span
+                v-if="ratingValue !== 'NaN'"
+                class="grey--text text--darken-2"
+              >({{ Math.round(ratingValue * 100) / 100 }})</span>
+              <span v-else class="grey--text text--darken-2">(0)</span>
+              <v-rating
+                :value="ratingValue ==='NaN'? 0 : ratingValue"
+                color="blue darken-1"
+                background-color="blue darken-4"
+                dense
+                half-increments
+                readonly
+              ></v-rating>
+            </div>
+          </div>
         </v-card-text>
 
         <v-card-actions>
@@ -94,7 +80,7 @@
             <v-icon @click="addItemToCart">mdi-cart</v-icon>
           </v-btn>
         </v-card-actions>
-        <p v-if="this.addedToCart" color = "red">Added to cart!</p>
+        <p v-if="this.addedToCart" color="red">Added to cart!</p>
       </v-card>
     </v-row>
   </v-col>
@@ -103,46 +89,91 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
+import { ServiceFactory } from "../services/ServiceFactory.js";
+const recensionService = ServiceFactory.get("recension");
 
 export default {
   props: ["vehicle"],
-   methods: {
+  methods: {
     ...mapActions(["addToCart"]),
+    rating(e) {
+      let response = recensionService.addGrade({
+        vehicleId: this.vehicle.id,
+        userId: this.user.id,
+        gradeValue: e
+      });
+
+      
+      response
+        .then(result => {
+          console.log(result);
+          this.ratingValue = result.data;
+        })
+        .catch(e => {
+          alert(e.response.data);
+          this.asd = 0;
+        });
+    },
     addItemToCart() {
       this.addToCart(this.vehicle);
-      if(this.addedToCart === true){
+      if (this.addedToCart === true) {
         this.addedToCart = false;
-      }else{
+      } else {
         this.addedToCart = true;
       }
     },
-    remove(){
+    remove() {
       this.addedToCart = null;
     },
-    check(){
+    check() {
       let ind = -1;
-      this.allCartItems.forEach((element,index) => {
-        if(element.id === this.vehicle.id){
+      this.allCartItems.forEach((element, index) => {
+        if (element.id === this.vehicle.id) {
           ind = index;
         }
       });
-      if(ind !== -1){          
-          this.addedToCart = true;
-      }else{
-          
+      if (ind !== -1) {
+        this.addedToCart = true;
+      } else {
       }
     }
   },
   data: () => ({
-    addedToCart: null
+    addedToCart: null,
+    asd: 0,
+    ratingValue: 0
   }),
-  computed: mapGetters(["allCartItems"]),
+  computed: mapGetters(["allCartItems", "user", "token"]),
   created() {
     this.check();
-  }
+  },
+  mounted() {
+    let response = recensionService.getRating(this.vehicle.id);
+    response
+      .then(result => {
+        this.ratingValue = result.data;
+      })
+      .catch(e => {
+        alert(e.response.data);
+      });
 
+    let response1 = recensionService.getGradeByUser(
+      this.vehicle.id,
+      this.user.id
+    );
+    response1
+      .then(result => {
+        this.asd = result.data;
+      })
+      .catch(e => {
+      });
+  }
 };
 </script>
 
 <style>
+.rating {
+  display: inline-block;
+  align-items: center;
+}
 </style>

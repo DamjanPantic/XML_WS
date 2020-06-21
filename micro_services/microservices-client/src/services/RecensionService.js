@@ -14,6 +14,18 @@ class RecensionService extends Service{
     declineComment(id) {
         return this.getApiClient().post(`${resource}/comment/decline/${id}`);
     }
+
+    addGrade(grade) {
+        return this.getApiClient().post(`${resource}/add-grade`, grade);
+    }
+
+    getRating(id) {
+        return this.getApiClient().get(`${resource}/rating/${id}`);
+    }
+
+    getGradeByUser(vehicleId,userId) {
+        return this.getApiClient().get(`${resource}/grade/${vehicleId}/${userId}`);
+    }
 }
 
 
