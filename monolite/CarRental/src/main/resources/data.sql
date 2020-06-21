@@ -11,9 +11,9 @@ INSERT INTO agentdb.model (name, manufacturer_id) VALUES
 INSERT INTO agentdb.price_type (name) VALUES
 ("DAY"), ("KILOMETER");
 
-INSERT INTO agentdb.user (email, username) VALUES
-("mail@mail.com", "mile"),
-("mail1@mail.com", "mile1");
+INSERT INTO agentdb.user (email, username, password) VALUES
+("mail@mail.com", "mile", "123"),
+("mail1@mail.com", "mile1", "123");
 
 INSERT INTO agentdb.transmission (name)
 VALUES ("Manual gearbox"),
