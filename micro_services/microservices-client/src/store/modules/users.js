@@ -24,13 +24,6 @@ const actions = {
             await commit('loginUser', response.headers);
             router.push("/");
         } catch (e) { }
-
-    
-        console.log("hederi" + response.headers);
-        
-        commit('loginUser', response.headers);
-        await commit('loginUser', response);
-        router.push("/");
     },
     async registerUser({ commit }, user) {
 
@@ -56,12 +49,6 @@ const mutations = {
         state.token = data.authorization;
         let decodedJWT = VueJwtDecode.decode(data.authorization.split(" ")[1]);
         state.user = { "id": decodedJWT.id, "username": decodedJWT.username };
-        console.log("***************");
-
-        state.token = data.access_token;
-        state.user = data.user;
-        console.log(data.authorization);
-        console.log(data);
 
         localStorage.setItem('token', data.authorization);
     },
