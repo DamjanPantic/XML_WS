@@ -37,4 +37,6 @@ public interface RentalRequestRepository extends JpaRepository<RentalRequest,Lon
                                                          @Param("vehicleId") Long vehicleId);
 
     List<RentalRequest> findByCustomerId(Long customerId);
+
+    List<RentalRequest> findByOwnerId(Long ownerId);
 }

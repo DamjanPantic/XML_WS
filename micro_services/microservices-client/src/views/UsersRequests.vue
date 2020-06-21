@@ -28,23 +28,43 @@ import axios from "axios";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
-  data: () => ({
-    headers: [
-      { text: "Owner", value: "owner.username" },
-      {
-        text: "Manufacturer",
-        value: "vehicleBasicDTO.model.manufacturer.name"
-      },
-      { text: "Model", value: "vehicleBasicDTO.model.name" },
-      { text: "From (date)", value: "fromDate" },
-      { text: "To (date)", value: "toDate" },
-      { text: "Status", value: "status" },
-      { text: "Messages", value: "actions", sortable: false }
-    ],
-    dialog: false
-  }),
+  data: () => ({}),
   computed: {
-    ...mapGetters(["user", "allRequests"])
+    ...mapGetters(["user", "allRequests"]),
+    headers() {
+      let headers;
+      if (this.user.username === "Test") {
+        headers = [
+          { text: "ID", value: "id" },
+          { text: "Customer", value: "issuer.username" },
+          {
+            text: "Manufacturer",
+            value: "vehicleBasicDTO.model.manufacturer.name"
+          },
+          { text: "Model", value: "vehicleBasicDTO.model.name" },
+          { text: "From (date)", value: "fromDate" },
+          { text: "To (date)", value: "toDate" },
+          { text: "Status", value: "status" },
+          { text: "Messages", value: "actions", sortable: false }
+        ];
+      }else{
+        headers = [
+          { text: "ID", value: "id" },
+          { text: "Owner", value: "owner.username" },
+          {
+            text: "Manufacturer",
+            value: "vehicleBasicDTO.model.manufacturer.name"
+          },
+          { text: "Model", value: "vehicleBasicDTO.model.name" },
+          { text: "From (date)", value: "fromDate" },
+          { text: "To (date)", value: "toDate" },
+          { text: "Status", value: "status" },
+          { text: "Messages", value: "actions", sortable: false }
+        ];
+      }
+
+      return headers;
+    }
   },
   methods: {
     ...mapActions(["userRentalRequest"])
@@ -57,7 +77,7 @@ export default {
     }
   },
   created() {
-    this.userRentalRequest(this.user.id);
+    this.userRentalRequest(this.user);
   }
 };
 </script>

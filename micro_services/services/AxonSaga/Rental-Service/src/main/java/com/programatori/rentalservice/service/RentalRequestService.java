@@ -28,4 +28,6 @@ public interface RentalRequestService {
     public Boolean getRentalRequestByParams(Long customerId, Long vehicleId);
 
     List<RentalRequest> getCustomersRentalRequests(Long customerId);
+
+    List<RentalRequest> getOwnersRentalRequests(Long ownerId);
 }

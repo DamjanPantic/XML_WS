@@ -29,10 +29,10 @@ const actions = {
 
         }
     },
-    async userRentalRequest({ commit }, id) {
+    async userRentalRequest({ commit }, user) {
         let response;
         try {
-            response = await rentalService.getUserRentalRequest(id);
+            response = await rentalService.getUserRentalRequest(user);
             commit('setRequests', response.data)
         } catch (e) {
 
