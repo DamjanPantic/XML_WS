@@ -3,6 +3,7 @@ package com.programatori.rentalservice.service;
 import com.programatori.rentalservice.dto.ApproveDenyRequestDTO;
 import com.programatori.rentalservice.dto.AvailabilityDTO;
 import com.programatori.rentalservice.dto.RentalRequestDTO;
+import com.programatori.rentalservice.models.RentalRequest;
 import org.springframework.http.ResponseEntity;
 
 import java.text.ParseException;
@@ -28,5 +29,7 @@ public interface RentalRequestService {
 
     public List<?> listConfirmedRequests(Long ownerId);
 
+    List<RentalRequest> getCustomersRentalRequests(Long customerId);
 
+    List<RentalRequest> getOwnersRentalRequests(Long ownerId);
 }

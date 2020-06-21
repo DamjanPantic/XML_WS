@@ -9,6 +9,7 @@ import Vehicles from '../views/Vehicles.vue';
 import UsersRequests from '../views/UsersRequests.vue';
 import Cart from '../components/cart/Cart';
 import Payment from '../components/cart/Payment';
+import Messages from '../views/Messages.vue';
 
 Vue.use(Router);
 
@@ -60,6 +61,13 @@ const router = new Router({
             requiresAuth: false
           }
       },
+          path: routes.MESSAGES_ROUTE.path,
+          name: routes.MESSAGES_ROUTE.name,
+          component: Messages,
+          meta: {
+            requiresAuth: true
+          }
+        },
       ],
       meta: {
         requiresAuth: false

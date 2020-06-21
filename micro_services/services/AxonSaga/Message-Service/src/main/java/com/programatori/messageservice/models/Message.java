@@ -33,5 +33,11 @@ public class Message {
     @Enumerated(EnumType.STRING)
     private MessageStatus status;
 
+    @Column(nullable = false)
+    private Long senderId;
+
+    @Column(nullable = false)
+    private Long receiverId;
+
     public Message(){}
 }

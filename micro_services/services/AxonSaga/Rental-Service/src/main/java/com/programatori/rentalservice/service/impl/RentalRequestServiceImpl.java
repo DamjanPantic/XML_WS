@@ -193,6 +193,17 @@ public class RentalRequestServiceImpl implements RentalRequestService {
     public List<?> listConfirmedRequests(Long ownerId) {
         return null;
     }
+    
+    @Override
+    public List<RentalRequest> getCustomersRentalRequests(Long customerId) {
+
+        return  rentalRequestRepository.findByCustomerId(customerId);
+    }
+
+    @Override
+    public List<RentalRequest> getOwnersRentalRequests(Long ownerId) {
+        return rentalRequestRepository.findByOwnerId(ownerId);
+    }
 
 
 }

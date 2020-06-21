@@ -1,6 +1,7 @@
 package com.programatori.recensionservice.controller;
 
 import com.programatori.recensionservice.models.Comment;
+import com.programatori.recensionservice.models.CommentStatus;
 import com.programatori.recensionservice.models.Grade;
 import com.programatori.recensionservice.service.CommentService;
 import com.programatori.recensionservice.service.GradeService;
@@ -8,10 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.net.InetAddress;
 import java.net.UnknownHostException;
@@ -31,10 +29,19 @@ public class RecensionController {
         return new ResponseEntity<>(String.format("Hello from Recension service with ip address %s!", ip), HttpStatus.OK);
     }
 
-    @GetMapping("/test")
-    public ResponseEntity<?> getTest() throws UnknownHostException {
-        String ip = InetAddress.getLocalHost().getHostAddress();
-        return new ResponseEntity<>(String.format("Test from Recension service with ip address %s!", ip), HttpStatus.OK);
+    @GetMapping(path = "/comments/{status}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> getCommentsByStatus(@PathVariable CommentStatus status){
+        return commentService.getCommentsByStatus(status);
+    }
+
+    @PutMapping(path = "/comment/approve/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> approveComment(@PathVariable Long id){
+        return commentService.approveComment(id);
+    }
+
+    @PutMapping(path = "/comment/decline/{id}", produces = MediaType.APPLICATION_JSON_VALUE)
+    public ResponseEntity<?> declineComment(@PathVariable Long id){
+        return commentService.declineComment(id);
     }
 
     @PostMapping(path = "/add-grade", consumes = MediaType.APPLICATION_JSON_VALUE, produces =

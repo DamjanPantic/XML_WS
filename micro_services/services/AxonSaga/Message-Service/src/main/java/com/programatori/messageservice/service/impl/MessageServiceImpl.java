@@ -6,6 +6,7 @@ import com.programatori.messageservice.client.RentalClient;
 import com.programatori.messageservice.dto.MessageDTO;
 import com.programatori.messageservice.dto.RentalRequestDTO;
 import com.programatori.messageservice.models.Message;
+import com.programatori.messageservice.models.MessageStatus;
 import com.programatori.messageservice.repository.MessageRepository;
 import com.programatori.messageservice.service.MessageService;
 import org.dozer.DozerBeanMapper;
@@ -15,7 +16,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.text.ParseException;
-import java.text.SimpleDateFormat;
+import java.util.ArrayList;
+import java.util.Date;
+import java.util.List;
 
 @Service
 public class MessageServiceImpl implements MessageService {
@@ -36,19 +39,35 @@ public class MessageServiceImpl implements MessageService {
         RentalRequestDTO rentalRequestDTO = mapper.convertValue(responseEntity.getBody(),new TypeReference<RentalRequestDTO>() {});
         System.out.println(rentalRequestDTO.getStatus());
         if( rentalRequestDTO.getStatus().equals("RESERVED")){
-            System.out.println("USAO U IF");
-            String sentDateString = messageDTO.getSendDate();
             messageDTO.setSendDate(null);
             Message message = dozerMapper.map(messageDTO,Message.class);
-            message.setSendDate(new SimpleDateFormat("hh:mm dd-MM-yyyy").parse(sentDateString));
+            message.setSendDate(new Date());
+            message.setStatus(MessageStatus.DELIVERED);
             messageRepository.save(message);
-            System.out.println("ZAVRSIO IF");
-            return new ResponseEntity<>(message, HttpStatus.OK);
+
+            List<MessageDTO> messages = new ArrayList<>();
+
+            for (Message messageTemp: messageRepository.findByRequestId(messageDTO.getRequestId())) {
+                messages.add(dozerMapper.map(messageTemp, MessageDTO.class));
+            }
+
+            return new ResponseEntity<>(messages, HttpStatus.OK);
         }
 
         return new ResponseEntity<>("Rental request has to be RESERVED", HttpStatus.BAD_REQUEST);
 
 
 
+    }
+
+    @Override
+    public List<MessageDTO> getRequestConversation(Long requestId) {
+        List<MessageDTO> messages = new ArrayList<>();
+
+        for (Message message: messageRepository.findByRequestId(requestId)) {
+            messages.add(dozerMapper.map(message, MessageDTO.class));
+        }
+
+        return messages;
     }
 }

@@ -12,22 +12,31 @@ const getters = {
 };
 
 const actions = {
-    async fetchRequests({ commit }, owner) {        
+    async fetchRequests({ commit }, owner) {
         let response;
-        try{
+        try {
             response = await rentalService.fetchPendingRequests(owner);
 
-        }catch(e){
-            
-        }        
+        } catch (e) {
+
+        }
         commit('requestsFetched', response.data);
     },
-    async acceptDeclineRequest({commit}, approveObj) {
+    async acceptDeclineRequest({ commit }, approveObj) {
         let response;
-        try{
+        try {
             response = await rentalService.acceptDeclineRequest(approveObj);
             commit('requestApprovedDenied', approveObj)
-        }catch(e){
+        } catch (e) {
+
+        }
+    },
+    async userRentalRequest({ commit }, user) {
+        let response;
+        try {
+            response = await rentalService.getUserRentalRequest(user);
+            commit('setRequests', response.data)
+        } catch (e) {
 
         }
     },
@@ -46,21 +55,25 @@ const mutations = {
     requestsFetched: (state, data) => {
         state.requests = data;
     },
-    requestApprovedDenied: (state,data) => {
+    requestApprovedDenied: (state, data) => {
         console.log(data);
-        
-        if(data.approve === true){
+
+        if (data.approve === true) {
             state.requests = state.requests.filter(request => request.vehicleBasicDTO.id != data.vehicleId)
-        }else{
+        } else {
             state.requests = state.requests.filter(request => request.id != data.requestId)
         }
     },
     rentalRequestSent: (state, data) => {
         state.sentRequest = true;
+    },
+    setRequests: (state, data) => {
+        state.requests = data;
+        console.log(data);
     }
 };
 
-export default{
+export default {
     state,
     getters,
     actions,
