@@ -10,4 +10,5 @@ public interface MessageService {
         public ResponseEntity<?> sendMessage(MessageDTO messageDTO) throws ParseException;
 
     List<MessageDTO> getRequestConversation(Long requestId);
+
 }

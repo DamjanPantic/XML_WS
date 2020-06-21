@@ -59,7 +59,7 @@ public class JwtAuthorizationFilter extends BasicAuthenticationFilter {
                         .build()
                         .verify(token.replace(SecurityConstants.TOKEN_PREFIX, ""))
                         .getClaims();
-
+                System.out.println(user.toString());
                 String authorityClaims = claims.get("roles").asString();
                 System.out.println(authorityClaims);
                 List<String> rolles;

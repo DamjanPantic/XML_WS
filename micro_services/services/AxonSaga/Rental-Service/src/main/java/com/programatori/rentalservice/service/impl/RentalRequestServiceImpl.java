@@ -150,10 +150,12 @@ public class RentalRequestServiceImpl implements RentalRequestService {
         }
 
         for (RentalRequest r : reserved) {
-            if (System.currentTimeMillis() - r.getApprovalTime() >= SpringConfig.RESERVED_REQUEST_CLEARING) {
-                r.setStatus(RentalRequestStatus.CANCELED);
-                rentalRequestRepository.save(r);
-            }
+            try {
+                if (System.currentTimeMillis() - r.getApprovalTime() >= SpringConfig.RESERVED_REQUEST_CLEARING) {
+                    r.setStatus(RentalRequestStatus.CANCELED);
+                    rentalRequestRepository.save(r);
+                }
+            }catch (Exception e){}
         }
 
     }
@@ -188,6 +190,11 @@ public class RentalRequestServiceImpl implements RentalRequestService {
     }
 
     @Override
+    public List<?> listConfirmedRequests(Long ownerId) {
+        return null;
+    }
+    
+    @Override
     public List<RentalRequest> getCustomersRentalRequests(Long customerId) {
 
         return  rentalRequestRepository.findByCustomerId(customerId);
@@ -196,6 +203,11 @@ public class RentalRequestServiceImpl implements RentalRequestService {
     @Override
     public List<RentalRequest> getOwnersRentalRequests(Long ownerId) {
         return rentalRequestRepository.findByOwnerId(ownerId);
+    }
+
+    @Override
+    public List<?> listReservedRequests(Long customerId) {
+        return rentalRequestRepository.findRentalRequestByOwnerIdAndStatus(customerId, RentalRequestStatus.RESERVED);
     }
 
 

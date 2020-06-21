@@ -27,7 +27,12 @@ public interface RentalRequestService {
 
     public Boolean getRentalRequestByParams(Long customerId, Long vehicleId);
 
+    public List<?> listConfirmedRequests(Long ownerId);
+
     List<RentalRequest> getCustomersRentalRequests(Long customerId);
 
     List<RentalRequest> getOwnersRentalRequests(Long ownerId);
+
+    public List<?> listReservedRequests(Long customerId);
+
 }
