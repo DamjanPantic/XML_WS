@@ -20,6 +20,25 @@ const actions = {
             commit('fetchComments', response.data);
         } catch (e) { }
     },
+    async approveComment({ commit }, id) {
+
+        let response;
+        try {
+            response = await recensionService.approveComment(id);
+            response = await recensionService.getPendingComments();
+            commit('fetchComments', response.data);
+        } catch (e) { }
+    },
+    async declineComment({ commit }, id) {
+
+        let response;
+        try {
+            response = await recensionService.declineComment(id);
+            response = await recensionService.getPendingComments();
+            commit('fetchComments', response.data);
+        } catch (e) { }
+    },
+
 
 };
 

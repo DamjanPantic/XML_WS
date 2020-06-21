@@ -17,10 +17,10 @@
           <td>{{c.vehicleId.model.manufacturer.name}} {{c.vehicleId.model.name}}</td>
           <td>{{c.content}}</td>
           <td>
-            <v-btn class="ma-2" small outlined fab color="green" @click="approve(c.id)">
+            <v-btn class="ma-2" small outlined fab color="green" @click="approveComment(c.id)">
               <v-icon>mdi-check</v-icon>
             </v-btn>
-            <v-btn class="ma-2" small outlined fab color="red" @click="decline(c.id)">
+            <v-btn class="ma-2" small outlined fab color="red" @click="declineComment(c.id)">
               <v-icon>mdi-close</v-icon>
             </v-btn>
           </td>
@@ -39,13 +39,8 @@ export default {
     ...mapGetters(["comments"])
   },
   methods: {
-    ...mapActions(["fetchComments"]),
-    decline(id){
+    ...mapActions(["fetchComments","approveComment","declineComment"]),
 
-    },
-    approve(id){
-
-    },
   },
   created() {
     this.fetchComments();
