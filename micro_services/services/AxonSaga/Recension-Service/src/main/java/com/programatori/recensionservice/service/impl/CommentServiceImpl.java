@@ -12,6 +12,7 @@ import com.programatori.recensionservice.models.Comment;
 import com.programatori.recensionservice.models.CommentStatus;
 import com.programatori.recensionservice.repository.CommentRepository;
 import com.programatori.recensionservice.service.CommentService;
+import org.dozer.DozerBeanMapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -36,6 +37,8 @@ public class CommentServiceImpl implements CommentService {
     VehicleClient vehicleClient;
 
     ObjectMapper mapper = new ObjectMapper();
+
+    DozerBeanMapper dozer = new DozerBeanMapper();
 
     @Override
     public ResponseEntity<?> addComment(Comment comment) {
@@ -98,6 +101,24 @@ public class CommentServiceImpl implements CommentService {
         comment.setCommentStatus(CommentStatus.DENIED);
         commentRepository.save(comment);
         return new ResponseEntity<>(comment,HttpStatus.OK);
+    }
+
+    @Override
+    public List<CommentDTO> getVehicleComments(Long vehicleId) {
+        List<CommentDTO> commentDTOS = new ArrayList<>();
+
+        for (Comment comment: commentRepository.findAllByVehicleIdAndCommentStatus(vehicleId, CommentStatus.APPROVED)) {
+            CommentDTO commentDTO = new CommentDTO();
+            commentDTO.setContent(comment.getContent());
+            commentDTO.setCommentStatus(comment.getCommentStatus());
+            commentDTO.setVehicleId(new VehicleBasicDTO());
+            ResponseEntity<?> responseEntity = usersClient.getUserById(comment.getUserId());
+            UserDTO userDTO = mapper.convertValue(responseEntity.getBody(), new TypeReference<UserDTO>() {});
+            commentDTO.setUserId(userDTO);
+            commentDTOS.add(commentDTO);
+        }
+
+        return commentDTOS;
     }
 
 

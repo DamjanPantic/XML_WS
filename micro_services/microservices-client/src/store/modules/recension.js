@@ -1,4 +1,3 @@
-import router from '../../router'
 import { ServiceFactory } from '../../services/ServiceFactory';
 const recensionService = ServiceFactory.get('recension');
 
@@ -38,8 +37,13 @@ const actions = {
             commit('fetchComments', response.data);
         } catch (e) { }
     },
+    async addComment({ commit }, comment) {
 
-
+        let response;
+        try {
+            response = await recensionService.addComment(comment);
+        } catch (e) { }
+    },
 };
 
 const mutations = {

@@ -71,7 +71,7 @@
         </v-card-text>
 
         <v-card-actions>
-          <v-btn color="blue darken-2" text left>Info</v-btn>
+          <v-btn :to="'/vehicle/'+vehicle.id" color="blue darken-2" text left>Info</v-btn>
           <v-spacer />
           <v-btn icon color="red" right>
             <v-icon>mdi-heart-outline</v-icon>
