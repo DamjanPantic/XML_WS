@@ -64,6 +64,10 @@ public class Vehicle {
     @ManyToMany(fetch = FetchType.LAZY,cascade = CascadeType.DETACH, mappedBy = "vehicles")
     private List<RentalRequest> rentalRequests;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<RentalReport> reports = new HashSet<RentalReport>();
+
     private String carToken;
 
     public Vehicle() {

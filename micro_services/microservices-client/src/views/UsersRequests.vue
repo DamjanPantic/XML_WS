@@ -12,6 +12,7 @@
       <template v-slot:item.toDate="{ item }">{{ item.toDate | dateFormat}}</template>
       <template v-slot:item.actions="{ item }">
         <v-btn
+          v-if="item.owner !== null"
           :to="'/messages/'+ item.owner.username + '/' + item.owner.id + '/' + item.vehicleBasicDTO.model.manufacturer.name + '/' + item.vehicleBasicDTO.model.name +'/'+ item.id"
           icon
           :disabled="item.status !== 'RESERVED'"

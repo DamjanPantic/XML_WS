@@ -7,6 +7,7 @@ import lombok.Setter;
 
 import javax.persistence.*;
 import java.util.Date;
+import java.util.HashSet;
 import java.util.List;
 import java.util.Set;
 
@@ -51,6 +52,10 @@ public class RentalRequest {
     @JsonIgnore
     @OneToMany(mappedBy = "rentalRequest", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Message> messages;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "request", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<RentalReport> reports = new HashSet<RentalReport>();
 
     @PrePersist
     protected void onCreate() {
