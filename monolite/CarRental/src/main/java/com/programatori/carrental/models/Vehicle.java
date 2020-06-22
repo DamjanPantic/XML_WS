@@ -34,8 +34,17 @@ public class Vehicle {
     @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private VehicleType vehicleType;
 
-    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.ALL)
+    @JsonIgnore
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Price> prices = new HashSet<Price>();
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Grade> grades;
+
+   @JsonIgnore
+    @OneToMany(mappedBy = "vehicle", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Comment> comments;
 
     private Double traveledKm;
 

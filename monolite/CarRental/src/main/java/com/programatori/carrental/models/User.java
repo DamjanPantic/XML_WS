@@ -47,6 +47,15 @@ public class User {
     @OneToMany(mappedBy = "receiver", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
     private Set<Message> messagesReceiver;
 
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Grade> grades;
+
+    @JsonIgnore
+    @OneToMany(mappedBy = "user", fetch = FetchType.LAZY, cascade = CascadeType.DETACH)
+    private Set<Comment> comments;
+
+
     public User() {
     }
 }

@@ -6,7 +6,8 @@ import Register from '../views/Register.vue';
 import Login from '../views/Login.vue';
 import Home from '../views/Home.vue';
 import AddVehicle from '../views/AddVehicle.vue';
-
+import CommentsList from '../views/CommentsList.vue';
+import GradesList from '../views/GradesList.vue';
 
 Vue.use(Router);
 
@@ -42,6 +43,22 @@ const router = new Router({
       path: routes.ADD_VEHICLE_ROUTE.path,
       name: routes.ADD_VEHICLE_ROUTE.name,
       component: AddVehicle,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: routes.GRADES_ROUTE.path,
+      name: routes.GRADES_ROUTE.name,
+      component: GradesList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: routes.COMMENTS_ROUTE.path,
+      name: routes.COMMENTS_ROUTE.name,
+      component: CommentsList,
       meta: {
         requiresAuth: true
       }
