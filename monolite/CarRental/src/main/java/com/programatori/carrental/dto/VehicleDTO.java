@@ -8,6 +8,7 @@ import java.util.Set;
 @Setter
 @Getter
 @NoArgsConstructor
+@ToString
 public class VehicleDTO {
 
     private Long id;
@@ -24,6 +25,4 @@ public class VehicleDTO {
     private Set<AvailabilityDTO> availabilities;
     private Set<Image> images;
     private String carToken;
-
-
 }

@@ -2,7 +2,7 @@
   <v-row>
     <v-col align="center" justify="center">
       <v-container>
-        <v-card>
+        <v-card style="width: 40%; margin-top: 15%">
           <v-card-title>
             <h3>Register</h3>
           </v-card-title>

@@ -40,3 +40,36 @@ insert into agentdb.rental_request (from_date, owner_id, status, to_date, custom
 ('2020-02-10 07:00:00',1,'RESERVED','2020-02-10 10:00:00',2);
 
 
+INSERT INTO agentdb.vehicle
+(car_token,
+ cdw,
+ kids_seats_no,
+ limit_km,
+ traveled_km,
+ model_id,
+ owner_id, fuel_type_id, transmission_id, vehicle_type_id)
+VALUES ('', true, 2, 'NO_LIMIT', 20000.0, 1, 1,1,2,3),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2),
+       ('', false, 2, 'NO_LIMIT', 20000.0, 3, 2,3,1,2);
+
+insert into agentdb.comment (comment_status, content, user_id,vehicle_id) VALUES
+('APPROVED','asd',1,1),
+('APPROVED','asd',1,1),
+('APPROVED','asd',1,1);
+
+insert into agentdb.grade ( grade_value, user_id,vehicle_id) VALUES
+(1,1,1),
+(3,1,1),
+(5,1,1);
+
+

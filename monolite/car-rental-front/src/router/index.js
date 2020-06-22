@@ -8,6 +8,8 @@ import Home from '../views/Home.vue';
 import AddVehicle from '../views/AddVehicle.vue';
 import AddReport from '../components/AddReport';
 
+import CommentsList from '../views/CommentsList.vue';
+import GradesList from '../views/GradesList.vue';
 
 Vue.use(Router);
 
@@ -55,12 +57,26 @@ const router = new Router({
         requiresAuth: false
       }
     },
+    {
+      path: routes.GRADES_ROUTE.path,
+      name: routes.GRADES_ROUTE.name,
+      component: GradesList,
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: routes.COMMENTS_ROUTE.path,
+      name: routes.COMMENTS_ROUTE.name,
+      component: CommentsList,
+      meta: {
+        requiresAuth: true
+      }
+    },
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(store);
-  
   if (store.getters.user == null && to.meta.requiresAuth)
     next('/login');
   else

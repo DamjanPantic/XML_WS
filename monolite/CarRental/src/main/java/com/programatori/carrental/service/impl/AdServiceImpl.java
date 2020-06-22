@@ -1,11 +1,9 @@
 package com.programatori.carrental.service.impl;
 
 import com.programatori.carrental.dto.AvailabilityDTO;
+import com.programatori.carrental.dto.PriceDTO;
 import com.programatori.carrental.dto.VehicleDTO;
-import com.programatori.carrental.models.Availability;
-import com.programatori.carrental.models.Image;
-import com.programatori.carrental.models.User;
-import com.programatori.carrental.models.Vehicle;
+import com.programatori.carrental.models.*;
 import com.programatori.carrental.repository.UserRepository;
 import com.programatori.carrental.repository.VehicleRepository;
 import com.programatori.carrental.service.AdService;
@@ -36,10 +34,15 @@ public class AdServiceImpl implements AdService {
     @Override
     public ResponseEntity<?> newVehicle(VehicleDTO vehicleDTO) throws ParseException {
 
+        System.out.println(vehicleDTO);
+
         User user = userRepository.findByEmail(vehicleDTO.getOwner().getEmail());
 
         Set<AvailabilityDTO> availabilityDTOS = vehicleDTO.getAvailabilities();
         vehicleDTO.setAvailabilities(null);
+
+        Set<PriceDTO> priceDTOS = vehicleDTO.getPrices();
+        vehicleDTO.setPrices(null);
 
         Vehicle vehicle = mapper.map(vehicleDTO, Vehicle.class);
 
@@ -55,6 +58,20 @@ public class AdServiceImpl implements AdService {
             }
             vehicle.setAvailabilities(availabilities);
         }
+
+        if (priceDTOS != null){
+            Set<Price> prices = new HashSet<>();
+            for (PriceDTO priceDTO: priceDTOS){
+                Price price = new Price();
+                price.setType(mapper.map(priceDTO.getType(), PriceType.class));
+                price.setValue(priceDTO.getValue());
+                price.setVehicle(vehicle);
+                prices.add(price);
+            }
+            vehicle.setPrices(prices);
+        }
+
+        System.out.println(vehicle);
 
         if (vehicle.getImages() != null){
             for(Image i : vehicle.getImages()){
