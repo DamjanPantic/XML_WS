@@ -25,10 +25,17 @@
             </v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
-             <v-list-item to="/comments">
+          <v-list-item to="/comments">
             <v-list-item-title>
               <v-icon>Comments</v-icon>
               <v-icon class="ml-3">mdi-comment-text-outline</v-icon>
+            </v-list-item-title>
+          </v-list-item>
+          <v-divider></v-divider>
+          <v-list-item to="/add-report">
+            <v-list-item-title>
+              <v-icon>Add Report</v-icon>
+              <v-icon class="ml-3">mdi-file-chart</v-icon>
             </v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>

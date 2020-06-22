@@ -64,12 +64,12 @@ VALUES ('', true, 2, 'NO_LIMIT', 20000.0, 1, 1,1,2,3),
 
 insert into agentdb.comment (comment_status, content, user_id,vehicle_id) VALUES
 ('APPROVED','asd',1,1),
-('APPROVED','asd',1,1),
+('APPROVED','asd',1,2),
 ('APPROVED','asd',1,1);
 
 insert into agentdb.grade ( grade_value, user_id,vehicle_id) VALUES
 (1,1,1),
-(3,1,1),
+(3,1,2),
 (5,1,1);
 
 
