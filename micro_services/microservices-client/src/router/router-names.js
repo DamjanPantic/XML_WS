@@ -10,5 +10,6 @@ export default {
     USERS_REQUESTS_ROUTE: { path: '/user-requests/:id', name: 'users_requests-route'},
     CART_ROUTE: {path: '/cart', name: 'cart_route'},
     PAYMENT_CHECKOUT: {path: '/payment/:id', name: 'payment_route'},
-    RESERVED_REQUEST_ROUTE: {path: '/reserved', name: 'reserved_request_route'}
+    RESERVED_REQUEST_ROUTE: {path: '/reserved', name: 'reserved_request_route'},
+    VEHICLE_INFO_ROUTE: {path: '/vehicle/:id', name: 'vehicle_info_route'},
 }

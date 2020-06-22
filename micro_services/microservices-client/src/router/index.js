@@ -11,6 +11,7 @@ import Cart from '../components/cart/Cart';
 import Payment from '../components/cart/Payment';
 import Messages from '../views/Messages.vue';
 import PendingCommentsList from '../views/PendingCommentsList.vue'
+import VehicleInfo from '../views/VehicleInfo.vue'
 
 import ReservedRequests from '../components/rental/ReserverdRequests';
 
@@ -36,6 +37,14 @@ const router = new Router({
           path: routes.VEHICLES_ROUTE.path,
           name: routes.VEHICLES_ROUTE.name,
           component: Vehicles,
+          meta: {
+            requiresAuth: false
+          }
+        },
+        {
+          path: routes.VEHICLE_INFO_ROUTE.path,
+          name: routes.VEHICLE_INFO_ROUTE.name,
+          component: VehicleInfo,
           meta: {
             requiresAuth: false
           }
@@ -80,8 +89,8 @@ const router = new Router({
             requiresAuth: true
           }
         },
-      
-      {
+
+        {
           path: routes.PENDING_REQUESTS_ROUTE.path,
           name: routes.PENDING_REQUESTS_ROUTE.name,
           component: PendingRequests,
@@ -96,7 +105,7 @@ const router = new Router({
           meta: {
             requiresAuth: false
           }
-        }
+        },
       ]
     },
     {

@@ -26,6 +26,14 @@ class RecensionService extends Service{
     getGradeByUser(vehicleId,userId) {
         return this.getApiClient().get(`${resource}/grade/${vehicleId}/${userId}`);
     }
+
+    addComment(comment){
+        return this.getApiClient().post(`${resource}/add-comment`, comment);
+    }
+
+    getVehicleComments(vehicleId) {
+        return this.getApiClient().get(`${resource}/vehicle/comments/${vehicleId}`);
+    }
 }
 
 

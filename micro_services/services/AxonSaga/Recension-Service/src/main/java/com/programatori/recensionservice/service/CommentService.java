@@ -1,9 +1,12 @@
 package com.programatori.recensionservice.service;
 
+import com.programatori.recensionservice.dto.CommentDTO;
 import com.programatori.recensionservice.models.Comment;
 import com.programatori.recensionservice.models.CommentStatus;
 
 import org.springframework.http.ResponseEntity;
+
+import java.util.List;
 
 public interface CommentService {
 
@@ -13,4 +16,5 @@ public interface CommentService {
     public ResponseEntity<?> declineComment(Long id);
 
 
+    List<CommentDTO> getVehicleComments(Long vehicleId);
 }
