@@ -18,8 +18,14 @@ class VehicleService extends Service{
     getVehicleTypes(){
         return this.getApiClient().get(`vehicle-type`);
     }
+    getPriceTypes(){
+        return this.getApiClient().get(`price/type`);
+    }
     getModelFromManufacturerName(manufacturerName){
         return this.getApiClient().get(`model/${manufacturerName}`);
+    }
+    getVehicleImages(vehicleId){
+        return this.getApiClient().get(`vehicle/${vehicleId}`);
     }
 }
 
