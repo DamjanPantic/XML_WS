@@ -7,6 +7,7 @@ const state = {
     fuels: [],
     transmissions: [],
     vehicleTypes: [],
+    priceTypes: [],
 };
 
 const getters = {
@@ -15,6 +16,7 @@ const getters = {
     fuels: state => state.fuels,
     transmissions: state => state.transmissions,
     vehicleTypes: state => state.vehicleTypes,
+    priceTypes: state => state.priceTypes,
 };
 
 const actions = {
@@ -39,6 +41,9 @@ const actions = {
 
             let responseVehicleTypes = await vehicleService.getVehicleTypes();
             commit('setVehicleTypes', responseVehicleTypes.data);
+
+            let responsePriceTypes = await vehicleService.getPriceTypes();
+            commit('setPriceTypes', responsePriceTypes.data);
         } catch (e) { }
     },
     async getModelFromManufacturerName({ commit }, manufacturerName) {
@@ -66,7 +71,10 @@ const mutations = {
     },
     setVehicleTypes: (state, data) => {
         state.vehicleTypes = data;
-    }
+    },
+    setPriceTypes: (state, data) => {
+        state.priceTypes = data;
+    },
 };
 
 export default {

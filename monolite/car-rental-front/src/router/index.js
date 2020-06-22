@@ -67,8 +67,6 @@ const router = new Router({
 })
 
 router.beforeEach((to, from, next) => {
-  console.log(store);
-  
   if (store.getters.user == null && to.meta.requiresAuth)
     next('/login');
   else
