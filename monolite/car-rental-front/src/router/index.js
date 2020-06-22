@@ -6,6 +6,7 @@ import Register from '../views/Register.vue';
 import Login from '../views/Login.vue';
 import Home from '../views/Home.vue';
 import AddVehicle from '../views/AddVehicle.vue';
+import AddReport from '../components/AddReport';
 
 
 Vue.use(Router);
@@ -44,6 +45,14 @@ const router = new Router({
       component: AddVehicle,
       meta: {
         requiresAuth: true
+      }
+    },
+    {
+      path: routes.ADD_REPORT_ROUTE.path,
+      name: routes.ADD_REPORT_ROUTE.name,
+      component: AddReport,
+      meta: {
+        requiresAuth: false
       }
     },
   ]
