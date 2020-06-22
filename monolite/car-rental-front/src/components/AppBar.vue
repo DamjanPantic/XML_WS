@@ -18,6 +18,20 @@
             </v-list-item-title>
           </v-list-item>
           <v-divider></v-divider>
+          <v-list-item to="/grades">
+            <v-list-item-title>
+              <v-icon>Rating</v-icon>
+              <v-icon class="ml-3">mdi-thumb-up</v-icon>
+            </v-list-item-title>
+          </v-list-item>
+          <v-divider></v-divider>
+             <v-list-item to="/comments">
+            <v-list-item-title>
+              <v-icon>Comments</v-icon>
+              <v-icon class="ml-3">mdi-comment-text-outline</v-icon>
+            </v-list-item-title>
+          </v-list-item>
+          <v-divider></v-divider>
           <v-list-item @click="logoutUser">
             <v-list-item-title>
               <v-icon>Logout</v-icon>
@@ -39,7 +53,7 @@ import { mapGetters, mapActions } from "vuex";
 export default {
   computed: mapGetters(["user"]),
   methods: {
-    ...mapActions(['logoutUser']),
+    ...mapActions(["logoutUser"])
   }
 };
 </script>
