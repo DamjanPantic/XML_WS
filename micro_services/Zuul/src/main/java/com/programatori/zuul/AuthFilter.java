@@ -3,6 +3,8 @@ package com.programatori.zuul;
 import com.netflix.zuul.ZuulFilter;
 import com.netflix.zuul.context.RequestContext;
 import feign.FeignException;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.ResponseEntity;
@@ -13,6 +15,8 @@ import java.util.List;
 
 @Component
 public class AuthFilter extends ZuulFilter {
+
+    private static Logger log = LoggerFactory.getLogger(AuthFilter.class);
 
     @Autowired
     private AuthClient authClient;
@@ -43,10 +47,11 @@ public class AuthFilter extends ZuulFilter {
 
     @Override
     public Object run() {
+
         RequestContext ctx = RequestContext.getCurrentContext();
         HttpServletRequest request = ctx.getRequest();
+        log.info(String.format("%s request to %s", request.getMethod(), request.getRequestURL().toString()));
         String token = request.getHeader("Authorization");
-
         String url = request.getRequestURL().toString();
         System.out.println(url);
         ResponseEntity<?> responseEntity = null;

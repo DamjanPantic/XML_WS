@@ -21,12 +21,16 @@
             ></v-text-field>
             <v-text-field
               v-model="password"
-              id="password"
-              label="Password"
-              name="password"
               prepend-icon="mdi-lock"
-              type="password"
-            ></v-text-field>
+              :append-icon="show1 ? 'mdi-eye' : 'mdi-eye-off'"
+              :rules="[rules.required, rules.uppercase, rules.min, rules.containsNumber, rules.specialChar]"
+              :type="show1 ? 'text' : 'password'"
+              name="input-10-1"
+              label="Password"
+              hint="At least 8 characters"
+              counter
+              @click:append="show1 = !show1"
+          ></v-text-field>
             <v-text-field
               v-model="confirm_password"
               id="confirm_password"
@@ -62,7 +66,17 @@ export default {
       username: "",
       password: "",
       email: "",
-      confirm_password: ""
+      confirm_password: "",
+      format: /[ `!@#$%^&*()_+\-=\[\]{};':"\\|,.<>\/?~]/,
+      show1: false,
+      rules: {
+          required: value => !!value || 'Required.',
+          uppercase: v => (/[a-z]/.test(v)) || "Must have uppercase",
+          min: v => v.length >= 8 || 'Min 8 characters',
+          containsNumber: v => /\d/.test(v) || 'Must have number',
+          specialChar: v => this.format.test(v) || "Must have special character",
+          emailMatch: () => ('The email and password you entered don\'t match'),
+        },
     };
   },
   methods: {

@@ -10,9 +10,9 @@ eureka:
   instance:
     hostname: ${springboot.app.name:eureka-serviceregistry}
     prefer-ip-address: true
+    secure-port-enabled: true
   client:
     registerWithEureka: true
     fetchRegistry: false
     serviceUrl:
       defaultZone: http://${registry.host:localhost}:${server.port}/eureka/
-
