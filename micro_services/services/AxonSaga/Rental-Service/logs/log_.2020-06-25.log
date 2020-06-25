@@ -1,0 +1,256 @@
+[2020-06-25T13:11:20.020Z] [org.springframework.boot.SpringApplication] [main] [651] [INFO ] No active profile set, falling back to default profiles: default
+[2020-06-25T13:11:21.021Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [127] [INFO ] Bootstrapping Spring Data JPA repositories in DEFERRED mode.
+[2020-06-25T13:11:21.021Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [187] [INFO ] Finished Spring Data repository scanning in 65ms. Found 2 JPA repository interfaces.
+[2020-06-25T13:11:21.021Z] [org.springframework.boot.actuate.endpoint.EndpointId] [main] [155] [WARN ] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[2020-06-25T13:11:21.021Z] [org.springframework.cloud.context.scope.GenericScope] [main] [295] [INFO ] BeanFactory id=6c16cdb6-e25a-3d85-8143-b2a58d3722c0
+[2020-06-25T13:11:21.021Z] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] [main] [335] [INFO ] Bean 'com.programatori.rentalservice.client.UsersClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2020-06-25T13:11:21.021Z] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] [main] [335] [INFO ] Bean 'com.programatori.rentalservice.client.VehicleClient' of type [org.springframework.cloud.openfeign.FeignClientFactoryBean] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2020-06-25T13:11:21.021Z] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] [main] [335] [INFO ] Bean 'org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler@40de8f93' of type [org.springframework.security.access.expression.method.DefaultMethodSecurityExpressionHandler] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2020-06-25T13:11:21.021Z] [org.springframework.context.support.PostProcessorRegistrationDelegate$BeanPostProcessorChecker] [main] [335] [INFO ] Bean 'methodSecurityMetadataSource' of type [org.springframework.security.access.method.DelegatingMethodSecurityMetadataSource] is not eligible for getting processed by all BeanPostProcessors (for example: not eligible for auto-proxying)
+[2020-06-25T13:11:21.021Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [108] [INFO ] Tomcat initialized with port(s): 8084 (https)
+[2020-06-25T13:11:21.021Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing ProtocolHandler ["https-jsse-nio-8084"]
+[2020-06-25T13:11:21.021Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting service [Tomcat]
+[2020-06-25T13:11:21.021Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.35]
+[2020-06-25T13:11:22.022Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2020-06-25T13:11:22.022Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [main] [284] [INFO ] Root WebApplicationContext: initialization completed in 1584 ms
+[2020-06-25T13:11:22.022Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T13:11:22.022Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T13:11:22.022Z] [com.netflix.config.DynamicPropertyFactory] [main] [281] [INFO ] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@3554bdc0
+[2020-06-25T13:11:22.022Z] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [main] [220] [WARN ] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2020-06-25T13:11:22.022Z] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport] [main] [181] [INFO ] Initializing ExecutorService 'applicationTaskExecutor'
+[2020-06-25T13:11:22.022Z] [org.springframework.scheduling.concurrent.ExecutorConfigurationSupport] [main] [181] [INFO ] Initializing ExecutorService 'taskScheduler'
+[2020-06-25T13:11:22.022Z] [org.hibernate.jpa.internal.util.LogHelper] [task-1] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2020-06-25T13:11:22.022Z] [org.hibernate.Version] [task-1] [44] [INFO ] HHH000412: Hibernate ORM core version 5.4.15.Final
+[2020-06-25T13:11:22.022Z] [org.dozer.config.GlobalSettings] [main] [113] [INFO ] Trying to find Dozer configuration file: dozer.properties
+[2020-06-25T13:11:22.022Z] [org.dozer.config.GlobalSettings] [main] [118] [WARN ] Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+[2020-06-25T13:11:22.022Z] [org.dozer.DozerInitializer] [main] [75] [INFO ] Initializing Dozer. Version: 5.5.0, Thread Name: main
+[2020-06-25T13:11:22.022Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+[2020-06-25T13:11:22.022Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+[2020-06-25T13:11:22.022Z] [org.dozer.DozerBeanMapper] [main] [175] [INFO ] Initializing a new instance of dozer bean mapper.
+[2020-06-25T13:11:22.022Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [task-1] [49] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[2020-06-25T13:11:22.022Z] [com.zaxxer.hikari.HikariDataSource] [task-1] [110] [INFO ] HikariPool-1 - Starting...
+[2020-06-25T13:11:22.022Z] [com.zaxxer.hikari.util.DriverDataSource] [task-1] [70] [WARN ] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+[2020-06-25T13:11:22.022Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [main] [49] [INFO ] Triggering deferred initialization of Spring Data repositories…
+[2020-06-25T13:11:23.023Z] [com.zaxxer.hikari.HikariDataSource] [task-1] [123] [INFO ] HikariPool-1 - Start completed.
+[2020-06-25T13:11:23.023Z] [org.hibernate.dialect.Dialect] [task-1] [172] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+[2020-06-25T13:11:23.023Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [task-1] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table rental_request_vehicles_rental_service drop foreign key FKqm2y7tinxacvlgv4nbujnn4b0" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table rental_request_vehicles_rental_service drop foreign key FKqm2y7tinxacvlgv4nbujnn4b0" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.rental_request_vehicles_rental_service' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 19 common frames omitted
+[2020-06-25T13:11:23.023Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [task-1] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table rental_request_vehicles_rental_service drop foreign key FK2q4udv94onflj2jpb5dvcn13i" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table rental_request_vehicles_rental_service drop foreign key FK2q4udv94onflj2jpb5dvcn13i" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1249)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at java.base/java.util.concurrent.FutureTask.run(FutureTask.java:264)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.rental_request_vehicles_rental_service' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 19 common frames omitted
+[2020-06-25T13:11:23.023Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [task-1] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2020-06-25T13:11:23.023Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [task-1] [416] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2020-06-25T13:11:24.024Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [main] [53] [INFO ] Spring Data repositories initialized!
+[2020-06-25T13:11:24.024Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [main] [49] [INFO ] Triggering deferred initialization of Spring Data repositories…
+[2020-06-25T13:11:24.024Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [main] [53] [INFO ] Spring Data repositories initialized!
+[2020-06-25T13:11:24.024Z] [org.springframework.security.web.DefaultSecurityFilterChain] [main] [43] [INFO ] Creating filter chain: any request, [org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@77ce8bc5, org.springframework.security.web.context.SecurityContextPersistenceFilter@6d7865d6, org.springframework.security.web.header.HeaderWriterFilter@751686aa, org.springframework.security.web.authentication.logout.LogoutFilter@2a54c92e, com.programatori.rentalservice.security.AuthenticationTokenFilter@6af78a48, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@77f03916, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@492c9892, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@2fcc5f49, org.springframework.security.web.session.SessionManagementFilter@2dc3ece8, org.springframework.security.web.access.ExceptionTranslationFilter@149b53fa, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@69bc4024]
+[2020-06-25T13:11:24.024Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T13:11:24.024Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T13:11:24.024Z] [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger] [main] [86] [WARN ] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2020-06-25T13:11:24.024Z] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [main] [58] [INFO ] Exposing 2 endpoint(s) beneath base path '/actuator'
+[2020-06-25T13:11:25.025Z] [org.springframework.cloud.netflix.eureka.InstanceInfoFactory] [main] [72] [INFO ] Setting initial instance status as: STARTING
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [368] [INFO ] Initializing Eureka in region us-east-1
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [70] [INFO ] Using JSON encoding codec LegacyJacksonJson
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [71] [INFO ] Using JSON decoding codec LegacyJacksonJson
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [80] [INFO ] Using XML encoding codec XStreamXml
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [81] [INFO ] Using XML decoding codec XStreamXml
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [main] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [981] [INFO ] Disable delta property : false
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [982] [INFO ] Single vip registry refresh property : null
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [983] [INFO ] Force full registry fetch : false
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [984] [INFO ] Application is null : false
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [985] [INFO ] Registered Applications size is zero : true
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [987] [INFO ] Application version is -1: true
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [1070] [INFO ] Getting all instance registry info from the eureka server
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [1079] [INFO ] The response status is 200
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [1294] [INFO ] Starting heartbeat executor: renew interval is: 30
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.InstanceInfoReplicator] [main] [60] [INFO ] InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [main] [468] [INFO ] Discovery Client initialized at timestamp 1593083485615 with initial instances count: 5
+[2020-06-25T13:11:25.025Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry] [main] [41] [INFO ] Registering application RENTAL with eureka with status UP
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient$3] [main] [1330] [INFO ] Saw local status change event StatusChangeEvent [timestamp=1593083485621, current=UP, previous=STARTING]
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [847] [INFO ] DiscoveryClient_RENTAL/macbook-pro:rental:8084: registering service...
+[2020-06-25T13:11:25.025Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting ProtocolHandler ["https-jsse-nio-8084"]
+[2020-06-25T13:11:25.025Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [856] [INFO ] DiscoveryClient_RENTAL/macbook-pro:rental:8084 - registration status: 204
+[2020-06-25T13:11:25.025Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [220] [INFO ] Tomcat started on port(s): 8084 (https) with context path ''
+[2020-06-25T13:11:25.025Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration] [main] [145] [INFO ] Updating port to 8084
+[2020-06-25T13:11:25.025Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [main] [49] [INFO ] Triggering deferred initialization of Spring Data repositories…
+[2020-06-25T13:11:25.025Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [main] [53] [INFO ] Spring Data repositories initialized!
+[2020-06-25T13:11:25.025Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started RentalServiceApplication in 5.857 seconds (JVM running for 6.683)
+[2020-06-25T13:11:25.025Z] [org.apache.juli.logging.DirectJDKLog] [RMI TCP Connection(1)-192.168.1.3] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2020-06-25T13:11:25.025Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(1)-192.168.1.3] [525] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2020-06-25T13:11:25.025Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(1)-192.168.1.3] [547] [INFO ] Completed initialization in 12 ms
+[2020-06-25T13:11:51.051Z] [com.netflix.config.ChainedDynamicProperty$ChainLink] [https-jsse-nio-8084-exec-6] [115] [INFO ] Flipping property: auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2020-06-25T13:11:51.051Z] [com.netflix.util.concurrent.ShutdownEnabledTimer] [https-jsse-nio-8084-exec-6] [58] [INFO ] Shutdown hook installed for: NFLoadBalancer-PingTimer-auth
+[2020-06-25T13:11:51.051Z] [com.netflix.loadbalancer.BaseLoadBalancer] [https-jsse-nio-8084-exec-6] [197] [INFO ] Client: auth instantiated a LoadBalancer: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth,current list of Servers=[],Load balancer stats=Zone stats: {},Server stats: []}ServerList:null
+[2020-06-25T13:11:51.051Z] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] [https-jsse-nio-8084-exec-6] [222] [INFO ] Using serverListUpdater PollingServerListUpdater
+[2020-06-25T13:11:51.051Z] [com.netflix.config.ChainedDynamicProperty$ChainLink] [https-jsse-nio-8084-exec-6] [115] [INFO ] Flipping property: auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
+[2020-06-25T13:11:51.051Z] [com.netflix.loadbalancer.DynamicServerListLoadBalancer] [https-jsse-nio-8084-exec-6] [150] [INFO ] DynamicServerListLoadBalancer for client auth initialized: DynamicServerListLoadBalancer:{NFLoadBalancer:name=auth,current list of Servers=[192.168.1.3:8081],Load balancer stats=Zone stats: {defaultzone=[Zone:defaultzone;	Instance count:1;	Active connections count: 0;	Circuit breaker tripped count: 0;	Active connections per server: 0.0;]
+},Server stats: [[Server:192.168.1.3:8081;	Zone:defaultZone;	Total Requests:0;	Successive connection failure:0;	Total blackout seconds:0;	Last connection made:Thu Jan 01 01:00:00 CET 1970;	First connection made: Thu Jan 01 01:00:00 CET 1970;	Active Connections:0;	total failure count in last (1000) msecs:0;	average resp time:0.0;	90 percentile resp time:0.0;	95 percentile resp time:0.0;	min resp time:0.0;	max resp time:0.0;	stddev resp time:0.0]
+]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@4ef2dddd
+[2020-06-25T13:11:51.051Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [https-jsse-nio-8084-exec-6] [49] [INFO ] Triggering deferred initialization of Spring Data repositories…
+[2020-06-25T13:11:51.051Z] [org.springframework.data.repository.config.DeferredRepositoryInitializationListener] [https-jsse-nio-8084-exec-6] [53] [INFO ] Spring Data repositories initialized!
+[2020-06-25T13:11:51.051Z] [org.apache.juli.logging.DirectJDKLog] [https-jsse-nio-8084-exec-6] [175] [ERROR] Servlet.service() for servlet [dispatcherServlet] in context with path [] threw exception [Request processing failed; nested exception is feign.FeignException$BadRequest: [400] during [GET] to [http://auth/users] [UsersClient#getUsers()]: [Bad Request
+This combination of host and port requires TLS.
+]] with root cause
+feign.FeignException$BadRequest: [400] during [GET] to [http://auth/users] [UsersClient#getUsers()]: [Bad Request
+This combination of host and port requires TLS.
+]
+	at feign.FeignException.clientErrorStatus(FeignException.java:195)
+	at feign.FeignException.errorStatus(FeignException.java:177)
+	at feign.FeignException.errorStatus(FeignException.java:169)
+	at feign.codec.ErrorDecoder$Default.decode(ErrorDecoder.java:92)
+	at feign.SynchronousMethodHandler.executeAndDecode(SynchronousMethodHandler.java:156)
+	at feign.SynchronousMethodHandler.invoke(SynchronousMethodHandler.java:80)
+	at feign.ReflectiveFeign$FeignInvocationHandler.invoke(ReflectiveFeign.java:100)
+	at com.sun.proxy.$Proxy151.getUsers(Unknown Source)
+	at com.programatori.rentalservice.controller.RentalController.test(RentalController.java:171)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at java.base/jdk.internal.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at java.base/jdk.internal.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:567)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:190)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:138)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:105)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:879)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:793)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1040)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:943)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1006)
+	at org.springframework.web.servlet.FrameworkServlet.doGet(FrameworkServlet.java:898)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:634)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:883)
+	at javax.servlet.http.HttpServlet.service(HttpServlet.java:741)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:231)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at com.programatori.rentalservice.security.AuthenticationTokenFilter.doFilter(AuthenticationTokenFilter.java:16)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:320)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.invoke(FilterSecurityInterceptor.java:126)
+	at org.springframework.security.web.access.intercept.FilterSecurityInterceptor.doFilter(FilterSecurityInterceptor.java:90)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:118)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:137)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:111)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:158)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at com.programatori.rentalservice.security.AuthenticationTokenFilter.doFilter(AuthenticationTokenFilter.java:16)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:92)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:77)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.SecurityContextPersistenceFilter.doFilter(SecurityContextPersistenceFilter.java:105)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:56)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:334)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:215)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:178)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:358)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:271)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.boot.actuate.metrics.web.servlet.WebMvcMetricsFilter.doFilterInternal(WebMvcMetricsFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:119)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:193)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:166)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:202)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:96)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:541)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:139)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:92)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:343)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:373)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:65)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:868)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1590)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:49)
+	at java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1128)
+	at java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:628)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:830)
+[2020-06-25T13:11:52.052Z] [com.netflix.config.ChainedDynamicProperty$ChainLink] [PollingServerListUpdater-0] [115] [INFO ] Flipping property: auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647

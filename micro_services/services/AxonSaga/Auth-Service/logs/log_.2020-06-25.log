@@ -1,0 +1,858 @@
+[2020-06-25T11:47:38.038Z] [org.springframework.boot.SpringApplication] [main] [651] [INFO ] No active profile set, falling back to default profiles: default
+[2020-06-25T11:47:39.039Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [127] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2020-06-25T11:47:39.039Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [187] [INFO ] Finished Spring Data repository scanning in 73ms. Found 6 JPA repository interfaces.
+[2020-06-25T11:47:39.039Z] [org.springframework.boot.actuate.endpoint.EndpointId] [main] [155] [WARN ] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[2020-06-25T11:47:39.039Z] [org.springframework.cloud.context.scope.GenericScope] [main] [295] [INFO ] BeanFactory id=f70f640f-36db-3ce5-9780-86d20b3f5c9f
+[2020-06-25T11:47:40.040Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [92] [INFO ] Tomcat initialized with port(s): 8081 (http)
+[2020-06-25T11:47:40.040Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing ProtocolHandler ["http-nio-8081"]
+[2020-06-25T11:47:40.040Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting service [Tomcat]
+[2020-06-25T11:47:40.040Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.33]
+[2020-06-25T11:47:40.040Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2020-06-25T11:47:40.040Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [main] [284] [INFO ] Root WebApplicationContext: initialization completed in 1688 ms
+[2020-06-25T11:47:40.040Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T11:47:40.040Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T11:47:40.040Z] [com.netflix.config.DynamicPropertyFactory] [main] [281] [INFO ] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@7197b07f
+[2020-06-25T11:47:40.040Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2020-06-25T11:47:41.041Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.4.12.Final
+[2020-06-25T11:47:41.041Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [49] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[2020-06-25T11:47:41.041Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2020-06-25T11:47:41.041Z] [com.zaxxer.hikari.util.DriverDataSource] [main] [70] [WARN ] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+[2020-06-25T11:47:41.041Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2020-06-25T11:47:41.041Z] [org.hibernate.dialect.Dialect] [main] [172] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+[2020-06-25T11:47:41.041Z] [org.hibernate.cfg.AnnotationBinder] [main] [664] [WARN ] HHH000139: Illegal use of @Table in a subclass of a SINGLE_TABLE hierarchy: com.programatori.authservice.models.Admin
+[2020-06-25T11:47:42.042Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table roles_privileges drop foreign key FK5yjwxw2gvfyu76j3rgqwo685u" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table roles_privileges drop foreign key FK5yjwxw2gvfyu76j3rgqwo685u" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.roles_privileges' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T11:47:42.042Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table roles_privileges drop foreign key FK9h2vewsqh8luhfq71xokh4who" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table roles_privileges drop foreign key FK9h2vewsqh8luhfq71xokh4who" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.roles_privileges' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T11:47:42.042Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table users_roles drop foreign key FKt4v0rrweyk393bdgt107vdx0x" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users_roles drop foreign key FKt4v0rrweyk393bdgt107vdx0x" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.users_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T11:47:42.042Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table users_roles drop foreign key FKgd3iendaoyh04b95ykqise6qh" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users_roles drop foreign key FKgd3iendaoyh04b95ykqise6qh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.users_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T11:47:42.042Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2020-06-25T11:47:42.042Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [416] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2020-06-25T11:47:43.043Z] [org.dozer.config.GlobalSettings] [main] [113] [INFO ] Trying to find Dozer configuration file: dozer.properties
+[2020-06-25T11:47:43.043Z] [org.dozer.config.GlobalSettings] [main] [118] [WARN ] Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+[2020-06-25T11:47:43.043Z] [org.dozer.DozerInitializer] [main] [75] [INFO ] Initializing Dozer. Version: 5.5.0, Thread Name: main
+[2020-06-25T11:47:43.043Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+[2020-06-25T11:47:43.043Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+[2020-06-25T11:47:43.043Z] [org.dozer.DozerBeanMapper] [main] [175] [INFO ] Initializing a new instance of dozer bean mapper.
+[2020-06-25T11:47:43.043Z] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [main] [220] [WARN ] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2020-06-25T11:47:43.043Z] [org.springframework.security.web.access.channel.ChannelProcessingFilter] [main] [127] [INFO ] Validated configuration attributes
+[2020-06-25T11:47:43.043Z] [org.springframework.security.web.DefaultSecurityFilterChain] [main] [43] [INFO ] Creating filter chain: any request, [org.springframework.security.web.access.channel.ChannelProcessingFilter@956cf3d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6f9999f6, org.springframework.security.web.context.SecurityContextPersistenceFilter@4844e24b, org.springframework.security.web.header.HeaderWriterFilter@293ba26c, org.springframework.web.filter.CorsFilter@5e085259, org.springframework.security.web.authentication.logout.LogoutFilter@68cc6319, com.programatori.authservice.security.JWTAuthenticationFilter@68ea1eb5, com.programatori.authservice.security.JWTAuthorizationFilter@2e096ac0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@241abc2, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7db70494, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@d7c00de, org.springframework.security.web.session.SessionManagementFilter@5cff6d1d, org.springframework.security.web.access.ExceptionTranslationFilter@1f381eaf, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@252d2ac0]
+[2020-06-25T11:47:43.043Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T11:47:43.043Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T11:47:43.043Z] [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger] [main] [86] [WARN ] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2020-06-25T11:47:43.043Z] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [main] [58] [INFO ] Exposing 2 endpoint(s) beneath base path '/actuator'
+[2020-06-25T11:47:43.043Z] [org.springframework.cloud.netflix.eureka.InstanceInfoFactory] [main] [72] [INFO ] Setting initial instance status as: STARTING
+[2020-06-25T11:47:43.043Z] [com.netflix.discovery.DiscoveryClient] [main] [368] [INFO ] Initializing Eureka in region us-east-1
+[2020-06-25T11:47:43.043Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [70] [INFO ] Using JSON encoding codec LegacyJacksonJson
+[2020-06-25T11:47:43.043Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [71] [INFO ] Using JSON decoding codec LegacyJacksonJson
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [80] [INFO ] Using XML encoding codec XStreamXml
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [81] [INFO ] Using XML decoding codec XStreamXml
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [main] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [981] [INFO ] Disable delta property : false
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [982] [INFO ] Single vip registry refresh property : null
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [983] [INFO ] Force full registry fetch : false
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [984] [INFO ] Application is null : false
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [985] [INFO ] Registered Applications size is zero : true
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [987] [INFO ] Application version is -1: true
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [1070] [INFO ] Getting all instance registry info from the eureka server
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [1079] [INFO ] The response status is 200
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [1294] [INFO ] Starting heartbeat executor: renew interval is: 30
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.InstanceInfoReplicator] [main] [60] [INFO ] InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [main] [468] [INFO ] Discovery Client initialized at timestamp 1593078464511 with initial instances count: 6
+[2020-06-25T11:47:44.044Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry] [main] [41] [INFO ] Registering application AUTH with eureka with status UP
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient$3] [main] [1330] [INFO ] Saw local status change event StatusChangeEvent [timestamp=1593078464516, current=UP, previous=STARTING]
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [847] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081: registering service...
+[2020-06-25T11:47:44.044Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [856] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - registration status: 204
+[2020-06-25T11:47:45.045Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting ProtocolHandler ["http-nio-8081"]
+[2020-06-25T11:47:45.045Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [204] [INFO ] Tomcat started on port(s): 8081 (http) with context path ''
+[2020-06-25T11:47:45.045Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration] [main] [145] [INFO ] Updating port to 8081
+[2020-06-25T11:47:45.045Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started AuthServiceApplication in 6.91 seconds (JVM running for 7.464)
+[2020-06-25T11:47:45.045Z] [org.apache.juli.logging.DirectJDKLog] [RMI TCP Connection(4)-192.168.1.3] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2020-06-25T11:47:45.045Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(4)-192.168.1.3] [525] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2020-06-25T11:47:45.045Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(4)-192.168.1.3] [547] [INFO ] Completed initialization in 12 ms
+[2020-06-25T12:12:37.037Z] [com.zaxxer.hikari.pool.HikariPool$HouseKeeper] [HikariPool-1 housekeeper] [779] [WARN ] HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=23m25s915ms).
+[2020-06-25T12:15:40.040Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:20:36.036Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry] [SpringContextShutdownHook] [65] [INFO ] Unregistering application AUTH with eureka with status DOWN
+[2020-06-25T12:20:36.036Z] [com.netflix.discovery.DiscoveryClient$3] [SpringContextShutdownHook] [1328] [WARN ] Saw local status change event StatusChangeEvent [timestamp=1593080436306, current=DOWN, previous=UP]
+[2020-06-25T12:20:36.036Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [847] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081: registering service...
+[2020-06-25T12:20:36.036Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [856] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - registration status: 204
+[2020-06-25T12:20:36.036Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringContextShutdownHook] [598] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2020-06-25T12:20:36.036Z] [org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl] [SpringContextShutdownHook] [524] [INFO ] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+[2020-06-25T12:20:36.036Z] [com.zaxxer.hikari.HikariDataSource] [SpringContextShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2020-06-25T12:20:36.036Z] [com.zaxxer.hikari.HikariDataSource] [SpringContextShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2020-06-25T12:20:36.036Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [909] [INFO ] Shutting down DiscoveryClient ...
+[2020-06-25T12:20:39.039Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [945] [INFO ] Unregistering ...
+[2020-06-25T12:20:39.039Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [947] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - deregister  status: 200
+[2020-06-25T12:20:39.039Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [934] [INFO ] Completed shut down of DiscoveryClient
+[2020-06-25T12:26:33.033Z] [org.springframework.boot.SpringApplication] [main] [651] [INFO ] No active profile set, falling back to default profiles: default
+[2020-06-25T12:26:33.033Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [127] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2020-06-25T12:26:34.034Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [187] [INFO ] Finished Spring Data repository scanning in 75ms. Found 6 JPA repository interfaces.
+[2020-06-25T12:26:34.034Z] [org.springframework.boot.actuate.endpoint.EndpointId] [main] [155] [WARN ] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[2020-06-25T12:26:34.034Z] [org.springframework.cloud.context.scope.GenericScope] [main] [295] [INFO ] BeanFactory id=f70f640f-36db-3ce5-9780-86d20b3f5c9f
+[2020-06-25T12:26:34.034Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [92] [INFO ] Tomcat initialized with port(s): 8081 (https)
+[2020-06-25T12:26:34.034Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing ProtocolHandler ["https-jsse-nio-8081"]
+[2020-06-25T12:26:34.034Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting service [Tomcat]
+[2020-06-25T12:26:34.034Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.33]
+[2020-06-25T12:26:34.034Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2020-06-25T12:26:34.034Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [main] [284] [INFO ] Root WebApplicationContext: initialization completed in 1622 ms
+[2020-06-25T12:26:34.034Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T12:26:34.034Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T12:26:35.035Z] [com.netflix.config.DynamicPropertyFactory] [main] [281] [INFO ] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@707865bd
+[2020-06-25T12:26:35.035Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2020-06-25T12:26:35.035Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.4.12.Final
+[2020-06-25T12:26:35.035Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [49] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[2020-06-25T12:26:35.035Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2020-06-25T12:26:35.035Z] [com.zaxxer.hikari.util.DriverDataSource] [main] [70] [WARN ] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+[2020-06-25T12:26:35.035Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2020-06-25T12:26:35.035Z] [org.hibernate.dialect.Dialect] [main] [172] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+[2020-06-25T12:26:36.036Z] [org.hibernate.cfg.AnnotationBinder] [main] [664] [WARN ] HHH000139: Illegal use of @Table in a subclass of a SINGLE_TABLE hierarchy: com.programatori.authservice.models.Admin
+[2020-06-25T12:26:36.036Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table roles_privileges drop foreign key FK5yjwxw2gvfyu76j3rgqwo685u" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table roles_privileges drop foreign key FK5yjwxw2gvfyu76j3rgqwo685u" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.roles_privileges' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:26:36.036Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table roles_privileges drop foreign key FK9h2vewsqh8luhfq71xokh4who" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table roles_privileges drop foreign key FK9h2vewsqh8luhfq71xokh4who" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.roles_privileges' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:26:36.036Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table users_roles drop foreign key FKt4v0rrweyk393bdgt107vdx0x" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users_roles drop foreign key FKt4v0rrweyk393bdgt107vdx0x" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.users_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:26:36.036Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table users_roles drop foreign key FKgd3iendaoyh04b95ykqise6qh" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users_roles drop foreign key FKgd3iendaoyh04b95ykqise6qh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.users_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:26:36.036Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2020-06-25T12:26:36.036Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [416] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2020-06-25T12:26:37.037Z] [org.dozer.config.GlobalSettings] [main] [113] [INFO ] Trying to find Dozer configuration file: dozer.properties
+[2020-06-25T12:26:37.037Z] [org.dozer.config.GlobalSettings] [main] [118] [WARN ] Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+[2020-06-25T12:26:37.037Z] [org.dozer.DozerInitializer] [main] [75] [INFO ] Initializing Dozer. Version: 5.5.0, Thread Name: main
+[2020-06-25T12:26:37.037Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+[2020-06-25T12:26:37.037Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+[2020-06-25T12:26:37.037Z] [org.dozer.DozerBeanMapper] [main] [175] [INFO ] Initializing a new instance of dozer bean mapper.
+[2020-06-25T12:26:37.037Z] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [main] [220] [WARN ] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2020-06-25T12:26:37.037Z] [org.springframework.security.web.access.channel.ChannelProcessingFilter] [main] [127] [INFO ] Validated configuration attributes
+[2020-06-25T12:26:37.037Z] [org.springframework.security.web.DefaultSecurityFilterChain] [main] [43] [INFO ] Creating filter chain: any request, [org.springframework.security.web.access.channel.ChannelProcessingFilter@70680f88, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29a1dab3, org.springframework.security.web.context.SecurityContextPersistenceFilter@2b6ff016, org.springframework.security.web.header.HeaderWriterFilter@11267e87, org.springframework.web.filter.CorsFilter@619b7436, org.springframework.security.web.authentication.logout.LogoutFilter@38f3dbbf, com.programatori.authservice.security.JWTAuthenticationFilter@6af0407c, com.programatori.authservice.security.JWTAuthorizationFilter@71c1ca1, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7a491a60, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@c555e1e, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@20cf3ab3, org.springframework.security.web.session.SessionManagementFilter@da5b46f, org.springframework.security.web.access.ExceptionTranslationFilter@2e564c78, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@6892d403]
+[2020-06-25T12:26:37.037Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T12:26:37.037Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T12:26:37.037Z] [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger] [main] [86] [WARN ] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2020-06-25T12:26:37.037Z] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [main] [58] [INFO ] Exposing 2 endpoint(s) beneath base path '/actuator'
+[2020-06-25T12:26:37.037Z] [org.springframework.cloud.netflix.eureka.InstanceInfoFactory] [main] [72] [INFO ] Setting initial instance status as: STARTING
+[2020-06-25T12:26:37.037Z] [com.netflix.discovery.DiscoveryClient] [main] [368] [INFO ] Initializing Eureka in region us-east-1
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [70] [INFO ] Using JSON encoding codec LegacyJacksonJson
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [71] [INFO ] Using JSON decoding codec LegacyJacksonJson
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [80] [INFO ] Using XML encoding codec XStreamXml
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [81] [INFO ] Using XML decoding codec XStreamXml
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [main] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [981] [INFO ] Disable delta property : false
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [982] [INFO ] Single vip registry refresh property : null
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [983] [INFO ] Force full registry fetch : false
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [984] [INFO ] Application is null : false
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [985] [INFO ] Registered Applications size is zero : true
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [987] [INFO ] Application version is -1: true
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [1070] [INFO ] Getting all instance registry info from the eureka server
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [1079] [INFO ] The response status is 200
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [1294] [INFO ] Starting heartbeat executor: renew interval is: 30
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.InstanceInfoReplicator] [main] [60] [INFO ] InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [main] [468] [INFO ] Discovery Client initialized at timestamp 1593080798627 with initial instances count: 6
+[2020-06-25T12:26:38.038Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry] [main] [41] [INFO ] Registering application AUTH with eureka with status UP
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient$3] [main] [1330] [INFO ] Saw local status change event StatusChangeEvent [timestamp=1593080798631, current=UP, previous=STARTING]
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [847] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081: registering service...
+[2020-06-25T12:26:38.038Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [856] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - registration status: 204
+[2020-06-25T12:26:39.039Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting ProtocolHandler ["https-jsse-nio-8081"]
+[2020-06-25T12:26:39.039Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [204] [INFO ] Tomcat started on port(s): 8081 (https) with context path ''
+[2020-06-25T12:26:39.039Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration] [main] [145] [INFO ] Updating port to 8081
+[2020-06-25T12:26:39.039Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started AuthServiceApplication in 6.62 seconds (JVM running for 7.216)
+[2020-06-25T12:26:39.039Z] [org.apache.juli.logging.DirectJDKLog] [RMI TCP Connection(3)-192.168.1.3] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2020-06-25T12:26:39.039Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(3)-192.168.1.3] [525] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2020-06-25T12:26:39.039Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(3)-192.168.1.3] [547] [INFO ] Completed initialization in 7 ms
+[2020-06-25T12:31:38.038Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:36:38.038Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:41:38.038Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:46:38.038Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:51:38.038Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:53:54.054Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry] [SpringContextShutdownHook] [65] [INFO ] Unregistering application AUTH with eureka with status DOWN
+[2020-06-25T12:53:54.054Z] [com.netflix.discovery.DiscoveryClient$3] [SpringContextShutdownHook] [1328] [WARN ] Saw local status change event StatusChangeEvent [timestamp=1593082434908, current=DOWN, previous=UP]
+[2020-06-25T12:53:54.054Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [847] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081: registering service...
+[2020-06-25T12:53:54.054Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [856] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - registration status: 204
+[2020-06-25T12:53:54.054Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [SpringContextShutdownHook] [598] [INFO ] Closing JPA EntityManagerFactory for persistence unit 'default'
+[2020-06-25T12:53:54.054Z] [org.hibernate.tool.schema.internal.SchemaDropperImpl$DelayedDropActionImpl] [SpringContextShutdownHook] [524] [INFO ] HHH000477: Starting delayed evictData of schema as part of SessionFactory shut-down'
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3772e7ba (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@18dae3f (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2162c683 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@350e16e4 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@48706184 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@2460c2e3 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@13015e32 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@56fdc380 (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@1d4ae49a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:54.054Z] [com.zaxxer.hikari.pool.PoolBase] [SpringContextShutdownHook] [180] [WARN ] HikariPool-1 - Failed to validate connection com.mysql.cj.jdbc.ConnectionImpl@3f9f4a0a (No operations allowed after connection closed.). Possibly consider using a shorter maxLifetime value.
+[2020-06-25T12:53:55.055Z] [com.zaxxer.hikari.HikariDataSource] [SpringContextShutdownHook] [350] [INFO ] HikariPool-1 - Shutdown initiated...
+[2020-06-25T12:53:55.055Z] [com.zaxxer.hikari.HikariDataSource] [SpringContextShutdownHook] [352] [INFO ] HikariPool-1 - Shutdown completed.
+[2020-06-25T12:53:55.055Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [909] [INFO ] Shutting down DiscoveryClient ...
+[2020-06-25T12:53:58.058Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [945] [INFO ] Unregistering ...
+[2020-06-25T12:53:58.058Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [947] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - deregister  status: 200
+[2020-06-25T12:53:58.058Z] [com.netflix.discovery.DiscoveryClient] [SpringContextShutdownHook] [934] [INFO ] Completed shut down of DiscoveryClient
+[2020-06-25T12:54:03.003Z] [org.springframework.boot.SpringApplication] [main] [651] [INFO ] No active profile set, falling back to default profiles: default
+[2020-06-25T12:54:04.004Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [127] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2020-06-25T12:54:04.004Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [187] [INFO ] Finished Spring Data repository scanning in 66ms. Found 6 JPA repository interfaces.
+[2020-06-25T12:54:04.004Z] [org.springframework.boot.actuate.endpoint.EndpointId] [main] [155] [WARN ] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[2020-06-25T12:54:04.004Z] [org.springframework.cloud.context.scope.GenericScope] [main] [295] [INFO ] BeanFactory id=f70f640f-36db-3ce5-9780-86d20b3f5c9f
+[2020-06-25T12:54:04.004Z] [org.springframework.context.support.AbstractApplicationContext] [main] [558] [WARN ] Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Could not load key store 'classpath:xml-security.jks'
+[2020-06-25T12:54:04.004Z] [org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLoggingListener] [main] [136] [INFO ] 
+
+Error starting ApplicationContext. To display the conditions report re-run your application with 'debug' enabled.
+[2020-06-25T12:54:04.004Z] [org.springframework.boot.SpringApplication] [main] [826] [ERROR] Application run failed
+org.springframework.context.ApplicationContextException: Unable to start web server; nested exception is org.springframework.boot.web.server.WebServerException: Could not load key store 'classpath:xml-security.jks'
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:156)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:544)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: org.springframework.boot.web.server.WebServerException: Could not load key store 'classpath:xml-security.jks'
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.configureSslKeyStore(SslConnectorCustomizer.java:128)
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.configureSsl(SslConnectorCustomizer.java:88)
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.customize(SslConnectorCustomizer.java:57)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeSsl(TomcatServletWebServerFactory.java:339)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.customizeConnector(TomcatServletWebServerFactory.java:317)
+	at org.springframework.boot.web.embedded.tomcat.TomcatServletWebServerFactory.getWebServer(TomcatServletWebServerFactory.java:183)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.createWebServer(ServletWebServerApplicationContext.java:180)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.onRefresh(ServletWebServerApplicationContext.java:153)
+	... 8 common frames omitted
+Caused by: java.io.FileNotFoundException: class path resource [xml-security.jks] cannot be resolved to URL because it does not exist
+	at org.springframework.util.ResourceUtils.getURL(ResourceUtils.java:137)
+	at org.springframework.boot.web.embedded.tomcat.SslConnectorCustomizer.configureSslKeyStore(SslConnectorCustomizer.java:125)
+	... 15 common frames omitted
+[2020-06-25T12:55:42.042Z] [org.springframework.boot.SpringApplication] [main] [651] [INFO ] No active profile set, falling back to default profiles: default
+[2020-06-25T12:55:42.042Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [127] [INFO ] Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+[2020-06-25T12:55:42.042Z] [org.springframework.data.repository.config.RepositoryConfigurationDelegate] [main] [187] [INFO ] Finished Spring Data repository scanning in 67ms. Found 6 JPA repository interfaces.
+[2020-06-25T12:55:42.042Z] [org.springframework.boot.actuate.endpoint.EndpointId] [main] [155] [WARN ] Endpoint ID 'service-registry' contains invalid characters, please migrate to a valid format.
+[2020-06-25T12:55:42.042Z] [org.springframework.cloud.context.scope.GenericScope] [main] [295] [INFO ] BeanFactory id=f70f640f-36db-3ce5-9780-86d20b3f5c9f
+[2020-06-25T12:55:43.043Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [92] [INFO ] Tomcat initialized with port(s): 8081 (https)
+[2020-06-25T12:55:43.043Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing ProtocolHandler ["https-jsse-nio-8081"]
+[2020-06-25T12:55:43.043Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting service [Tomcat]
+[2020-06-25T12:55:43.043Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting Servlet engine: [Apache Tomcat/9.0.33]
+[2020-06-25T12:55:43.043Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Initializing Spring embedded WebApplicationContext
+[2020-06-25T12:55:43.043Z] [org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext] [main] [284] [INFO ] Root WebApplicationContext: initialization completed in 1308 ms
+[2020-06-25T12:55:43.043Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T12:55:43.043Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T12:55:43.043Z] [com.netflix.config.DynamicPropertyFactory] [main] [281] [INFO ] DynamicPropertyFactory is initialized with configuration sources: com.netflix.config.ConcurrentCompositeConfiguration@55e1192
+[2020-06-25T12:55:43.043Z] [org.hibernate.jpa.internal.util.LogHelper] [main] [31] [INFO ] HHH000204: Processing PersistenceUnitInfo [name: default]
+[2020-06-25T12:55:43.043Z] [org.hibernate.Version] [main] [44] [INFO ] HHH000412: Hibernate ORM core version 5.4.12.Final
+[2020-06-25T12:55:43.043Z] [org.hibernate.annotations.common.reflection.java.JavaReflectionManager] [main] [49] [INFO ] HCANN000001: Hibernate Commons Annotations {5.1.0.Final}
+[2020-06-25T12:55:44.044Z] [com.zaxxer.hikari.HikariDataSource] [main] [110] [INFO ] HikariPool-1 - Starting...
+[2020-06-25T12:55:44.044Z] [com.zaxxer.hikari.util.DriverDataSource] [main] [70] [WARN ] Registered driver with driverClassName=com.mysql.jdbc.Driver was not found, trying direct instantiation.
+[2020-06-25T12:55:44.044Z] [com.zaxxer.hikari.HikariDataSource] [main] [123] [INFO ] HikariPool-1 - Start completed.
+[2020-06-25T12:55:44.044Z] [org.hibernate.dialect.Dialect] [main] [172] [INFO ] HHH000400: Using dialect: org.hibernate.dialect.MySQL55Dialect
+[2020-06-25T12:55:44.044Z] [org.hibernate.cfg.AnnotationBinder] [main] [664] [WARN ] HHH000139: Illegal use of @Table in a subclass of a SINGLE_TABLE hierarchy: com.programatori.authservice.models.Admin
+[2020-06-25T12:55:44.044Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table roles_privileges drop foreign key FK5yjwxw2gvfyu76j3rgqwo685u" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table roles_privileges drop foreign key FK5yjwxw2gvfyu76j3rgqwo685u" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.roles_privileges' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:55:44.044Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table roles_privileges drop foreign key FK9h2vewsqh8luhfq71xokh4who" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table roles_privileges drop foreign key FK9h2vewsqh8luhfq71xokh4who" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.roles_privileges' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:55:44.044Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table users_roles drop foreign key FKt4v0rrweyk393bdgt107vdx0x" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users_roles drop foreign key FKt4v0rrweyk393bdgt107vdx0x" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.users_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:55:44.044Z] [org.hibernate.tool.schema.internal.ExceptionHandlerLoggedImpl] [main] [27] [WARN ] GenerationTarget encountered exception accepting command : Error executing DDL "alter table users_roles drop foreign key FKgd3iendaoyh04b95ykqise6qh" via JDBC Statement
+org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "alter table users_roles drop foreign key FKgd3iendaoyh04b95ykqise6qh" via JDBC Statement
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:67)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlString(SchemaDropperImpl.java:375)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applySqlStrings(SchemaDropperImpl.java:359)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.applyConstraintDropping(SchemaDropperImpl.java:331)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.dropFromMetadata(SchemaDropperImpl.java:230)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.performDrop(SchemaDropperImpl.java:154)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:126)
+	at org.hibernate.tool.schema.internal.SchemaDropperImpl.doDrop(SchemaDropperImpl.java:112)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.performDatabaseAction(SchemaManagementToolCoordinator.java:145)
+	at org.hibernate.tool.schema.spi.SchemaManagementToolCoordinator.process(SchemaManagementToolCoordinator.java:73)
+	at org.hibernate.internal.SessionFactoryImpl.<init>(SessionFactoryImpl.java:314)
+	at org.hibernate.boot.internal.SessionFactoryBuilderImpl.build(SessionFactoryBuilderImpl.java:468)
+	at org.hibernate.jpa.boot.internal.EntityManagerFactoryBuilderImpl.build(EntityManagerFactoryBuilderImpl.java:1237)
+	at org.springframework.orm.jpa.vendor.SpringHibernateJpaPersistenceProvider.createContainerEntityManagerFactory(SpringHibernateJpaPersistenceProvider.java:58)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.createNativeEntityManagerFactory(LocalContainerEntityManagerFactoryBean.java:365)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.buildNativeEntityManagerFactory(AbstractEntityManagerFactoryBean.java:391)
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.afterPropertiesSet(AbstractEntityManagerFactoryBean.java:378)
+	at org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean.afterPropertiesSet(LocalContainerEntityManagerFactoryBean.java:341)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.invokeInitMethods(AbstractAutowireCapableBeanFactory.java:1855)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.initializeBean(AbstractAutowireCapableBeanFactory.java:1792)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.doCreateBean(AbstractAutowireCapableBeanFactory.java:595)
+	at org.springframework.beans.factory.support.AbstractAutowireCapableBeanFactory.createBean(AbstractAutowireCapableBeanFactory.java:517)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.lambda$doGetBean$0(AbstractBeanFactory.java:323)
+	at org.springframework.beans.factory.support.DefaultSingletonBeanRegistry.getSingleton(DefaultSingletonBeanRegistry.java:222)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.doGetBean(AbstractBeanFactory.java:321)
+	at org.springframework.beans.factory.support.AbstractBeanFactory.getBean(AbstractBeanFactory.java:202)
+	at org.springframework.context.support.AbstractApplicationContext.getBean(AbstractApplicationContext.java:1108)
+	at org.springframework.context.support.AbstractApplicationContext.finishBeanFactoryInitialization(AbstractApplicationContext.java:868)
+	at org.springframework.context.support.AbstractApplicationContext.refresh(AbstractApplicationContext.java:550)
+	at org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext.refresh(ServletWebServerApplicationContext.java:141)
+	at org.springframework.boot.SpringApplication.refresh(SpringApplication.java:747)
+	at org.springframework.boot.SpringApplication.refreshContext(SpringApplication.java:397)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:315)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
+	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
+	at com.programatori.authservice.AuthServiceApplication.main(AuthServiceApplication.java:21)
+Caused by: java.sql.SQLSyntaxErrorException: Table 'users.users_roles' doesn't exist
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:120)
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:97)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeInternal(StatementImpl.java:764)
+	at com.mysql.cj.jdbc.StatementImpl.execute(StatementImpl.java:648)
+	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:95)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java)
+	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:54)
+	... 35 common frames omitted
+[2020-06-25T12:55:45.045Z] [org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator] [main] [52] [INFO ] HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+[2020-06-25T12:55:45.045Z] [org.springframework.orm.jpa.AbstractEntityManagerFactoryBean] [main] [416] [INFO ] Initialized JPA EntityManagerFactory for persistence unit 'default'
+[2020-06-25T12:55:45.045Z] [org.dozer.config.GlobalSettings] [main] [113] [INFO ] Trying to find Dozer configuration file: dozer.properties
+[2020-06-25T12:55:45.045Z] [org.dozer.config.GlobalSettings] [main] [118] [WARN ] Dozer configuration file not found: dozer.properties.  Using defaults for all Dozer global properties.
+[2020-06-25T12:55:45.045Z] [org.dozer.DozerInitializer] [main] [75] [INFO ] Initializing Dozer. Version: 5.5.0, Thread Name: main
+[2020-06-25T12:55:45.045Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerStatisticsController] auto registered with the Platform MBean Server
+[2020-06-25T12:55:45.045Z] [org.dozer.jmx.JMXPlatformImpl] [main] [66] [INFO ] Dozer JMX MBean [org.dozer.jmx:type=DozerAdminController] auto registered with the Platform MBean Server
+[2020-06-25T12:55:45.045Z] [org.dozer.DozerBeanMapper] [main] [175] [INFO ] Initializing a new instance of dozer bean mapper.
+[2020-06-25T12:55:45.045Z] [org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration] [main] [220] [WARN ] spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+[2020-06-25T12:55:45.045Z] [org.springframework.security.web.access.channel.ChannelProcessingFilter] [main] [127] [INFO ] Validated configuration attributes
+[2020-06-25T12:55:45.045Z] [org.springframework.security.web.DefaultSecurityFilterChain] [main] [43] [INFO ] Creating filter chain: any request, [org.springframework.security.web.access.channel.ChannelProcessingFilter@7a491a60, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5c1ea00, org.springframework.security.web.context.SecurityContextPersistenceFilter@5a464be7, org.springframework.security.web.header.HeaderWriterFilter@5afa0b1a, org.springframework.web.filter.CorsFilter@356ab368, org.springframework.security.web.authentication.logout.LogoutFilter@4d7fba20, com.programatori.authservice.security.JWTAuthenticationFilter@3398ed12, com.programatori.authservice.security.JWTAuthorizationFilter@c555e1e, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48d24d63, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@467421cc, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@64e247e, org.springframework.security.web.session.SessionManagementFilter@6c167296, org.springframework.security.web.access.ExceptionTranslationFilter@1e6e29d6, org.springframework.security.web.access.intercept.FilterSecurityInterceptor@61c4fc34]
+[2020-06-25T12:55:45.045Z] [com.netflix.config.sources.URLConfigurationSource] [main] [121] [WARN ] No URLs will be polled as dynamic configuration sources.
+[2020-06-25T12:55:45.045Z] [com.netflix.config.sources.URLConfigurationSource] [main] [122] [INFO ] To enable URLs as dynamic configuration sources, define System property archaius.configurationSource.additionalUrls or make config.properties available on classpath.
+[2020-06-25T12:55:46.046Z] [org.springframework.cloud.loadbalancer.config.BlockingLoadBalancerClientAutoConfiguration$BlockingLoadBalancerClientRibbonWarnLogger] [main] [86] [WARN ] You already have RibbonLoadBalancerClient on your classpath. It will be used by default. As Spring Cloud Ribbon is in maintenance mode. We recommend switching to BlockingLoadBalancerClient instead. In order to use it, set the value of `spring.cloud.loadbalancer.ribbon.enabled` to `false` or remove spring-cloud-starter-netflix-ribbon from your project.
+[2020-06-25T12:55:46.046Z] [org.springframework.boot.actuate.endpoint.web.EndpointLinksResolver] [main] [58] [INFO ] Exposing 2 endpoint(s) beneath base path '/actuator'
+[2020-06-25T12:55:46.046Z] [org.springframework.cloud.netflix.eureka.InstanceInfoFactory] [main] [72] [INFO ] Setting initial instance status as: STARTING
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [368] [INFO ] Initializing Eureka in region us-east-1
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [70] [INFO ] Using JSON encoding codec LegacyJacksonJson
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [71] [INFO ] Using JSON decoding codec LegacyJacksonJson
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [80] [INFO ] Using XML encoding codec XStreamXml
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.provider.DiscoveryJerseyProvider] [main] [81] [INFO ] Using XML decoding codec XStreamXml
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [main] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [981] [INFO ] Disable delta property : false
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [982] [INFO ] Single vip registry refresh property : null
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [983] [INFO ] Force full registry fetch : false
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [984] [INFO ] Application is null : false
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [985] [INFO ] Registered Applications size is zero : true
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [987] [INFO ] Application version is -1: true
+[2020-06-25T12:55:46.046Z] [com.netflix.discovery.DiscoveryClient] [main] [1070] [INFO ] Getting all instance registry info from the eureka server
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.DiscoveryClient] [main] [1079] [INFO ] The response status is 200
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.DiscoveryClient] [main] [1294] [INFO ] Starting heartbeat executor: renew interval is: 30
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.InstanceInfoReplicator] [main] [60] [INFO ] InstanceInfoReplicator onDemand update allowed rate per min is 4
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.DiscoveryClient] [main] [468] [INFO ] Discovery Client initialized at timestamp 1593082547085 with initial instances count: 6
+[2020-06-25T12:55:47.047Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaServiceRegistry] [main] [41] [INFO ] Registering application AUTH with eureka with status UP
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.DiscoveryClient$3] [main] [1330] [INFO ] Saw local status change event StatusChangeEvent [timestamp=1593082547092, current=UP, previous=STARTING]
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [847] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081: registering service...
+[2020-06-25T12:55:47.047Z] [com.netflix.discovery.DiscoveryClient] [DiscoveryClient-InstanceInfoReplicator-0] [856] [INFO ] DiscoveryClient_AUTH/macbook-pro:auth:8081 - registration status: 204
+[2020-06-25T12:55:47.047Z] [org.apache.juli.logging.DirectJDKLog] [main] [173] [INFO ] Starting ProtocolHandler ["https-jsse-nio-8081"]
+[2020-06-25T12:55:47.047Z] [org.springframework.boot.web.embedded.tomcat.TomcatWebServer] [main] [204] [INFO ] Tomcat started on port(s): 8081 (https) with context path ''
+[2020-06-25T12:55:47.047Z] [org.springframework.cloud.netflix.eureka.serviceregistry.EurekaAutoServiceRegistration] [main] [145] [INFO ] Updating port to 8081
+[2020-06-25T12:55:47.047Z] [org.springframework.boot.StartupInfoLogger] [main] [61] [INFO ] Started AuthServiceApplication in 6.192 seconds (JVM running for 6.717)
+[2020-06-25T12:55:47.047Z] [org.apache.juli.logging.DirectJDKLog] [RMI TCP Connection(1)-192.168.1.3] [173] [INFO ] Initializing Spring DispatcherServlet 'dispatcherServlet'
+[2020-06-25T12:55:47.047Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(1)-192.168.1.3] [525] [INFO ] Initializing Servlet 'dispatcherServlet'
+[2020-06-25T12:55:47.047Z] [org.springframework.web.servlet.FrameworkServlet] [RMI TCP Connection(1)-192.168.1.3] [547] [INFO ] Completed initialization in 7 ms
+[2020-06-25T12:56:56.056Z] [com.programatori.authservice.security.JWTAuthenticationFilter] [https-jsse-nio-8081-exec-8] [59] [INFO ] login attempt username: Test 
+[2020-06-25T12:56:56.056Z] [org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder] [https-jsse-nio-8081-exec-8] [126] [WARN ] Encoded password does not look like BCrypt
+[2020-06-25T12:56:56.056Z] [com.programatori.authservice.security.JWTAuthenticationFilter] [https-jsse-nio-8081-exec-8] [86] [WARN ] login attempt failed ip address: 127.0.0.1
+[2020-06-25T12:57:15.015Z] [com.programatori.authservice.security.JWTAuthenticationFilter] [https-jsse-nio-8081-exec-10] [59] [INFO ] login attempt username: Test 
+[2020-06-25T12:57:30.030Z] [com.programatori.authservice.security.JWTAuthenticationFilter] [https-jsse-nio-8081-exec-6] [59] [INFO ] login attempt username: Test 
+[2020-06-25T13:00:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:05:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:06:59.059Z] [com.programatori.authservice.security.JWTAuthenticationFilter] [https-jsse-nio-8081-exec-7] [59] [INFO ] login attempt username: Test 
+[2020-06-25T13:10:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
