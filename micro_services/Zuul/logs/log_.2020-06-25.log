@@ -3339,3 +3339,12 @@ java.lang.IllegalStateException: Shutdown in progress
 ]}ServerList:org.springframework.cloud.netflix.ribbon.eureka.DomainExtractingServerList@746fb760
 [2020-06-25T13:14:28.028Z] [com.netflix.config.ChainedDynamicProperty$ChainLink] [PollingServerListUpdater-0] [115] [INFO ] Flipping property: auth.ribbon.ActiveConnectionsLimit to use NEXT property: niws.loadbalancer.availabilityFilteringRule.activeConnectionsLimit = 2147483647
 [2020-06-25T13:14:33.033Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-9] [53] [INFO ] GET request to https://localhost:8080/api/vehicle/hello
+[2020-06-25T13:18:36.036Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:23:36.036Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:30:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:35:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:40:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:45:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:50:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T13:55:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-25T14:00:46.046Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration

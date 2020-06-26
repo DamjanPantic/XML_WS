@@ -27,7 +27,7 @@
               :type="show1 ? 'text' : 'password'"
               name="input-10-1"
               label="Password"
-              hint="At least 8 characters"
+              hint="At least 10 characters"
               counter
               @click:append="show1 = !show1"
           ></v-text-field>
@@ -72,7 +72,7 @@ export default {
       rules: {
           required: value => !!value || 'Required.',
           uppercase: v => (/[a-z]/.test(v)) || "Must have uppercase",
-          min: v => v.length >= 8 || 'Min 8 characters',
+          min: v => v.length >= 10 || 'Min 10 characters',
           containsNumber: v => /\d/.test(v) || 'Must have number',
           specialChar: v => this.format.test(v) || "Must have special character",
           emailMatch: () => ('The email and password you entered don\'t match'),

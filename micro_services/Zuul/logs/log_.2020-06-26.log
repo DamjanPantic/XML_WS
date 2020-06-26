@@ -1,0 +1,29 @@
+[2020-06-26T11:50:49.049Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-26T11:55:49.049Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-26T12:00:49.049Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-26T12:05:49.049Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-26T12:10:49.049Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-26T12:15:49.049Z] [com.netflix.discovery.shared.resolver.aws.ConfigClusterResolver] [AsyncResolver-bootstrap-executor-0] [43] [INFO ] Resolving eureka endpoints via configuration
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-5] [53] [INFO ] GET request to https://127.0.0.1:8080/api/search/get
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-5] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/1
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-4] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/1/1
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-6] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/3
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-8] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/2/1
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-10] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/3/1
+[2020-06-26T12:16:16.016Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-1] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/2
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-10] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/4
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-6] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/4/1
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-7] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/5
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-1] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/5/1
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-4] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/6
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-6] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/6/1
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-2] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/7
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-8] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/7/1
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-1] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/8
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-6] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/8/1
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-3] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/9
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-1] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/rating/10
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-7] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/9/1
+[2020-06-26T12:16:17.017Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-4] [53] [INFO ] GET request to https://127.0.0.1:8080/api/recension/grade/10/1
+[2020-06-26T12:16:58.058Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-6] [53] [INFO ] POST request to https://127.0.0.1:8080/api/auth/register
+[2020-06-26T12:17:01.001Z] [com.programatori.zuul.AuthFilter] [https-jsse-nio-8080-exec-7] [53] [INFO ] POST request to https://127.0.0.1:8080/api/auth/register
